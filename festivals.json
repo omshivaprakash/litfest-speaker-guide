@@ -1,0 +1,42 @@
+{
+ "default": "blf",
+ "festivals": [
+  {
+   "id": "blf",
+   "status": "live",
+   "name": "Bangalore Literature Festival",
+   "short": "BLF",
+   "year": 2026,
+   "dates": "11–13 Dec 2026",
+   "venue": "Freedom Park, Bengaluru",
+   "url": "https://bangaloreliteraturefestival.org/",
+   "logo": "festivals/blf/logo.png",
+   "base": "festivals/blf/",
+   "from": 2018,
+   "to": 2025,
+   "sched": 2012,
+   "partUrl": "https://bangaloreliteraturefestival.org/participant/{u}/",
+   "why": {
+    "Ramachandra Guha": "India's best-known public historian.",
+    "Peter Frankopan": "The Oxford historian behind The Silk Roads.",
+    "Cristina Rivera Garza": "Pulitzer Prize winner for memoir, 2024.",
+    "Vivek Shanbhag": "Kannada novelist of Ghachar Ghochar.",
+    "Devdutt Pattanaik": "Mythologist with 70+ books.",
+    "Geoff Dyer": "Essayist; new memoir, Homework.",
+    "Vishal Bhardwaj": "Director of Maqbool, Omkara, Haider.",
+    "Priyamvada Natarajan": "Yale astrophysicist mapping dark matter."
+   }
+  },
+  {
+   "id": "jlf",
+   "status": "soon",
+   "name": "Jaipur Literature Festival",
+   "short": "JLF",
+   "year": 2027,
+   "url": "https://www.jaipurliteraturefestival.org/",
+   "logo": "",
+   "base": "festivals/jlf/",
+   "note": "Speaker data for the Jaipur Literature Festival is being added next."
+  }
+ ]
+}
