@@ -46,8 +46,10 @@ Built by `tools/build_jlf.py` from the festival's public speakers API (the same 
 
 The Samajamukhi and Jananudi programmes were transcribed by hand from their printed invitations; please check names against the official programmes.
 
-## Where from (programme festivals)
-The Samajamukhi and Jananudi pages have a "Where from" tab: a schematic Karnataka map with people placed by district. `tools/place_names.py` places a person only when the invitation gives a place next to them or their printed name carries a Karnataka town or village. That covers a minority of names (14 of 210 for Samajamukhi, 19 of 73 for Jananudi), and it is an inference from names, not where people live. Edit the `PLACE` and `MANUAL` tables in that script and re-run it to correct or extend it.
+## Map (programme festivals)
+The Samajamukhi and Jananudi pages have a "Map" tab: a schematic Karnataka map with people placed by district. `tools/place_names.py` places a person only when the invitation gives a place next to them or their printed name carries a Karnataka town or village. That covers a minority of names (14 of 210 for Samajamukhi, 19 of 73 for Jananudi), and it is an inference from names, not where people live. Edit the `PLACE` and `MANUAL` tables in that script and re-run it to correct or extend it.
 
 ## Insights (programme festivals)
 An "Insights" tab shows a day-by-day timeline, sessions by theme, appearances by role, panel sizes and repeat names. Themes come from `tools/tag_themes.py`, which tags each session from its English title with simple keyword rules, so treat them as a rough guide.
+
+The programme festivals page through content (Prev / Next) so nothing scrolls, like the Bangalore pages. Insights are three screens: a theme-coloured timeline, themes and roles, and panel sizes.
