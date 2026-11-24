@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>LitFest Speaker Guide</title>
+<title>LitFest Guide</title>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600&display=swap">
 <style>
@@ -23,9 +23,13 @@ button{font:inherit;color:inherit}
 .top{flex:0 0 auto;padding:8px 0 4px}
 h1{font:800 clamp(1.25rem,4.2vw,2rem)/1.05 var(--display);margin:0 0 4px;letter-spacing:-.01em}
 h2{font:700 1.1rem/1.15 var(--display);margin:0}
-.fbar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--line)}
+.fbar{flex:0 0 auto;display:flex;flex-direction:column;gap:5px;padding:6px 0 5px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:8px;min-width:0}.brand b{font:800 1.15rem/1 var(--display);letter-spacing:-.01em;white-space:nowrap}.brand .bt{flex:1;min-width:0;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brand .bb{display:flex;gap:6px;margin-left:auto}
+@media (max-width:560px){.brand .bt{display:none}}
+.card .nm{overflow-wrap:anywhere;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fline{display:flex;align-items:center;gap:8px;min-width:0;padding:2px 0}.fline img{height:26px;width:auto;max-width:64px;object-fit:contain;flex:0 0 auto}.fline .fn{font-weight:700;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.fline .fd{font-size:11.5px;color:var(--muted);white-space:nowrap}.fline .fext{margin-left:auto}
 .fb-l{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
-.fchip{display:flex;align-items:center;gap:6px;height:30px;padding:0 10px 0 6px;border:1px solid var(--line);border-radius:999px;color:var(--fg);text-decoration:none;font-size:12.5px;font-weight:600;white-space:nowrap}
+.fchip{display:flex;align-items:center;gap:6px;height:28px;padding:0 11px;border:1px solid var(--line);border-radius:999px;color:var(--fg);text-decoration:none;font-size:12.5px;font-weight:600;white-space:nowrap}
 .fchip img{height:20px;width:auto;max-width:44px;object-fit:contain}
 .fchip.on{border-color:var(--accent);background:#fff7ed}
 .fchip em{font-style:normal;font-size:9.5px;color:var(--mut,#78716c);text-transform:uppercase;letter-spacing:.05em}
@@ -55,6 +59,7 @@ h2{font:700 1.1rem/1.15 var(--display);margin:0}
 .grid .card .ph{display:flex}.prog .card .ln{-webkit-line-clamp:1}.prog .card .nm{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.prog>#pdash,.prog>.seg,.prog>.top,.prog>.tabs{flex:0 0 auto}
 .hero{display:flex;gap:12px;align-items:center}.hero .hl{height:56px;width:auto;max-width:34%;object-fit:contain}.hero h1{font-size:clamp(1.15rem,4.4vw,1.9rem)}
 @media (max-height:700px){.prog .top .sub,.prog .hb{display:none}}
+@media (max-height:680px){.prog .mini{display:none}}
 .sl{height:100%;display:flex;flex-direction:column;gap:8px;overflow:hidden}
 .sh h4{margin:0;font:700 17px/1.2 var(--display,Fraunces,serif)}.sh p{margin:2px 0 0;font-size:12px;color:var(--muted)}
 .pk4{grid-template-columns:repeat(4,1fr)!important;gap:6px}.pk4 div{padding:7px 8px}.pk4 b{font-size:19px!important}.pk4 span{font-size:10.5px!important;line-height:1.2}
@@ -514,7 +519,7 @@ return {first:'<div class="it"><p class="en" style="margin:0 0 4px"><b>'+inK+'</
 var TABS=[['home','Discover'],['prog','Programme'],['ppl','People']].concat(D.places?[['map','Map']]:[]).concat([['viz','Insights']]);
 var SUBS={prog:'Every session, with who is on it. Tap a name to find their sessions.',ppl:'Everyone named in the programme.',map:'Where people are from in Karnataka, as far as the invitation shows.',viz:'The programme in numbers.'};
 function shell(){var h='<nav class="tabs" role="tablist">'+TABS.map(function(t){return '<button class="tab" role="tab" data-t="'+t[0]+'" aria-selected="'+(P.tab===t[0])+'">'+t[1]+'</button>'}).join('')+'</nav>';
-if(P.tab==='home'){h+='<div class="top hero"><img class="hl" src="'+esc(f.logo)+'" alt=""><div><p class="kicker">'+esc(f.dates)+' · '+esc(f.venue)+'</p><h1>'+esc(f.name)+' '+f.year+'</h1><p class="sub">Who is speaking, what is on, and where they are from.</p></div></div><div id="pdash"></div><div class="seg" id="pseg"></div>'}
+if(P.tab==='home'){h+='<div class="top hero"><div><p class="kicker">'+esc(f.dates)+' · '+esc(f.venue)+'</p><h1>'+esc(f.name)+' '+f.year+'</h1><p class="sub">Who is speaking, what is on, and where they are from.</p></div></div><div id="pdash"></div><div class="seg" id="pseg"></div>'}
 else h+='<div class="top"><h2>'+TABS.filter(function(t){return t[0]===P.tab})[0][1]+'</h2><p class="sub">'+SUBS[P.tab]+'</p></div>';
 if(P.tab==='prog'){h+='<div class="pc">'+[[0,'All days']].concat(DAYS.map(function(x){return [x.d,x.l]})).map(function(d){return '<button data-d="'+d[0]+'" class="'+(P.day===d[0]?'on':'')+'">'+d[1]+'</button>'}).join('')+'<input id="pq" type="search" placeholder="Search" value="'+esc(P.q)+'"></div>'+(D.forums.length>1?'<div class="pc fr"><button data-fo="0" class="'+(P.fo===0?'on':'')+'">All '+(D.forumLabel||'forums')+'</button>'+D.forums.map(function(x){return '<button data-fo="'+x.id+'" class="'+(P.fo===x.id?'on':'')+'" lang="kn">'+esc(x.k.replace(' ವೇದಿಕೆ',''))+'</button>'}).join('')+'</div>':'')}
 else if(P.tab==='ppl'){h+='<div class="pc"><input id="pq" type="search" placeholder="Search people" value="'+esc(P.q)+'"><span class="en" style="margin:0">'+PL.length+' named · '+PL.filter(function(x){return x.c>1}).length+' in 2+ sessions</span></div>'}
@@ -537,7 +542,7 @@ $('pdash').innerHTML='<div class="kpis"><button class="kpi" data-kpi="prog"><b>'
 if(!sh.L.some(function(x){return x[0]===P.shelf}))P.shelf=sh.L[0][0];
 $('pseg').innerHTML=sh.L.map(function(x){return '<button class="pill" data-shelf="'+x[0]+'" aria-pressed="'+(P.shelf===x[0])+'">'+x[1]+'</button>'}).join('');
 var L=sh.L.filter(function(x){return x[0]===P.shelf})[0][2];
-var w=pb.clientWidth,h=pb.clientHeight,gap=10,target=Math.min(w>700?150:104,Math.max(44,h-86)),cols=Math.max(2,Math.ceil((w+gap)/(target+gap))),per=cols;
+var w=pb.clientWidth,h=pb.clientHeight,gap=10,target=Math.min(w>700?150:104,Math.max(44,h-102)),cols=Math.max(2,Math.ceil((w+gap)/(target+gap))),per=cols;
 var N=Math.max(1,Math.ceil(L.length/per));if(P.pg>=N)P.pg=N-1;
 pb.innerHTML='<div class="grid" style="grid-template-columns:repeat('+cols+',minmax(0,1fr))">'+L.slice(P.pg*per,P.pg*per+per).map(function(x){var fs=sh.first[x.n],rk=Object.keys(sh.role[x.n])[0];return '<button class="card" data-n="'+esc(x.n)+'">'+(BIO[x.n]&&BIO[x.n].ph?'<img src="'+esc(f.base+BIO[x.n].ph)+'" alt="" loading="lazy">':'<div class="ph" lang="kn">'+esc(gl(x.n))+'</div>')+'<div class="nm" lang="kn">'+esc(x.n)+'</div><div class="ln" lang="kn">'+esc(RL[rk]+' · '+fs.k)+'</div></button>'}).join('')+'</div>';
 PAGES=new Array(N);$('pgr').innerHTML='<button class="pbtn" data-pp="-1"'+(P.pg<=0?' disabled':'')+'>‹ Prev</button><span>Page '+(P.pg+1)+' of '+N+'</span><button class="pbtn" data-pp="1"'+(P.pg>=N-1?' disabled':'')+'>Next ›</button>'}
@@ -593,10 +598,10 @@ document.body.appendChild(o);o.querySelector('#abx').onclick=function(){o.remove
 function boot(){
 fetch('festivals.json?v='+BUILD).then(function(r){return r.json()}).then(function(L){
 var id=(new URLSearchParams(location.search)).get('f')||L.default,f=null;L.festivals.forEach(function(x){if(x.id===id)f=x});if(!f)f=L.festivals[0];FE=f;
-var h='<div class="fb-l">';
-L.festivals.forEach(function(x){h+='<a class="fchip'+(x.id===f.id?' on':'')+'" href="?f='+x.id+'" title="'+esc(x.name)+'">'+(x.logo?'<img src="'+esc(x.logo)+'" alt="">':'')+'<span>'+esc(x.short)+'</span>'+(x.status==='live'?'':'<em>soon</em>')+'</a>'});
-h+='</div><button class="fsearch" id="gsb">Search all</button><button class="fsearch" id="abb" aria-label="About and disclaimer">About</button>'+(f.url?'<a class="fext" target="_blank" rel="noopener" href="'+esc(f.url)+'">Official site \u2197</a>':'');$('fbar').innerHTML=h;$('gsb').onclick=function(){gsOpen(L)};$('abb').onclick=aboutOpen;
-document.title=f.short+' '+f.year+' Speaker Guide';
+var h='<div class="brand"><b>LitFest Guide</b><span class="bt">Indian literature festivals, speakers and history</span><div class="bb"><button class="fsearch" id="gsb">Search all</button><button class="fsearch" id="abb" aria-label="About and disclaimer">About</button></div></div><div class="fb-l">';
+L.festivals.forEach(function(x){h+='<a class="fchip'+(x.id===f.id?' on':'')+'" href="?f='+x.id+'" title="'+esc(x.name)+'"><span>'+esc(x.short)+'</span>'+(x.status==='live'?'':'<em>soon</em>')+'</a>'});
+h+='</div><div class="fline">'+(f.logo?'<img src="'+esc(f.logo)+'" alt="">':'')+'<span class="fn">'+esc(f.name)+'</span><span class="fd">'+esc((f.dates||'').replace(/ \(.*$/,''))+'</span>'+(f.url?'<a class="fext" target="_blank" rel="noopener" href="'+esc(f.url)+'">Official site \u2197</a>':'')+'</div>';$('fbar').innerHTML=h;$('gsb').onclick=function(){gsOpen(L)};$('abb').onclick=aboutOpen;
+document.title='LitFest Guide: '+f.name;
 if(f.type==='programme'&&f.status==='live'){return fetch(f.base+'data.json?v='+BUILD).then(function(r){return r.json()}).then(function(D){progApp(f,D)})}
 if(f.status!=='live'){document.querySelector('.tabs').style.display='none';document.querySelectorAll('.view').forEach(function(v){v.style.display='none'});
 var d=document.createElement('section');d.className='soon';d.innerHTML=(f.logo?'<img src="'+esc(f.logo)+'" alt="">':'')+'<h2>'+esc(f.name)+'</h2><p>'+esc(f.note||'Speaker guide coming soon.')+'</p><a class="btn" target="_blank" rel="noopener" href="'+esc(f.url)+'">Visit the official site</a>';document.querySelector('.app').appendChild(d);return}
