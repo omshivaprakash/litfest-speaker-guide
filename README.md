@@ -116,3 +116,6 @@ Built by `tools/build_mbifl.py` from www.mbifl.com, assets.mbifl.com and english
 
 ## Self-contained
 Everything the site displays is served from this repository: speaker photos, book covers, festival logos, data and the Fraunces and Inter fonts (`fonts/`). The only outbound links are ones you click (official festival sites, GitHub issues, the builder's page); no third-party requests are made when a page loads.
+
+## Explore
+The Explore button opens five one-screen views built from every festival's data: **Shelf** (book spines, with covers), **Prizes** (prizes named in bios), **Trails** (people by interest, most-travelled first), **Languages** (where a bio states them) and **My list** (starred people with books to read, copyable). Prizes and trails come from keyword matches in bios, so treat them as leads, not facts. Not built: debut-year cohorts, prize-year timelines and translation chains, because the data does not hold publication years, award years or translators.
