@@ -408,6 +408,36 @@
    "updated": "Nov 2026 (only 6 of the 2027 speakers announced; 2025 shows 60 listed)",
    "start": "2027-01-28",
    "end": "2027-01-31"
+  },
+  {
+   "id": "glf",
+   "status": "soon",
+   "name": "Galle Literary Festival",
+   "short": "Galle",
+   "ab": "GLF",
+   "year": 2027,
+   "dates": "17–21 Mar 2027",
+   "venue": "Galle Fort, Sri Lanka",
+   "url": "https://www.galleliteraryfestival.com/",
+   "logo": "festivals/glf/logo.svg",
+   "base": "festivals/glf/",
+   "start": "2027-03-17",
+   "end": "2027-03-21",
+   "note": "International. The 2027 speaker list has not been published yet; we will add it when it is."
+  },
+  {
+   "id": "eibf",
+   "status": "soon",
+   "name": "Edinburgh International Book Festival",
+   "short": "Edinburgh",
+   "ab": "EIB",
+   "year": 2027,
+   "dates": "Dates to be announced",
+   "venue": "Edinburgh, Scotland",
+   "url": "https://www.edbookfest.co.uk/",
+   "logo": "festivals/eibf/logo.png",
+   "base": "festivals/eibf/",
+   "note": "International. The next programme has not been announced yet; we will add it when it is."
   }
  ]
 }

@@ -125,3 +125,9 @@ Cross-festival matching (Search, Across, Explore) ignores titles, accents, dots 
 
 ## Upcoming alerts
 Explore → Upcoming lists every festival with a countdown, an "Add to calendar" file (.ics, with a reminder the day before) and a "Remind me" switch. Reminders are stored in your browser only: when a starred festival is within a week, a banner appears under the title the next time you open the site (and a browser notification if you allow it). The site has no server, so nothing is pushed to you while it is closed. Dates are in `festivals.json` (`start`, `end`, `tbc`); update them when a festival announces new dates.
+
+## Debuts, prize timeline and translators
+`tools/fetch_debuts.py` asks Open Library for each author's earliest listed work under their exact name (`data/debut.json`, 421 of 881 authors found); Explore → Debuts groups them by decade. It can be later than a real debut or wrong for authors who share a name. Prizes → Timeline and Translators are read from bios (a prize plus a year in the same sentence; "translates from <language>"), so they only cover what bios say. A shared-bookshelf view was skipped: the few titles shared between speakers are mostly co-authors or same-title mismatches.
+
+## International festivals
+Galle Literary Festival (17–21 Mar 2027) and Edinburgh International Book Festival are listed as "soon": the sites have no 2027 speaker list yet, so only dates and links are shown (Galle also appears in Upcoming). Hay Festival redirects to a host not yet allowed here.
