@@ -55,6 +55,28 @@
    "base": "festivals/jn/"
   },
   {
+   "id": "tll",
+   "status": "live",
+   "name": "Literature Live! The Mumbai LitFest",
+   "short": "Lit Live",
+   "year": 2026,
+   "dates": "23–25 Oct 2026",
+   "venue": "NCPA, Mumbai",
+   "url": "https://www.litlive.in/",
+   "logo": "festivals/tll/logo.png",
+   "base": "festivals/tll/",
+   "from": 2024,
+   "to": 2025,
+   "years": [
+    2024,
+    2025,
+    2026
+   ],
+   "sched": 2024,
+   "partUrl": "https://www.litlive.in/fest26/speakers/{u}",
+   "why": {}
+  },
+  {
    "id": "klf",
    "status": "live",
    "name": "Kerala Literature Festival",
