@@ -119,3 +119,6 @@ Everything the site displays is served from this repository: speaker photos, boo
 
 ## Explore
 The Explore button opens five one-screen views built from every festival's data: **Shelf** (book spines, with covers), **Prizes** (prizes named in bios), **Trails** (people by interest, most-travelled first), **Languages** (where a bio states them) and **My list** (starred people with books to read, copyable). Prizes and trails come from keyword matches in bios, so treat them as leads, not facts. Not built: debut-year cohorts, prize-year timelines and translation chains, because the data does not hold publication years, award years or translators.
+
+## Name matching
+Cross-festival matching (Search, Across, Explore) ignores titles, accents, dots and spacing in initials ("K S Nair" = "KS Nair") and a lone middle initial ("Abhijit V. Banerjee" = "Abhijit Banerjee"), plus a short hand-checked alias list (`GALIAS` in `index.html`). Other spelling variants still count as two people.
