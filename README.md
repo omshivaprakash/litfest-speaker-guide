@@ -13,6 +13,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Jananudi 2026, 28–29 Nov, Mangaluru (`?f=jn`) | Live: programme only (sessions and names, Kannada) |
 | Book Brahma Literature Festival 2026, 14–23 Aug (`?f=bbl`) | Live: 212 sessions, 400 speakers with bios and photos (no earlier editions) |
 | Hyderabad Literary Festival 2027 (`?f=hlf`) | Live: 135 announced so far (speakers and moderators); history 2021–2026 |
+| Kerala Literature Festival 2026 (`?f=klf`) | Live: 495 speakers with bios, photos and 2026 sessions; history 2023–2024 only |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -67,3 +68,6 @@ The "Search all" button searches every festival's speaker list for every year (`
 
 ## Disclaimer and contact
 This is an independent, non-commercial project for education and research. It is not affiliated with any festival. Names, photos, logos and book covers belong to their owners and are shown to identify people and festivals. Gender, country, role and language are inferred from public bios and can be wrong. To report a mistake or ask for a name, photo or festival to be changed or removed, [open an issue](https://github.com/omshivaprakash/litfest-speaker-guide/issues/new).
+
+## Kerala data
+Built by `tools/build_klf.py` from the speakers and sessions files the festival's own site loads, plus the 2023 and 2024 programme pages in its archive; books come from titles in italics in the bios and Open Library (`tools/add_books_ol.py`). 2025 has no usable list in the archive, so history covers 2023, 2024 and 2026 and "first-time" means not seen in those years. The next edition is announced for 21–24 January 2027 with no line-up yet.
