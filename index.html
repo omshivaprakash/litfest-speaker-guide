@@ -52,6 +52,9 @@ h2{font:700 1.1rem/1.15 var(--display);margin:0}
 .pn{display:inline-block;padding:0 0 0 0;cursor:pointer;border-bottom:1px dotted var(--line)}
 .prow{display:flex;justify-content:space-between;gap:10px;padding:9px 2px;border-bottom:1px solid var(--line);font-size:14px;cursor:pointer}
 .prow span{color:var(--muted);font-size:12px;white-space:nowrap}
+.vb{display:grid;grid-template-columns:118px 1fr 26px;gap:6px;align-items:center;font-size:12px;margin:4px 0}.vb i{display:block;height:12px;background:var(--accent);border-radius:3px;min-width:2px}.vb span:last-child{color:var(--muted);text-align:right}
+.vh{font:600 12px var(--body);margin:14px 0 4px;color:var(--fg)}.vh small{font-weight:400;color:var(--muted)}
+.tlr text{font-size:9.5px;fill:var(--muted)}.tlr rect.b{rx:3}
 .pk{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:2px 0 10px}
 .pk div{background:var(--surface);border-radius:12px;padding:8px 10px}.pk b{display:block;font:800 22px var(--head,Fraunces,serif);color:var(--accent)}.pk span{font-size:11.5px;color:var(--muted)}
 .pi p{font-size:13.5px;line-height:1.55;margin:0 0 9px}.pi h4{margin:12px 0 4px;font-size:13px}
@@ -432,7 +435,7 @@ function card(x){var g={};x.pp.forEach(function(p){(g[p[0]]=g[p[0]]||[]).push(p[
 var h='<div class="sc"><div class="m"><span>Day '+x.d+' · '+x.t+'</span>'+(x.f?'<span class="fg" style="background:'+FC[x.f-1]+'">'+esc(FOR[x.f].e.replace(' forum',''))+'</span>':'<span class="fg" style="background:'+FC[4]+'">Main stage</span>')+'</div><h3 lang="kn">'+esc(x.k)+'</h3>'+(x.e&&x.e!==x.k?'<p class="en">'+esc(x.e)+'</p>':'');
 ['g','h','k','p','v','s','c','m','r'].forEach(function(r){if(g[r])h+='<div class="pp"><b>'+RL[r]+'</b>'+g[r].map(function(n){return '<span class="pn" lang="kn" data-n="'+esc(n)+'">'+nm(n)+'</span>'}).join(', ')+'</div>'});
 return h+'</div>'}
-function draw(){var h='<div class="ph1"><img src="'+esc(f.logo)+'" alt=""><div><h1>'+esc(f.name)+'</h1><p class="kicker" style="margin:2px 0 0">'+esc(f.dates)+' · '+esc(f.venue)+'</p>'+(f.sub?'<p class="sub" lang="kn" style="margin:3px 0 0">'+esc(f.sub)+'</p>':'')+'</div></div><div class="pt">'+[['prog','Programme'],['ppl','People']].concat(D.places?[['map','Where from']]:[]).map(function(t){return '<button data-t="'+t[0]+'" class="'+(P.tab===t[0]?'on':'')+'">'+t[1]+'</button>'}).join('')+'</div>';
+function draw(){var h='<div class="ph1"><img src="'+esc(f.logo)+'" alt=""><div><h1>'+esc(f.name)+'</h1><p class="kicker" style="margin:2px 0 0">'+esc(f.dates)+' · '+esc(f.venue)+'</p>'+(f.sub?'<p class="sub" lang="kn" style="margin:3px 0 0">'+esc(f.sub)+'</p>':'')+'</div></div><div class="pt">'+[['prog','Programme'],['ppl','People']].concat(D.places?[['map','Where from']]:[]).concat([['viz','Insights']]).map(function(t){return '<button data-t="'+t[0]+'" class="'+(P.tab===t[0]?'on':'')+'">'+t[1]+'</button>'}).join('')+'</div>';
 if(P.tab==='prog'){h+='<div class="pc">'+[[0,'Both days']].concat((D.days||[{d:1,l:'Sat 28 Nov'},{d:2,l:'Sun 29 Nov'}]).map(function(x){return [x.d,x.l]})).map(function(d){return '<button data-d="'+d[0]+'" class="'+(P.day===d[0]?'on':'')+'">'+d[1]+'</button>'}).join('')+'<input id="pq" type="search" placeholder="Search name or topic" value="'+esc(P.q)+'"></div>'+(D.forums.length>1?'<div class="pc" style="padding-top:0"><button data-fo="0" class="'+(P.fo===0?'on':'')+'">All forums</button>'+D.forums.map(function(x){return '<button data-fo="'+x.id+'" class="'+(P.fo===x.id?'on':'')+'" lang="kn">'+esc(x.k.replace(' ವೇದಿಕೆ',''))+'</button>'}).join('')+'</div>':'');
 var L=SS.filter(function(x){return(!P.day||x.d===P.day)&&(!P.fo||x.f===P.fo||x.f===0)&&match(x)});
 h+='<div class="pl">'+(L.length?L.map(card).join(''):'<p class="empty">No sessions match.</p>')+'</div>'}
@@ -443,6 +446,25 @@ Object.keys(byD).sort(function(a,b){return byD[b].length-byD[a].length}).forEach
 svg+='</svg>';
 h+='<div class="pl"><div class="pk"><div><b>'+inK+'</b><span>placed in Karnataka</span></div><div><b>'+inO+'</b><span>named from outside</span></div><div><b>'+(tot-inK-inO)+'</b><span>no place shown</span></div></div>'+svg+'<p class="en" style="margin:4px 0 8px">Schematic outline. A person is placed only where the invitation gives a place, or their printed name carries a Karnataka town or village. That is an inference from names, not where they live.</p>';
 Object.keys(byD).sort(function(a,b){return byD[b].length-byD[a].length}).concat(Object.keys(out)).forEach(function(k){var L=byD[k]||out[k];h+='<div class="prow" style="cursor:default;display:block"><b>'+esc(k)+(DIST[k]?' <span lang="kn" style="font-weight:500;color:var(--muted)">'+DIST[k][2]+'</span>':'')+'</b> <span>'+L.length+'</span><div style="font-size:13px;margin-top:3px" lang="kn">'+L.map(function(x){return '<span class="pn" data-n="'+esc(x[0])+'">'+esc(x[0])+'</span>'}).join(', ')+'</div></div>'});h+='</div>'}
+else if(P.tab==='viz'){
+function tm(x,pm){var m=/(\d+):(\d+)/.exec(x);var h=+m[1]+(+m[2])/60;return h<8?h+12:h}
+function span(t){var q=t.split('–');var a=tm(q[0]);var b=q[1]?tm(q[1]):a+1;if(b<=a)b+=12;return [a,b]}
+function bars(M,col){var mx=Math.max.apply(null,M.map(function(x){return x[1]}));return M.map(function(x){return '<div class="vb"><span>'+esc(x[0])+'</span><i style="width:'+(x[1]/mx*100)+'%;'+(col?'background:'+col:'')+'"></i><span>'+x[1]+'</span></div>'}).join('')}
+var N=PL.length,slots=0,rc={},th={},sz={},mxS=null;SS.forEach(function(x){var u={};x.pp.forEach(function(p){slots++;rc[p[0]]=(rc[p[0]]||0)+1;u[p[1]]=1});var n=Object.keys(u).length;sz[n>=8?'8+':n]=(sz[n>=8?'8+':n]||0)+1;th[x.th||'Other']=(th[x.th||'Other']||0)+1;var sp=span(x.t);if(!mxS||sp[1]-sp[0]>mxS[0])mxS=[sp[1]-sp[0],x]});
+var multi=PL.filter(function(x){return x.c>1}).length;
+h+='<div class="pl"><div class="pk"><div><b>'+SS.length+'</b><span>sessions</span></div><div><b>'+N+'</b><span>named people</span></div><div><b>'+(slots/SS.length).toFixed(1)+'</b><span>people per session</span></div></div>';
+var lanes=D.forums.length?[{id:0,e:'Main stage'}].concat(D.forums.map(function(x){return {id:x.id,e:x.e.replace(' forum','')}})):[{id:0,e:'Sessions'}];
+(D.days||[{d:1,l:'Day 1'},{d:2,l:'Day 2'}]).forEach(function(dy){var LH=D.forums.length?22:34,W=360,x0=50,hs=[9,19],H=lanes.length*LH+18;function X(t){return x0+(t-hs[0])/(hs[1]-hs[0])*(W-x0-18)}
+var sv='<svg class="tlr" viewBox="0 0 '+W+' '+H+'" style="width:100%" role="img" aria-label="Programme timeline, '+esc(dy.l)+'">';
+for(var t=hs[0];t<=hs[1];t+=2)sv+='<path d="M'+X(t)+' 0V'+(H-14)+'" stroke="#e4e2dc"/><text x="'+X(t)+'" y="'+(H-3)+'" text-anchor="middle">'+(t>12?t-12:t)+(t>=12?'pm':'am')+'</text>';
+lanes.forEach(function(l,i){sv+='<text x="2" y="'+(i*LH+14)+'">'+esc(l.e)+'</text>'});
+SS.filter(function(x){return x.d===dy.d}).forEach(function(x){var sp=span(x.t),li=D.forums.length?(x.f===0?0:x.f):0;sv+='<rect class="b" x="'+X(sp[0]).toFixed(1)+'" y="'+(li*LH+3)+'" width="'+Math.max(3,X(sp[1])-X(sp[0])-1).toFixed(1)+'" height="'+(LH-6)+'" rx="3" fill="'+(D.forums.length?FC[x.f===0?4:x.f-1]:'var(--accent)')+'"><title>'+esc(x.t+' '+x.e)+'</title></rect>'});
+h+='<p class="vh">'+esc(dy.l)+' <small>when each session runs</small></p>'+sv+'</svg>'});
+h+='<p class="vh">Sessions by theme <small>themes tagged from titles, a rough guide</small></p>'+bars(Object.keys(th).map(function(k){return [k,th[k]]}).sort(function(a,b){return b[1]-a[1]}));
+h+='<p class="vh">Who does what <small>appearances by role</small></p>'+bars(Object.keys(rc).map(function(k){return [RL[k],rc[k]]}).sort(function(a,b){return b[1]-a[1]}),'var(--fg)');
+h+='<p class="vh">People per session</p>'+bars(['0','1','2','3','4','5','6','7','8+'].filter(function(k){return sz[k]}).map(function(k){return [k+(k==='1'?' person':' people'),sz[k]]}),'#0e7490');
+h+='<p class="vh">Longest session <small>'+mxS[0].toFixed(mxS[0]%1?2:0)+' hours</small></p><p class="en" lang="kn" style="margin:0">'+esc(mxS[1].k)+'</p>';
+h+='<p class="vh">People in more than one session <small>'+multi+' of '+N+'</small></p>'+(multi?bars(PL.filter(function(x){return x.c>1}).slice(0,8).map(function(x){return [x.n,x.c]}),'var(--accent)'):'<p class="en">Everyone appears once.</p>')+'</div>'}
 else if(P.tab==='ppl'){var T=SS.length,np=PL.length,mx=PL[0];
 h+='<div class="pc"><input id="pq" type="search" placeholder="Search people" value="'+esc(P.q)+'"></div><div class="pl"><div class="pk"><div><b>'+np+'</b><span>named people</span></div><div><b>'+T+'</b><span>sessions listed</span></div><div><b>'+PL.filter(function(x){return x.c>1}).length+'</b><span>in 2+ sessions</span></div></div>';
 var q=P.q.toLowerCase();h+=PL.filter(function(x){return !q||(x.n+' '+(EN[x.n]||'')).toLowerCase().indexOf(q)>-1}).map(function(x){return '<div class="prow" data-n="'+esc(x.n)+'"><div lang="kn">'+nm(x.n)+'</div><span>'+x.c+' session'+(x.c>1?'s':'')+'</span></div>'}).join('')+'</div>'}
