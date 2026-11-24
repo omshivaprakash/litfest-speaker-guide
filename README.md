@@ -131,3 +131,6 @@ Explore → Upcoming lists every festival with a countdown, an "Add to calendar"
 
 ## International festivals
 Galle Literary Festival (17–21 Mar 2027) and Edinburgh International Book Festival are listed as "soon": the sites have no 2027 speaker list yet, so only dates and links are shown (Galle also appears in Upcoming). Hay Festival redirects to a host not yet allowed here.
+
+## App and offline use
+The site is only static files (HTML, JSON, images, fonts): there is no server code, database or build step. Host the folder on any static host (GitHub Pages works) and open it over https. It is also an installable app (`manifest.webmanifest`, `sw.js`): after the first visit the page, every festival's data and the pages and photos you have viewed work offline, and About → Install app (or the browser's "Add to Home screen") puts it on your phone. Opening `index.html` straight from a folder (file://) will not work, because browsers block loading the JSON files that way; run `python3 -m http.server` in the folder instead. Bookmarks: star speakers, and tap ☆ on a festival's title line to bookmark it; both appear in Explore → Bookmarks and are kept in your browser. Bump `VERSION` in `sw.js` when changing `index.html`.
