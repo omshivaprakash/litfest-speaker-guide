@@ -1,17 +1,17 @@
-"""Build festivals/nlf/{data,stats,history}.json for the Neev Literature Festival from neevliteraturefestival.org.
-The site's speakers page lists only the featured speakers for each year (about ten), selected with ?y=YEAR for 2023-2026.
+"""Build festivals/nlf/{data,stats,history}.json for the Neev Literature Festival from neevliteraturefestival.org's public WordPress API
+(speaker posts tagged by event year, 2017-2026). The 2026 edition is the current list; earlier years feed the history.
 Usage: python3 tools/build_nlf.py"""
 import re,json,os,html,io,time,unicodedata,urllib.request
 from collections import Counter
 from PIL import Image
-OUT=os.path.join(os.path.dirname(__file__),'..','festivals','nlf'); os.makedirs(OUT+'/ph',exist_ok=True); UA={'User-Agent':'Mozilla/5.0'}; NOW=2026
+OUT=os.path.join(os.path.dirname(__file__),'..','festivals','nlf'); os.makedirs(OUT+'/ph',exist_ok=True); UA={'User-Agent':'Mozilla/5.0'}; NOW=2026; API='https://www.neevliteraturefestival.org/wp-json/wp/v2/'
 def norm(n):
     n=unicodedata.normalize('NFKD',html.unescape(n)).encode('ascii','ignore').decode().lower()
     n=re.sub(r'\b(dr|prof|professor|mr|ms|mrs)\b','',n); return re.sub(r'\s+',' ',re.sub(r'[^a-z ]',' ',n)).strip()
 def get(u,b=False):
     for _ in range(3):
         try:
-            r=urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=40).read(); return r if b else r.decode('utf8','ignore')
+            r=urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=60).read(); return r if b else r.decode('utf8','ignore')
         except Exception: time.sleep(2)
 def clean(x): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>',' ',x or '').replace('\xa0',' '))).strip()
 def short(t,n=220): return t if len(t)<=n else t[:n].rsplit(' ',1)[0]+'…'
@@ -20,41 +20,54 @@ def gender(b):
     if f>=1 and f>=2*m: return 'f'
     if m>=1 and m>=2*f: return 'm'
     return 'u'
-CTRY=[('India',r'\b(india|indian|bengaluru|bangalore|delhi|mumbai|chennai|kolkata)\b'),('United Kingdom',r'\b(british|uk|united kingdom|england|london|scotland|welsh|wales|irish|ireland)\b'),
+CTRY=[('India',r'\b(india|indian|bengaluru|bangalore|delhi|mumbai|chennai|kolkata|hyderabad|pune)\b'),('United Kingdom',r'\b(british|uk|united kingdom|england|london|scotland|edinburgh|welsh|wales|irish|ireland)\b'),
  ('United States',r'\b(american|united states|usa|new york|california)\b'),('Australia',r'\b(australia|australian)\b'),('Netherlands',r'\b(dutch|netherlands)\b'),('Canada',r'\b(canada|canadian)\b')]
 def country(b):
     l=b.lower(); h=[(re.search(rx,l).start(),c) for c,rx in CTRY if re.search(rx,l)]
     return (sorted(h)[0][1],'named in bio') if h else ('Unknown','')
-by={};cards={}
-for y in range(2023,NOW+1):
-    h=get(f'https://www.neevliteraturefestival.org/speakers-at-nlf/?y={y}') or ''; names={}
-    for sl,img,nm in re.findall(r'<article[^>]*speaker[^>]*>.*?href="https://www\.neevliteraturefestival\.org/speaker/([^"/]+)/?".*?<img[^>]*src="([^"]+)".*?<p>(.*?)</p>',h,re.S):
-        n=clean(nm)
-        if n: names[norm(n)]=n; cards.setdefault(norm(n),{'slug':sl,'img':img,'name':n})
-    by[y]=names; time.sleep(1)
+terms={t['id']:int(t['name']) for t in json.loads(get(API+'event_year?per_page=100&_fields=id,name'))}
+posts=[]; p=1
+while True:
+    r=get(f'{API}speaker?per_page=100&page={p}&_fields=id,slug,title,link,content,featured_media,event_year,event_category')
+    try: d=json.loads(r)
+    except Exception: break
+    if not d: break
+    posts+=d; p+=1
+    if len(d)<100: break
+print(len(posts),'speaker posts',flush=True)
+by={}; cards={}
+for o in posts:
+    n=clean(o['title']['rendered'])
+    if not n: continue
+    k=norm(n)
+    for t in o['event_year']:
+        y=terms.get(t)
+        if y: by.setdefault(y,{})[k]=n
+    if NOW in [terms.get(t) for t in o['event_year']] or k not in cards: cards.setdefault(k,o)
+    if NOW in [terms.get(t) for t in o['event_year']]: cards[k]=o
 yrs={}
 for y,m in by.items():
     for k in m: yrs.setdefault(k,[]).append(y)
+cur=[cards[k] for k in by[NOW]]
+ids=[str(o['featured_media']) for o in cur if o.get('featured_media')]; media={}
+for i in ids:
+    try:
+        m=json.loads(get(f"{API}media/{i}?_fields=id,source_url,media_details")); sz=(m.get('media_details') or {}).get('sizes',{}); media[m['id']]=(sz.get('medium_large') or sz.get('large') or sz.get('medium') or {}).get('source_url') or m['source_url']
+    except Exception: pass
+    time.sleep(.15)
 S=[]
-for k,n in by[NOW].items():
-    c=cards[k]; h=get(f"https://www.neevliteraturefestival.org/speaker/{c['slug']}/") or ''
-    t=clean(re.sub(r'<script.*?</script>|<style.*?</style>','',h,flags=re.S)); a=t.find(c['name'],t.find('Blog')+4)
-    seg=t[a+len(c['name']):] if a>=0 else ''
-    for stop in ('Share this','Related','Previous','Next ›','Skip to','Back to'): 
-        j=seg.find(stop)
-        if j>0: seg=seg[:j]
-    bio=seg.strip()[:1500]
-    fn=f"{OUT}/ph/{c['slug']}.jpg"; ok=os.path.exists(fn)
-    if not ok:
+for o in cur:
+    n=clean(o['title']['rendered']); k=norm(n); sl=o['slug']; bio=clean(o['content']['rendered'])[:1500]
+    fn=f'{OUT}/ph/{sl}.jpg'; ok=os.path.exists(fn); u=media.get(o.get('featured_media'))
+    if not ok and u:
         try:
-            im=Image.open(io.BytesIO(get(c['img'],True))).convert('RGB'); w,hh=im.size
+            im=Image.open(io.BytesIO(get(u,True))).convert('RGB'); w,hh=im.size
             if w>373: im=im.resize((373,round(hh*373/w)),Image.LANCZOS)
             im.save(fn,'JPEG',quality=82,optimize=True); ok=True
         except Exception: ok=False
     cc,cb=country(bio) if bio else ('Unknown','')
-    ys=sorted(yrs[k]); past=[y for y in ys if y<NOW]
-    S.append({'n':c['name'],'b':short(bio),'f':bio,'y':ys,'pre':[],'first':0 if past else 1,'g':gender(bio) if bio else 'u','t':'Children’s authors','p':0,'r':0,'a':'','l':'','s':[],'u':c['slug'],'bk':[],'lg':[],'le':'',
-      'role':'Author','nonauth':0,'cc':cc,'cb':cb,'dia':0,'city':'','ph':f"ph/{c['slug']}.jpg" if ok else ''}); time.sleep(.5)
+    ys=sorted(yrs[k]); past=[y for y in ys if y<NOW]; chall=3 not in o['event_category']
+    S.append({'n':n,'b':short(bio),'f':bio,'y':ys,'pre':[],'first':0 if past else 1,'g':gender(bio) if bio else 'u','t':'Reading Challenge authors' if chall else 'Featured speakers','p':0,'r':0,'a':'','l':'','s':[],'u':sl,'bk':[],'lg':[],'le':'','role':'Author','nonauth':0,'cc':cc,'cb':cb,'dia':0,'city':'','ph':f'ph/{sl}.jpg' if ok else ''}); time.sleep(.1)
 S.sort(key=lambda o:o['n'].lower()); json.dump(S,open(OUT+'/data.json','w',encoding='utf8'),ensure_ascii=False)
 YEARS=sorted(by); per={}
 for y in YEARS:
