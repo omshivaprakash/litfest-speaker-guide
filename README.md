@@ -137,3 +137,6 @@ The site is only static files (HTML, JSON, images, fonts): there is no server co
 
 ## Press note
 `press/press-note.html` is a ready-to-share press note with desktop and phone screenshots (`press/img`). Screenshots may be used with a credit to LitFest Guide.
+
+## Checks
+`python3 tools/validate.py` checks the data (files, photos, covers, dates). `node tests/run.js` (with `python3 -m http.server 8765` running, and `npm i playwright`) opens every festival, tab and overlay at 390×780, 360×640 and 1280×720 and fails if a page scrolls or any script or file errors. `.github/workflows/check.yml` runs both on every push.
