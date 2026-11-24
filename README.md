@@ -87,3 +87,6 @@ Built by `tools/build_klm.py` from kolkatalitmeet.in (each year's site lists its
 
 ## Neev data
 Built by `tools/build_nlf.py` from the speakers page of neevliteraturefestival.org, which lists only the featured speakers for each year (about ten, selected with `?y=`). The site's full events and speakers listings load through scripts, so the guest list is incomplete and 2022 is left out (its filter returns the unfiltered page).
+
+## License
+The code is released under the [MIT License](LICENSE). The MIT license covers the code only. Speaker names, bios, photos, festival logos and book covers belong to their owners and are included for identification, education and research; they are not covered by this license.
