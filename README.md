@@ -122,3 +122,6 @@ The Explore button opens five one-screen views built from every festival's data:
 
 ## Name matching
 Cross-festival matching (Search, Across, Explore) ignores titles, accents, dots and spacing in initials ("K S Nair" = "KS Nair") and a lone middle initial ("Abhijit V. Banerjee" = "Abhijit Banerjee"), plus a short hand-checked alias list (`GALIAS` in `index.html`). Other spelling variants still count as two people.
+
+## Upcoming alerts
+Explore → Upcoming lists every festival with a countdown, an "Add to calendar" file (.ics, with a reminder the day before) and a "Remind me" switch. Reminders are stored in your browser only: when a starred festival is within a week, a banner appears under the title the next time you open the site (and a browser notification if you allow it). The site has no server, so nothing is pushed to you while it is closed. Dates are in `festivals.json` (`start`, `end`, `tbc`); update them when a festival announces new dates.

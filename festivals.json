@@ -27,7 +27,9 @@
     "Priyamvada Natarajan": "Yale astrophysicist mapping dark matter."
    },
    "updated": "Nov 2026",
-   "ab": "BLF"
+   "ab": "BLF",
+   "start": "2026-12-11",
+   "end": "2026-12-13"
   },
   {
    "id": "sjm",
@@ -42,7 +44,9 @@
    "logo": "festivals/sjm/logo.png",
    "base": "festivals/sjm/",
    "updated": "Nov 2026 (typed from the invitation)",
-   "ab": "SJM"
+   "ab": "SJM",
+   "start": "2026-11-28",
+   "end": "2026-11-29"
   },
   {
    "id": "jn",
@@ -58,7 +62,9 @@
    "logo": "festivals/jn/logo.png",
    "base": "festivals/jn/",
    "updated": "Nov 2026 (typed from the invitation)",
-   "ab": "JN"
+   "ab": "JN",
+   "start": "2026-11-28",
+   "end": "2026-11-29"
   },
   {
    "id": "tll",
@@ -82,7 +88,9 @@
    "partUrl": "https://www.litlive.in/fest26/speakers/{u}",
    "why": {},
    "updated": "Nov 2026",
-   "ab": "LL"
+   "ab": "LL",
+   "start": "2026-10-23",
+   "end": "2026-10-25"
   },
   {
    "id": "klm",
@@ -107,7 +115,9 @@
    "partUrl": "https://kolkatalitmeet.in/2026/",
    "why": {},
    "updated": "Nov 2026",
-   "ab": "KLM"
+   "ab": "KLM",
+   "start": "2026-01-22",
+   "end": "2026-01-26"
   },
   {
    "id": "ddlf",
@@ -130,7 +140,9 @@
    "sched": 2025,
    "partUrl": "https://www.dehradunliteraturefestival.com/team",
    "why": {},
-   "updated": "Nov 2026 (names and photos only; 2025 history only)"
+   "updated": "Nov 2026 (names and photos only; 2025 history only)",
+   "start": "2026-11-27",
+   "end": "2026-11-29"
   },
   {
    "id": "galf",
@@ -155,7 +167,9 @@
    "partUrl": "https://goaartlitfest.com/{u}/",
    "why": {},
    "updated": "Nov 2026 (2023 lists only a few names)",
-   "ab": "GAL"
+   "ab": "GAL",
+   "start": "2026-02-12",
+   "end": "2026-02-14"
   },
   {
    "id": "klf2",
@@ -180,7 +194,9 @@
    "partUrl": "https://kalingaliteraryfestival.com/speakers/{u}/",
    "why": {},
    "updated": "Nov 2026 (earlier years list featured names only)",
-   "ab": "KAL"
+   "ab": "KAL",
+   "start": "2026-01-08",
+   "end": "2026-01-11"
   },
   {
    "id": "nlf",
@@ -205,7 +221,9 @@
    "partUrl": "https://www.neevliteraturefestival.org/speaker/{u}/",
    "why": {},
    "updated": "Nov 2026 (featured speakers only, about ten a year)",
-   "ab": "NEV"
+   "ab": "NEV",
+   "start": "2026-09-26",
+   "end": "2026-09-27"
   },
   {
    "id": "bpf",
@@ -236,7 +254,9 @@
    "partUrl": "https://bengalurupoetryfestival.org/poets.php",
    "why": {},
    "updated": "Nov 2026",
-   "ab": "BPF"
+   "ab": "BPF",
+   "start": "2026-08-01",
+   "end": "2026-08-02"
   },
   {
    "id": "klf",
@@ -260,7 +280,9 @@
    "partUrl": "https://keralaliteraturefestival.com/speakers",
    "why": {},
    "updated": "Nov 2026",
-   "ab": "KLF"
+   "ab": "KLF",
+   "start": "2027-01-21",
+   "end": "2027-01-24"
   },
   {
    "id": "bbl",
@@ -277,7 +299,9 @@
    "base": "festivals/bbl/",
    "themeLabel": "language",
    "updated": "Nov 2026",
-   "ab": "BB"
+   "ab": "BB",
+   "start": "2026-08-14",
+   "end": "2026-08-23"
   },
   {
    "id": "hlf",
@@ -296,7 +320,10 @@
    "partUrl": "https://hydlitfest.org/{u}/",
    "why": {},
    "updated": "Nov 2026",
-   "ab": "HLF"
+   "ab": "HLF",
+   "start": "2027-01-01",
+   "end": "2027-01-31",
+   "tbc": 1
   },
   {
    "id": "jlf",
@@ -315,7 +342,9 @@
    "partUrl": "https://www.jaipurliteraturefestival.org/2027/speaker/{u}",
    "why": {},
    "updated": "Nov 2026",
-   "ab": "JLF"
+   "ab": "JLF",
+   "start": "2027-01-14",
+   "end": "2027-01-18"
   },
   {
    "id": "bplf",
@@ -345,7 +374,9 @@
    "sched": 2026,
    "partUrl": "https://www.bhopalliteraturefestival.com/event/blf-2027/speakers",
    "why": {},
-   "updated": "Nov 2026 (2027 speakers announced so far; history 2019–2026)"
+   "updated": "Nov 2026 (2027 speakers announced so far; history 2019–2026)",
+   "start": "2027-01-08",
+   "end": "2027-01-10"
   },
   {
    "id": "mbifl",
@@ -374,7 +405,9 @@
    "sched": 2026,
    "partUrl": "https://www.mbifl.com/speakers",
    "why": {},
-   "updated": "Nov 2026 (only 6 of the 2027 speakers announced; 2025 shows 60 listed)"
+   "updated": "Nov 2026 (only 6 of the 2027 speakers announced; 2025 shows 60 listed)",
+   "start": "2027-01-28",
+   "end": "2027-01-31"
   }
  ]
 }
