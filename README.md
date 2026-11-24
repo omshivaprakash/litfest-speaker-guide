@@ -10,7 +10,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 |---|---|
 | Bangalore Literature Festival 2026 (`?f=blf`) | Live: 243 speakers |
 | Samajamukhi Sahitya Sammelana, 28–29 Nov 2026 (`?f=sjm`) | Live: programme only (sessions and names, Kannada) |
-| Jaipur Literature Festival (`?f=jlf`) | Coming soon |
+| Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
 
@@ -38,4 +38,7 @@ Built from each festival's public speaker pages, bios and schedules, plus Open L
 Run locally: `python3 -m http.server` and open http://localhost:8000/.
 
 ## Programme-type festivals
-A festival entry with `"type": "programme"` uses `festivals/<id>/data.json` shaped as `{sessions:[{d,f,t,k,e,pp:[[role,name]]}], forums:[{id,k,e}], en:{name:englishName}}` and shows Programme, People and Info tabs. Roles: `p` panel, `c` coordinator, `m` host, `r` respondent, `g` guest, `s` performer. The Samajamukhi data was transcribed by hand from the printed invitation, so please check it against the official programme.
+A festival entry with `"type": "programme"` uses `festivals/<id>/data.json` shaped as `{sessions:[{d,f,t,k,e,pp:[[role,name]]}], forums:[{id,k,e}], en:{name:englishName}}` and shows Programme and People tabs. Roles: `p` panel, `c` coordinator, `m` host, `r` respondent, `g` guest, `s` performer. The Samajamukhi data was transcribed by hand from the printed invitation, so please check it against the official programme.
+
+## Jaipur data
+Built by `tools/build_jlf.py` from the festival's public speakers API (the same one its website uses). The 2027 line-up is still being announced, so the list will grow; re-run the script with fresh API output to update. Only about 110 speakers have bios so far, so gender, country and role are blank for the rest, and "first-time" means not listed in 2018–2026. Books, languages and ages are not included. "Start here" lists speakers the festival flags as important.

@@ -42,14 +42,20 @@
   },
   {
    "id": "jlf",
-   "status": "soon",
+   "status": "live",
    "name": "Jaipur Literature Festival",
    "short": "JLF",
    "year": 2027,
    "url": "https://www.jaipurliteraturefestival.org/",
-   "logo": "",
+   "logo": "festivals/jlf/logo.svg",
    "base": "festivals/jlf/",
-   "note": "Speaker data for the Jaipur Literature Festival is being added next."
+   "dates": "14–18 Jan 2027",
+   "venue": "Hotel Clarks Amer, Jaipur",
+   "from": 2018,
+   "to": 2026,
+   "sched": 2018,
+   "partUrl": "https://www.jaipurliteraturefestival.org/2027/speaker/{u}",
+   "why": {}
   }
  ]
 }
