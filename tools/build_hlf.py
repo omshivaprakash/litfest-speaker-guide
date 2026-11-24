@@ -82,6 +82,7 @@ def work(p):
         seg=t[a:]; seg=seg[:seg.find('Get Involved')] if 'Get Involved' in seg else seg
         k=seg.find(p['name']); seg=seg[k+len(p['name']):].strip() if k>=0 else seg
         m=re.search(r'(?<=[.!?”’\)]) [A-Z][^.]{2,40}? (?:Speaker|Moderator)(?= |$)',seg); bio=(seg[:m.start()] if m else seg).strip()
+    its=[html.unescape(re.sub(r'<[^>]+>','',x)).replace('\xa0',' ').strip(' ,.;:') for x in re.findall(r'<(?:em|i)>([^<]{3,110})</(?:em|i)>',h)]
     og=re.search(r'<meta property="og:image" content="([^"]+)"',h); ph=''
     if og:
         fn=f"{OUT}/ph/{p['slug']}.jpg"
@@ -93,7 +94,7 @@ def work(p):
                 im.save(fn,'JPEG',quality=82,optimize=True)
             except Exception: fn=None
         if fn: ph=f"ph/{p['slug']}.jpg"
-    time.sleep(.2); return dict(p,bio=bio,ph=ph)
+    time.sleep(.2); return dict(p,bio=bio,ph=ph,its=its)
 with cf.ThreadPoolExecutor(3) as ex: info=list(ex.map(work,people))
 yrs={}
 for y,m in byyear.items():
@@ -121,3 +122,7 @@ name_of={k:v for y in YEARS for k,v in byyear[y].items()}
 lead=sorted(yrs.items(),key=lambda kv:(-len(kv[1]),kv[0]))[:25]
 json.dump({'per':per,'lead':[{'n':name_of[k],'y':v,'in26':NOW in v} for k,v in lead],'hist':dict(Counter(str(sum(1 for y in yrs[norm(o['n'])] if y<NOW)) for o in S))},open(OUT+'/stats.json','w'))
 print(len(S),'people;',sum(o['first'] for o in S),'first-timers;',{y:per[str(y)]['total'] for y in YEARS},Counter(o['g'] for o in S),sum(1 for o in S if o['f']),'with bios',sum(1 for o in S if o['ph']),'photos')
+
+tl={('speaker/' if p['kind']=='speaker' else 'moderators/')+p['slug']:p['its'] for p in info}
+json.dump(tl,open(RAW+'/titles.json','w',encoding='utf8'),ensure_ascii=False)
+json.dump({str(y):sorted(byyear[y].values()) for y in YEARS},open(OUT+'/history.json','w',encoding='utf8'),ensure_ascii=False)

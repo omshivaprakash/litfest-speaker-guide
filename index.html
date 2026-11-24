@@ -66,6 +66,15 @@ h2{font:700 1.1rem/1.15 var(--display);margin:0}
 .callout{border:1px solid var(--line);border-radius:12px;padding:8px 11px;background:#fff;font-size:12.5px}.callout b{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600}.callout span{font:800 18px var(--display,Fraunces,serif);color:var(--accent)}.callout em{display:block;font-style:normal;margin-top:2px}
 .chips{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:4px}.chips small{color:var(--muted)}
 .pr2{align-items:center;gap:10px}.pr2 .th{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:center 20%;flex:0 0 auto;background:var(--surface)}.pr2 small{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;color:var(--muted);font-size:11.5px}
+.fsearch{flex:0 0 auto;height:30px;border:1px solid var(--line);border-radius:999px;background:#fff;padding:0 11px;font:600 12.5px var(--body);color:var(--fg);cursor:pointer;white-space:nowrap}
+.gso{position:fixed;inset:0;background:#fff;z-index:60;display:flex;flex-direction:column;padding:12px 14px;max-width:1000px;margin:0 auto}
+.gso .gsh{flex:0 0 auto;display:flex;gap:8px;align-items:center}.gso .gsh input{flex:1;height:38px;border:1px solid var(--line);border-radius:999px;padding:0 14px;font:500 14px var(--body)}
+.gso .gsh button{height:38px;border:1px solid var(--line);border-radius:999px;background:#fff;padding:0 14px;font:600 13px var(--body);cursor:pointer}
+.gso .gsn{flex:0 0 auto;font-size:12px;color:var(--muted);margin:8px 0 6px}
+.gso .gsbx{flex:1;min-height:0;overflow:hidden}.gso .it{margin:0 0 8px}
+.gres{border:1px solid var(--line);border-radius:12px;padding:9px 12px}.gres h3{margin:0 0 4px;font:700 1rem/1.2 var(--display)}
+.gres a{display:flex;gap:8px;align-items:baseline;padding:3px 0;color:var(--fg);text-decoration:none;font-size:13px;border-top:1px solid var(--line)}
+.gres a b{flex:0 0 auto;min-width:74px;color:var(--accent)}.gres a span{color:var(--muted);font-size:12.5px;line-height:1.35}
 .vb{display:grid;grid-template-columns:118px 1fr 26px;gap:6px;align-items:center;font-size:12px;margin:4px 0}.vb i{display:block;height:12px;background:var(--accent);border-radius:3px;min-width:2px}.vb span:last-child{color:var(--muted);text-align:right}
 .vh{font:600 12px var(--body);margin:14px 0 4px;color:var(--fg)}.vh small{font-weight:400;color:var(--muted)}
 .tlr text{font-size:9.5px;fill:var(--muted)}.tlr rect.b{rx:3}
@@ -439,7 +448,7 @@ var KA=[[74.1,15.0],[74.35,14.4],[74.7,13.6],[74.9,12.9],[75.2,12.6],[75.8,12.1]
 var DIST={'Bengaluru':[77.59,12.97,'ಬೆಂಗಳೂರು'],'Ramanagara':[77.28,12.72,'ರಾಮನಗರ'],'Mysuru':[76.64,12.3,'ಮೈಸೂರು'],'Mandya':[76.9,12.52,'ಮಂಡ್ಯ'],'Chamarajanagar':[77.0,11.92,'ಚಾಮರಾಜನಗರ'],'Dakshina Kannada':[75.0,12.85,'ದಕ್ಷಿಣ ಕನ್ನಡ'],'Udupi':[74.78,13.4,'ಉಡುಪಿ'],'Uttara Kannada':[74.6,14.8,'ಉತ್ತರ ಕನ್ನಡ'],'Chikkamagaluru':[75.78,13.32,'ಚಿಕ್ಕಮಗಳೂರು'],'Tumakuru':[77.1,13.34,'ತುಮಕೂರು'],'Chitradurga':[76.4,14.23,'ಚಿತ್ರದುರ್ಗ'],'Koppal':[76.15,15.35,'ಕೊಪ್ಪಳ'],'Vijayanagara':[76.5,15.15,'ವಿಜಯನಗರ'],'Bagalkot':[75.7,16.18,'ಬಾಗಲಕೋಟೆ'],'Gadag':[75.63,15.43,'ಗದಗ']};
 function progApp(f,D){
 var app=document.querySelector('.app');document.querySelector('.tabs').style.display='none';document.querySelectorAll('.view').forEach(function(v){v.style.display='none'});
-var P={tab:'home',day:0,fo:0,q:'',pg:0,shelf:'start'},SS=D.sessions,EN=D.en||{},FOR={},PAGES=[];D.forums.forEach(function(x){FOR[x.id]=x});
+var IQ=new URLSearchParams(location.search).get('q')||'',P={tab:IQ?'prog':'home',day:0,fo:0,q:IQ,pg:0,shelf:'start'},SS=D.sessions,EN=D.en||{},FOR={},PAGES=[];D.forums.forEach(function(x){FOR[x.id]=x});
 var cnt={};SS.forEach(function(x){x.pp.forEach(function(p){var n=p[1];(cnt[n]=cnt[n]||{n:n,c:0,r:{}}).c++;cnt[n].r[p[0]]=1})});
 var PL=Object.keys(cnt).map(function(k){return cnt[k]}).sort(function(a,b){return b.c-a.c||a.n.localeCompare(b.n)});
 var el=document.createElement('section');el.className='prog';app.appendChild(el);
@@ -547,12 +556,34 @@ else if(n){P.tab='prog';P.q=n.dataset.n;P.day=0;P.fo=0;P.pg=0;all()}});
 el.addEventListener('input',function(e){if(e.target.id==='pq'){P.q=e.target.value;P.pg=0;fill()}});
 var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(fill,120)});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fill);
 all()}
+
+/* cross-festival search over every edition's speaker list */
+var GS={ready:false,idx:[],nF:0,q:'',pg:0,pages:[],list:null};
+function gnorm(n){return n.normalize('NFKD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/\b(dr|prof|professor|mr|ms|mrs|shri|smt|sir)\b\.?/g,' ').replace(/[^\p{L}\p{M}\p{N} ]+/gu,' ').replace(/\s+/g,' ').trim()}
+function gsLoad(L,done){var map={},n=0,left=L.festivals.length;L.festivals.forEach(function(f){if(f.status!=='live'){left--;return}
+fetch(f.base+'history.json?v='+BUILD).then(function(r){return r.ok?r.json():{}}).catch(function(){return {}}).then(function(H){n++;Object.keys(H).forEach(function(y){H[y].forEach(function(nm){var k=gnorm(nm);if(!k)return;var e=map[k]=map[k]||{k:k,n:nm,f:{}};var ff=e.f[f.id]=e.f[f.id]||{id:f.id,short:f.short,name:f.name,ys:[]};if(ff.ys.indexOf(y)<0)ff.ys.push(y)})});if(--left===0){GS.idx=Object.keys(map).map(function(k){var e=map[k];e.fl=Object.keys(e.f).map(function(i){e.f[i].ys.sort();return e.f[i]});e.tot=e.fl.reduce(function(a,x){return a+x.ys.length},0);return e});GS.nF=n;GS.ready=true;done()}})});
+if(left===0){GS.ready=true;done()}}
+function gsCard(e){return '<div class="gres"><h3 lang="kn">'+esc(e.n)+'</h3>'+e.fl.sort(function(a,b){return b.ys.length-a.ys.length}).map(function(x){return '<a href="?f='+x.id+'&q='+encodeURIComponent(e.n)+'"><b>'+esc(x.short)+'</b><span>'+x.ys.join(' · ')+'</span></a>'}).join('')+'</div>'}
+function gsOpen(L){var o=document.createElement('div');o.className='gso';o.innerHTML='<div class="gsh"><input id="gsq" type="search" placeholder="Search a speaker across all festivals and years" aria-label="Search all festivals"><button id="gsx">Close</button></div><p class="gsn" id="gsn">Loading every edition…</p><div class="gsbx" id="gsbox"></div><div class="pager" id="gsp"></div>';document.body.appendChild(o);
+var inp=o.querySelector('#gsq');function fill(){var q=gnorm(inp.value),box=o.querySelector('#gsbox'),pgr=o.querySelector('#gsp'),M;
+if(!GS.ready)return;
+if(!q){M=GS.idx.filter(function(e){return e.fl.length>1}).sort(function(a,b){return b.fl.length-a.fl.length||b.tot-a.tot||a.n.localeCompare(b.n)}).slice(0,60);o.querySelector('#gsn').textContent=GS.idx.length+' people across '+GS.nF+' festivals. Showing people seen at more than one festival.'}
+else{var T=q.split(' ');M=GS.idx.filter(function(e){return T.every(function(t){return e.k.indexOf(t)>-1})}).sort(function(a,b){return (b.k.indexOf(q)===0)-(a.k.indexOf(q)===0)||b.fl.length-a.fl.length||b.tot-a.tot}).slice(0,60);o.querySelector('#gsn').textContent=M.length+(M.length===60?'+':'')+' match'+(M.length===1?'':'es')+' across '+GS.nF+' festivals'}
+if(!M.length){box.innerHTML='<p class="empty">No one by that name in the lists we have.</p>';pgr.innerHTML='';GS.pages=[];return}
+box.style.visibility='hidden';box.innerHTML=M.map(function(e){return '<div class="it">'+gsCard(e)+'</div>'}).join('');var av=box.clientHeight-6,pages=[],cur=[],used=0;[].slice.call(box.children).forEach(function(c,i){var hh=c.offsetHeight+8;if(cur.length&&used+hh>av){pages.push(cur);cur=[];used=0}cur.push(M[i]);used+=hh});if(cur.length)pages.push(cur);box.style.visibility='';
+GS.pages=pages.map(function(p){return p.map(function(e){return '<div class="it">'+gsCard(e)+'</div>'}).join('')});if(GS.pg>=GS.pages.length)GS.pg=GS.pages.length-1;if(GS.pg<0)GS.pg=0;box.innerHTML=GS.pages[GS.pg];
+pgr.innerHTML='<button class="pbtn" data-gp="-1"'+(GS.pg<=0?' disabled':'')+'>‹ Prev</button><span>Page '+(GS.pg+1)+' of '+GS.pages.length+'</span><button class="pbtn" data-gp="1"'+(GS.pg>=GS.pages.length-1?' disabled':'')+'>Next ›</button>'}
+inp.addEventListener('input',function(){GS.pg=0;fill()});o.querySelector('#gsx').onclick=function(){o.remove()};
+o.addEventListener('click',function(e){var b=e.target.closest('[data-gp]');if(b&&!b.disabled){GS.pg+=+b.dataset.gp;fill()}});
+document.addEventListener('keydown',function esc2(e){if(e.key==='Escape'&&document.body.contains(o)){o.remove();document.removeEventListener('keydown',esc2)}});
+window.addEventListener('resize',function(){if(document.body.contains(o))fill()});
+if(GS.ready)fill();else gsLoad(L,fill);setTimeout(function(){inp.focus()},50)}
 function boot(){
 fetch('festivals.json?v='+BUILD).then(function(r){return r.json()}).then(function(L){
 var id=(new URLSearchParams(location.search)).get('f')||L.default,f=null;L.festivals.forEach(function(x){if(x.id===id)f=x});if(!f)f=L.festivals[0];FE=f;
 var h='<div class="fb-l">';
 L.festivals.forEach(function(x){h+='<a class="fchip'+(x.id===f.id?' on':'')+'" href="?f='+x.id+'" title="'+esc(x.name)+'">'+(x.logo?'<img src="'+esc(x.logo)+'" alt="">':'')+'<span>'+esc(x.short)+'</span>'+(x.status==='live'?'':'<em>soon</em>')+'</a>'});
-h+='</div>'+(f.url?'<a class="fext" target="_blank" rel="noopener" href="'+esc(f.url)+'">Official site \u2197</a>':'');$('fbar').innerHTML=h;
+h+='</div><button class="fsearch" id="gsb">Search all</button>'+(f.url?'<a class="fext" target="_blank" rel="noopener" href="'+esc(f.url)+'">Official site \u2197</a>':'');$('fbar').innerHTML=h;$('gsb').onclick=function(){gsOpen(L)};
 document.title=f.short+' '+f.year+' Speaker Guide';
 if(f.type==='programme'&&f.status==='live'){return fetch(f.base+'data.json?v='+BUILD).then(function(r){return r.json()}).then(function(D){progApp(f,D)})}
 if(f.status!=='live'){document.querySelector('.tabs').style.display='none';document.querySelectorAll('.view').forEach(function(v){v.style.display='none'});
@@ -562,7 +593,7 @@ for(var y=f.from;y<=f.year;y++)YRS.push(y);
 SH[1][1]='New to '+f.short;var base=f.base;WHY=f.why||{};START=Object.keys(WHY);
 return Promise.all([fetch(base+'data.json?v='+BUILD).then(function(r){return r.json()}),fetch(base+'stats.json?v='+BUILD).then(function(r){return r.json()})]).then(function(a){S=a[0];ST=a[1];
 S.forEach(function(o){if(o.ph)o.ph=base+o.ph;(o.bk||[]).forEach(function(b){if(b.c)b.c=base+b.c})});
-if(!START.length)START=S.filter(function(o){return o.p}).map(function(o){return o.n});var h=(location.hash||'').slice(1);setView(VIEWS.indexOf(h)>-1?h:'discover',true)})
+if(!START.length)START=S.filter(function(o){return o.p}).map(function(o){return o.n});var h=(location.hash||'').slice(1);setView(VIEWS.indexOf(h)>-1?h:'discover',true);var qp=new URLSearchParams(location.search).get('q');if(qp){reset();st.q=qp;$('q').value=qp;pg.s=0;setView('speakers',true)}})
 }).catch(function(){var e=$('dbody');if(e)e.innerHTML='<p class="empty">Could not load the speaker data.</p>'});}
 boot();
 window.addEventListener('hashchange',function(){var h=(location.hash||'').slice(1);if(VIEWS.indexOf(h)>-1&&h!==st.view)setView(h,true)});
