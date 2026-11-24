@@ -81,6 +81,36 @@
    "updated": "Nov 2026"
   },
   {
+   "id": "bpf",
+   "status": "live",
+   "name": "Bengaluru Poetry Festival",
+   "short": "BPF",
+   "year": 2026,
+   "dates": "1–2 Aug 2026",
+   "venue": "Indiranagar Sangeetha Sabha, Bengaluru",
+   "url": "https://bengalurupoetryfestival.org/",
+   "logo": "festivals/bpf/logo.png",
+   "base": "festivals/bpf/",
+   "from": 2016,
+   "to": 2025,
+   "years": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+   ],
+   "sched": 2016,
+   "partUrl": "https://bengalurupoetryfestival.org/poets.php",
+   "why": {},
+   "updated": "Nov 2026"
+  },
+  {
    "id": "klf",
    "status": "live",
    "name": "Kerala Literature Festival",

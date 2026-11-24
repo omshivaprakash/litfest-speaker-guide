@@ -15,6 +15,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Hyderabad Literary Festival 2027 (`?f=hlf`) | Live: 135 announced so far (speakers and moderators); history 2021–2026 |
 | Kerala Literature Festival 2026 (`?f=klf`) | Live: 495 speakers with bios, photos and 2026 sessions; history 2023–2024 only |
 | Literature Live! The Mumbai LitFest 2026, 23–25 Oct (`?f=tll`) | Live: 103 speakers with bios, photos and sessions; history 2024–2025; books from the festival's own list |
+| Bengaluru Poetry Festival 2026, 1–2 Aug (`?f=bpf`) | Live: 71 poets with bios and photos; history 2016–2025 (no 2021) |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -75,3 +76,6 @@ Built by `tools/build_klf.py` from the speakers and sessions files the festival'
 
 ## Mumbai (Literature Live!) data
 Built by `tools/build_tll.py` from litlive.in: the speakers pages for 2024–2026, each 2026 speaker page (bio, sessions) and the festival's "Books at the LitFest" lists for 2025 and 2026. The festival states each speaker's role and country, so those are not guessed. Earlier years (before 2024) are not on the site in the same form.
+
+## Bengaluru Poetry Festival data
+Built by `tools/build_bpf.py` from bengalurupoetryfestival.org: the 2026 poets page (bios, photos) and each past year's archive page (poet names). The festival was not held in 2021, so that year is absent. Language and country are read from bios; books and ages are not included.
