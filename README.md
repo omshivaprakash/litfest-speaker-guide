@@ -21,6 +21,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Kalinga Literary Festival 2026, 8–11 Jan (`?f=klf2`) | Live: 132 speakers with bios and photos; earlier years list featured names only (2021, 2022, 2024) |
 | Goa Arts and Literature Festival 2026, 12–14 Feb (`?f=galf`) | Live: 28 speakers with bios and photos; history 2023–2025 (2023 lists only a few names) |
 | Dehradun Literature Festival 2026, 27–29 Nov (`?f=ddlf`) | Live, thin: 55 speakers (names and photos), 2025 history only |
+| Bhopal Literature & Art Festival 2027, 8–10 Jan (`?f=bplf`) | Live: 65 speakers announced so far (with bios), history 2019–2026 |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -105,3 +106,6 @@ The "Across" button opens an overlap grid (people named at both of two festivals
 
 ## Dehradun data
 Built by `tools/build_ddlf.py` from the Wix pages of www.dehradunliteraturefestival.com: /team (2026 speakers, names and photos only) and /archives (the 2025 list; the other year tabs there load on demand and are not included). There are no bios, so gender, country and role are unknown.
+
+## Bhopal data
+Built by `tools/build_bhopal.py` from bhopalliteraturefestival.com: `/event/blf-YYYY/speakers` for 2019–2027 and the 2027 author pages for bios. The 2027 list is partial (announced so far). Gender, country and role come from the bio text only; unknown where the bio is silent. No books are listed yet.

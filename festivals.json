@@ -316,6 +316,36 @@
    "why": {},
    "updated": "Nov 2026",
    "ab": "JLF"
+  },
+  {
+   "id": "bplf",
+   "status": "live",
+   "name": "Bhopal Literature & Art Festival",
+   "short": "Bhopal",
+   "ab": "BPL",
+   "year": 2027,
+   "dates": "8–10 Jan 2027",
+   "venue": "Bharat Bhavan, Bhopal",
+   "url": "https://bhopalliteraturefestival.com/",
+   "logo": "festivals/bplf/logo.png",
+   "base": "festivals/bplf/",
+   "from": 2019,
+   "to": 2026,
+   "years": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026,
+    2027
+   ],
+   "sched": 2026,
+   "partUrl": "https://www.bhopalliteraturefestival.com/event/blf-2027/speakers",
+   "why": {},
+   "updated": "Nov 2026 (2027 speakers announced so far; history 2019–2026)"
   }
  ]
 }
