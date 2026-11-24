@@ -145,3 +145,6 @@ The site is only static files (HTML, JSON, images, fonts): there is no server co
 
 ## Photos and languages
 Photos and covers are WebP. The build scripts write JPEGs, so run `python3 tools/to_webp.py` after any of them (it converts, rewrites `data.json` and removes the JPEGs). Menus and buttons can be switched to Kannada or Hindi (beta) from About or the home page; `i18n.js` holds the labels and only swaps fixed text, never names or bios. Translation corrections are welcome as GitHub issues.
+
+## Moving around
+The festival bar has arrow buttons and fading edges, and scrolls to the festival you are on; "All" returns to the home page. Keyboard: left and right arrows turn pages, Shift with them moves to the previous or next festival, [ and ] switch tabs, Esc closes a window. On a phone, swipe left or right to turn pages.
