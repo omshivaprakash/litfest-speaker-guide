@@ -81,6 +81,30 @@
    "updated": "Nov 2026"
   },
   {
+   "id": "klm",
+   "status": "live",
+   "name": "Kolkata Literary Meet",
+   "short": "KLM",
+   "year": 2026,
+   "dates": "22–26 Jan 2026",
+   "venue": "The Alipore Museum, Kolkata",
+   "url": "https://kolkatalitmeet.in/2026/",
+   "logo": "festivals/klm/logo.png",
+   "base": "festivals/klm/",
+   "from": 2023,
+   "to": 2025,
+   "years": [
+    2023,
+    2024,
+    2025,
+    2026
+   ],
+   "sched": 2023,
+   "partUrl": "https://kolkatalitmeet.in/2026/",
+   "why": {},
+   "updated": "Nov 2026"
+  },
+  {
    "id": "bpf",
    "status": "live",
    "name": "Bengaluru Poetry Festival",
