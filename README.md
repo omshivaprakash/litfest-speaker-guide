@@ -20,6 +20,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Neev Literature Festival 2026, 26–27 Sep (`?f=nlf`) | Live, small: the featured speakers only (about ten a year), history 2023–2025 |
 | Kalinga Literary Festival 2026, 8–11 Jan (`?f=klf2`) | Live: 132 speakers with bios and photos; earlier years list featured names only (2021, 2022, 2024) |
 | Goa Arts and Literature Festival 2026, 12–14 Feb (`?f=galf`) | Live: 28 speakers with bios and photos; history 2023–2025 (2023 lists only a few names) |
+| Dehradun Literature Festival 2026, 27–29 Nov (`?f=ddlf`) | Live, thin: 55 speakers (names and photos), 2025 history only |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -101,3 +102,6 @@ Built by `tools/build_galf.py` from the yearly speaker pages of goaartlitfest.co
 
 ## Across festivals
 The "Across" button opens an overlap grid (people named at both of two festivals, tap a square to list them) and a list of the most-travelled people. It uses the same per-festival `history.json` files as the search and matches people by spelling of their name. Festivals cover different years and some lists are partial, so the numbers are indicative.
+
+## Dehradun data
+Built by `tools/build_ddlf.py` from the Wix pages of www.dehradunliteraturefestival.com: /team (2026 speakers, names and photos only) and /archives (the 2025 list; the other year tabs there load on demand and are not included). There are no bios, so gender, country and role are unknown.

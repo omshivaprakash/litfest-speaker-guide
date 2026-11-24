@@ -110,6 +110,29 @@
    "ab": "KLM"
   },
   {
+   "id": "ddlf",
+   "status": "live",
+   "name": "Dehradun Literature Festival",
+   "short": "Dehradun",
+   "ab": "DDN",
+   "year": 2026,
+   "dates": "27–29 Nov 2026",
+   "venue": "Doon International School, Dehradun",
+   "url": "https://www.dehradunliteraturefestival.com/",
+   "logo": "festivals/ddlf/logo.png",
+   "base": "festivals/ddlf/",
+   "from": 2025,
+   "to": 2025,
+   "years": [
+    2025,
+    2026
+   ],
+   "sched": 2025,
+   "partUrl": "https://www.dehradunliteraturefestival.com/team",
+   "why": {},
+   "updated": "Nov 2026 (names and photos only; 2025 history only)"
+  },
+  {
    "id": "galf",
    "status": "live",
    "name": "Goa Arts and Literature Festival",
