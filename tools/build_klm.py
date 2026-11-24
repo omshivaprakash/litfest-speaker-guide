@@ -70,8 +70,8 @@ for blk in re.split(r'(?=<div class="container m-2 mx-auto" id="speaker_content_
     if not nm: continue
     img=re.search(r'<img src="([^"]+)"',blk); body=blk.split('<h2 class="title t_u">',2)
     bio_html=body[1].split('</h2>',1)[1] if len(body)>1 else ''
-    bio_html,_,sess_html=bio_html.partition('<h2 class="title t_u">Attending Session')
-    sess=[(clean(a),clean(b)) for a,b in re.findall(r'<span class="date">(.*?)</span>(?:<br>|<br/>)?\s*(.*?)(?=<span class="date">|</div>|$)',sess_html,re.S)]
+    sess_html=body[2] if len(body)>2 else ''
+    sess=[(clean(a),clean(b)) for a,b in re.findall(r'<span class="date">(.*?)</span>\s*<br\s*/?>\s*(.*?)(?=<span class="date">|$)',sess_html,re.S)]
     cards.append({'name':clean(nm.group(1)),'img':img.group(1) if img else '','bio_html':bio_html,'sess':sess})
 def work(c):
     sl=re.sub(r'[^a-z0-9]+','-',c['name'].lower()).strip('-'); ok=photo(c['img'],f'{OUT}/ph/{sl}.jpg') if c['img'] else False; time.sleep(.1); return sl,ok
@@ -80,7 +80,7 @@ S=[];TJ={}
 for c,(sl,ok) in zip(cards,ph):
     n=c['name']; k=norm(n); ys=sorted(yrs.get(k,[NOW])); past=[y for y in ys if y<NOW]; full=clean(c['bio_html'])
     cc,cb=country(full) if full else ('Unknown',''); r=role(full) if full else 'Speaker'
-    sess=[[NOW,re.sub(r'\s+',' ',re.sub(r'^.*?:\s*','',t,count=0) if False else t).split(' : ')[0].strip(' :')] for d,t in c['sess'] if t]
+    sess=[[NOW,t.split(' : ')[0].strip(' :')] for d,t in c['sess'] if t]
     S.append({'n':n,'b':short(full),'f':full,'y':ys,'pre':[],'first':0 if past else 1,'g':gender(full) if full else 'u','t':r if r!='Speaker' else 'Other voices','p':0,'r':0,'a':'','l':'','s':sess,'u':sl,'bk':[],
       'lg':[],'le':'','role':r,'nonauth':0 if r in('Author','Prize-winning author','Poet','Playwright') else 1,'cc':cc,'cb':cb,'dia':0,'city':'Kolkata' if re.search(r'kolkata|calcutta',full,re.I) else '','ph':f'ph/{sl}.jpg' if ok else ''})
     TJ[sl]=italics(c['bio_html'])
