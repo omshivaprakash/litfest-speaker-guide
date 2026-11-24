@@ -52,6 +52,9 @@ h2{font:700 1.1rem/1.15 var(--display);margin:0}
 .pn{display:inline-block;padding:0 0 0 0;cursor:pointer;border-bottom:1px dotted var(--line)}
 .prow{display:flex;justify-content:space-between;gap:10px;padding:9px 2px;border-bottom:1px solid var(--line);font-size:14px;cursor:pointer}
 .prow span{color:var(--muted);font-size:12px;white-space:nowrap}
+.grid .card .ph{display:flex}.prog .card .ln{-webkit-line-clamp:1}.prog .card .nm{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.prog>#pdash,.prog>.seg,.prog>.top,.prog>.tabs{flex:0 0 auto}
+.hero{display:flex;gap:12px;align-items:center}.hero .hl{height:56px;width:auto;max-width:34%;object-fit:contain}.hero h1{font-size:clamp(1.15rem,4.4vw,1.9rem)}
+@media (max-height:700px){.prog .top .sub,.prog .hb{display:none}}
 .sl{height:100%;display:flex;flex-direction:column;gap:8px;overflow:hidden}
 .sh h4{margin:0;font:700 17px/1.2 var(--display,Fraunces,serif)}.sh p{margin:2px 0 0;font-size:12px;color:var(--muted)}
 .pk4{grid-template-columns:repeat(4,1fr)!important;gap:6px}.pk4 div{padding:7px 8px}.pk4 b{font-size:19px!important}.pk4 span{font-size:10.5px!important;line-height:1.2}
@@ -435,7 +438,7 @@ var KA=[[74.1,15.0],[74.35,14.4],[74.7,13.6],[74.9,12.9],[75.2,12.6],[75.8,12.1]
 var DIST={'Bengaluru':[77.59,12.97,'ಬೆಂಗಳೂರು'],'Ramanagara':[77.28,12.72,'ರಾಮನಗರ'],'Mysuru':[76.64,12.3,'ಮೈಸೂರು'],'Mandya':[76.9,12.52,'ಮಂಡ್ಯ'],'Chamarajanagar':[77.0,11.92,'ಚಾಮರಾಜನಗರ'],'Dakshina Kannada':[75.0,12.85,'ದಕ್ಷಿಣ ಕನ್ನಡ'],'Udupi':[74.78,13.4,'ಉಡುಪಿ'],'Uttara Kannada':[74.6,14.8,'ಉತ್ತರ ಕನ್ನಡ'],'Chikkamagaluru':[75.78,13.32,'ಚಿಕ್ಕಮಗಳೂರು'],'Tumakuru':[77.1,13.34,'ತುಮಕೂರು'],'Chitradurga':[76.4,14.23,'ಚಿತ್ರದುರ್ಗ'],'Koppal':[76.15,15.35,'ಕೊಪ್ಪಳ'],'Vijayanagara':[76.5,15.15,'ವಿಜಯನಗರ'],'Bagalkot':[75.7,16.18,'ಬಾಗಲಕೋಟೆ'],'Gadag':[75.63,15.43,'ಗದಗ']};
 function progApp(f,D){
 var app=document.querySelector('.app');document.querySelector('.tabs').style.display='none';document.querySelectorAll('.view').forEach(function(v){v.style.display='none'});
-var P={tab:'prog',day:0,fo:0,q:'',pg:0},SS=D.sessions,EN=D.en||{},FOR={},PAGES=[];D.forums.forEach(function(x){FOR[x.id]=x});
+var P={tab:'home',day:0,fo:0,q:'',pg:0,shelf:'start'},SS=D.sessions,EN=D.en||{},FOR={},PAGES=[];D.forums.forEach(function(x){FOR[x.id]=x});
 var cnt={};SS.forEach(function(x){x.pp.forEach(function(p){var n=p[1];(cnt[n]=cnt[n]||{n:n,c:0,r:{}}).c++;cnt[n].r[p[0]]=1})});
 var PL=Object.keys(cnt).map(function(k){return cnt[k]}).sort(function(a,b){return b.c-a.c||a.n.localeCompare(b.n)});
 var el=document.createElement('section');el.className='prog';app.appendChild(el);
@@ -492,11 +495,36 @@ Object.keys(byD).sort(function(a,b){return byD[b].length-byD[a].length}).forEach
 svg+='</svg>';
 var rows=Object.keys(byD).sort(function(a,b){return byD[b].length-byD[a].length}).concat(Object.keys(out)).map(function(k){var L=byD[k]||out[k];return '<div class="prow" style="cursor:default;display:block"><b>'+esc(k)+(DIST[k]?' <span lang="kn" style="font-weight:500;color:var(--muted)">'+DIST[k][2]+'</span>':'')+'</b> <span>'+L.length+'</span><div style="font-size:13px;margin-top:3px" lang="kn">'+L.map(function(x){return '<span class="pn" data-n="'+esc(x[0])+'">'+esc(x[0])+'</span>'}).join(', ')+'</div></div>'});
 return {first:'<div class="it"><p class="en" style="margin:0 0 4px"><b>'+inK+'</b> placed in Karnataka · <b>'+inO+'</b> named from outside · <b>'+(tot-inK-inO)+'</b> no place shown. Schematic outline; places are read from names on the invitation, not where people live.</p>'+svg+'</div>',rows:rows}}
-function shell(){var h='<div class="ph1"><img src="'+esc(f.logo)+'" alt=""><div><h1>'+esc(f.name)+'</h1><p class="kicker opt" style="margin:2px 0 0">'+esc(f.dates)+' · '+esc(f.venue)+'</p></div></div><div class="pt">'+[['prog','Programme'],['ppl','People']].concat(D.places?[['map','Map']]:[]).concat([['viz','Insights']]).map(function(t){return '<button data-t="'+t[0]+'" class="'+(P.tab===t[0]?'on':'')+'">'+t[1]+'</button>'}).join('')+'</div>';
+var TABS=[['home','Discover'],['prog','Programme'],['ppl','People']].concat(D.places?[['map','Map']]:[]).concat([['viz','Insights']]);
+var SUBS={prog:'Every session, with who is on it. Tap a name to find their sessions.',ppl:'Everyone named in the programme.',map:'Where people are from in Karnataka, as far as the invitation shows.',viz:'The programme in numbers.'};
+function shell(){var h='<nav class="tabs" role="tablist">'+TABS.map(function(t){return '<button class="tab" role="tab" data-t="'+t[0]+'" aria-selected="'+(P.tab===t[0])+'">'+t[1]+'</button>'}).join('')+'</nav>';
+if(P.tab==='home'){h+='<div class="top hero"><img class="hl" src="'+esc(f.logo)+'" alt=""><div><p class="kicker">'+esc(f.dates)+' · '+esc(f.venue)+'</p><h1>'+esc(f.name)+' '+f.year+'</h1><p class="sub">Who is speaking, what is on, and where they are from.</p></div></div><div id="pdash"></div><div class="seg" id="pseg"></div>'}
+else h+='<div class="top"><h2>'+TABS.filter(function(t){return t[0]===P.tab})[0][1]+'</h2><p class="sub">'+SUBS[P.tab]+'</p></div>';
 if(P.tab==='prog'){h+='<div class="pc">'+[[0,'All days']].concat(DAYS.map(function(x){return [x.d,x.l]})).map(function(d){return '<button data-d="'+d[0]+'" class="'+(P.day===d[0]?'on':'')+'">'+d[1]+'</button>'}).join('')+'<input id="pq" type="search" placeholder="Search" value="'+esc(P.q)+'"></div>'+(D.forums.length>1?'<div class="pc fr"><button data-fo="0" class="'+(P.fo===0?'on':'')+'">All forums</button>'+D.forums.map(function(x){return '<button data-fo="'+x.id+'" class="'+(P.fo===x.id?'on':'')+'" lang="kn">'+esc(x.k.replace(' ವೇದಿಕೆ',''))+'</button>'}).join('')+'</div>':'')}
 else if(P.tab==='ppl'){h+='<div class="pc"><input id="pq" type="search" placeholder="Search people" value="'+esc(P.q)+'"><span class="en" style="margin:0">'+PL.length+' named · '+PL.filter(function(x){return x.c>1}).length+' in 2+ sessions</span></div>'}
 h+='<div class="pb" id="pb"></div><div class="pager" id="pgr"></div>';el.innerHTML=h}
-function fill(){var pb=$('pb'),items;
+function gl(n){n=n.replace(/^(ಡಾ\.|ಪ್ರೊ\.|ಶ್ರೀ|Dr\.?|Prof\.?)\s*/,'');var m=/^[ಀ-೿][಼-್ೕೖಂಃ]*/.exec(n);return m?m[0]:n.charAt(0)}
+function shelves(){var role={},first={};SS.forEach(function(x,i){x.pp.forEach(function(p){(role[p[1]]=role[p[1]]||{})[p[0]]=1;if(!first[p[1]])first[p[1]]=x})});
+function by(rs){return PL.filter(function(x){return rs.some(function(r){return role[x.n][r]})})}
+var L=[['start','Start here',by(['g','k']).concat(PL.filter(function(x){return x.c>1})).filter(function(x,i,a){return a.indexOf(x)===i})],['sp','Speakers',by(['p'])],['ch','Chairs & hosts',by(['h','m','c'])]];
+var pr=by(['v','s']);if(pr.length)L.push(['pf','Poets & performers',pr]);L.push(['all','Everyone',PL]);
+return {L:L.filter(function(x){return x[2].length}),first:first,role:role}}
+function homeFill(pb){var sh=shelves(),n=PL.length,DM={};var inK=0,inO=0,PLs=D.places||{};Object.keys(PLs).forEach(function(k){if(DIST[PLs[k].d]){inK++;DM[PLs[k].d]=(DM[PLs[k].d]||0)+1;}else inO++});
+var th={};SS.forEach(function(x){var t=x.th||'Other';th[t]=(th[t]||0)+1});var tk=Object.keys(th).sort(function(a,b){return th[b]-th[a]}),mx=th[tk[0]];
+var d1=SS.filter(function(x){return x.d===1}).length,d2=SS.length-d1,rp=0,ro=0;SS.forEach(function(x){x.pp.forEach(function(p){if(p[0]==='p')rp++;else ro++})});
+function gb(lab,a,b,ca,cb){var t=a+b;return '<div class="gr"><div>'+lab+'</div><div class="tr"><b style="width:'+pct(a,t)+'%;background:'+ca+'">'+pct(a,t)+'%</b><b style="width:'+pct(b,t)+'%;background:'+cb+'">'+(pct(b,t)>8?pct(b,t)+'%':'')+'</b></div></div>'}
+var o={w:300,h:400,x0:73.8,x1:78.8,y0:11.3,y1:18.7},pr=proj(o),mp='';if(D.places){mp='<svg class="map" viewBox="0 0 300 400" role="img" aria-label="Karnataka"><polygon class="land" points="'+KA.map(function(p){return pr.x(p[0]).toFixed(1)+','+pr.y(p[1]).toFixed(1)}).join(' ')+'"/>';Object.keys(DM).forEach(function(k){mp+=bub(pr,DIST[k],DM[k],'data-dist',k,'',6,7,false)});mp+='</svg>'}
+$('pdash').innerHTML='<div class="kpis"><button class="kpi" data-kpi="prog"><b>'+SS.length+'</b><span>sessions</span></button><button class="kpi" data-kpi="ppl"><b>'+n+'</b><span>named people</span></button><button class="kpi" data-kpi="viz"><b>'+(D.forums.length||DAYS.length)+'</b><span>'+(D.forums.length?'forums, '+DAYS.length+' days':'days')+'</span></button>'+(D.places?'<button class="kpi" data-kpi="map"><b>'+inK+'</b><span>placed in Karnataka, '+Object.keys(DM).length+' districts</span></button>':'<button class="kpi" data-kpi="viz"><b>'+PL.filter(function(x){return x.c>1}).length+'</b><span>in 2+ sessions</span></button>')+'</div>'+
+'<div class="mini"><div class="panel" data-kpi="map"><h5>Where they are from</h5>'+mp+'</div><div class="panel" data-kpi="viz"><h5>Sessions by theme</h5><div class="vc">'+tk.map(function(k){return '<div title="'+esc(k+': '+th[k])+'"><div class="col" style="height:'+(th[k]/mx*100)+'%"><b style="height:100%;background:'+(TC[k]||TC.Other)+'"></b></div><div class="y">'+th[k]+'</div></div>'}).join('')+'</div></div></div>'+
+'<div class="hb"><div data-kpi="prog" style="cursor:pointer">'+gb('Day 1 · Day 2',d1,d2,'var(--accent)','var(--fg)')+'</div><div data-kpi="viz" style="cursor:pointer">'+gb('Speakers · others',rp,ro,'var(--accent)','var(--fg)')+'</div></div>';
+if(!sh.L.some(function(x){return x[0]===P.shelf}))P.shelf=sh.L[0][0];
+$('pseg').innerHTML=sh.L.map(function(x){return '<button class="pill" data-shelf="'+x[0]+'" aria-pressed="'+(P.shelf===x[0])+'">'+x[1]+'</button>'}).join('');
+var L=sh.L.filter(function(x){return x[0]===P.shelf})[0][2];
+var w=pb.clientWidth,h=pb.clientHeight,gap=10,target=Math.min(w>700?150:104,Math.max(44,h-86)),cols=Math.max(2,Math.ceil((w+gap)/(target+gap))),per=cols;
+var N=Math.max(1,Math.ceil(L.length/per));if(P.pg>=N)P.pg=N-1;
+pb.innerHTML='<div class="grid" style="grid-template-columns:repeat('+cols+',minmax(0,1fr))">'+L.slice(P.pg*per,P.pg*per+per).map(function(x){var fs=sh.first[x.n],rk=Object.keys(sh.role[x.n])[0];return '<button class="card" data-n="'+esc(x.n)+'"><div class="ph" lang="kn">'+esc(gl(x.n))+'</div><div class="nm" lang="kn">'+esc(x.n)+'</div><div class="ln" lang="kn">'+esc(RL[rk]+' · '+fs.k)+'</div></button>'}).join('')+'</div>';
+PAGES=new Array(N);$('pgr').innerHTML='<button class="pbtn" data-pp="-1"'+(P.pg<=0?' disabled':'')+'>‹ Prev</button><span>Page '+(P.pg+1)+' of '+N+'</span><button class="pbtn" data-pp="1"'+(P.pg>=N-1?' disabled':'')+'>Next ›</button>'}
+function fill(){var pb=$('pb'),items;if(P.tab==='home'){homeFill(pb);return}
 if(P.tab==='prog')PAGES=pagesFrom(SS.filter(function(x){return(!P.day||x.d===P.day)&&(!P.fo||x.f===P.fo||x.f===0)&&match(x)}).map(card),pb);
 else if(P.tab==='ppl'){var q=P.q.toLowerCase();PAGES=pagesFrom(PL.filter(function(x){return !q||(x.n+' '+(EN[x.n]||'')).toLowerCase().indexOf(q)>-1}).map(function(x){return '<div class="prow" data-n="'+esc(x.n)+'"><div lang="kn">'+nm(x.n)+'</div><span>'+x.c+' session'+(x.c>1?'s':'')+'</span></div>'}),pb)}
 else if(P.tab==='map'){var m=mapPage(pb);PAGES=[m.first].concat(pagesFrom(m.rows,pb))}
@@ -507,7 +535,7 @@ $('pgr').innerHTML='<button class="pbtn" data-pp="-1"'+(P.pg<=0?' disabled':'')+
 function all(){shell();fill()}
 el.addEventListener('click',function(e){var b=e.target.closest('button'),n=e.target.closest('[data-n]');
 if(b&&b.dataset.pp){P.pg+=+b.dataset.pp;fill()}
-else if(b&&b.dataset.t){P.tab=b.dataset.t;P.q='';P.pg=0;all()}else if(b&&b.dataset.d!==undefined){P.day=+b.dataset.d;P.pg=0;all()}else if(b&&b.dataset.fo!==undefined){P.fo=+b.dataset.fo;P.pg=0;all()}
+else if(b&&b.dataset.t){P.tab=b.dataset.t;P.q='';P.pg=0;all()}else if(b&&b.dataset.shelf){P.shelf=b.dataset.shelf;P.pg=0;fill()}else if(e.target.closest('[data-kpi]')){P.tab=e.target.closest('[data-kpi]').dataset.kpi;P.q='';P.pg=0;all()}else if(b&&b.dataset.d!==undefined){P.day=+b.dataset.d;P.pg=0;all()}else if(b&&b.dataset.fo!==undefined){P.fo=+b.dataset.fo;P.pg=0;all()}
 else if(n){P.tab='prog';P.q=n.dataset.n;P.day=0;P.fo=0;P.pg=0;all()}});
 el.addEventListener('input',function(e){if(e.target.id==='pq'){P.q=e.target.value;P.pg=0;fill()}});
 var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(fill,120)});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fill);
