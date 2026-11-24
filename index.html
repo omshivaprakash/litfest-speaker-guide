@@ -601,7 +601,7 @@ if(f.type==='programme'&&f.status==='live'){return fetch(f.base+'data.json?v='+B
 if(f.status!=='live'){document.querySelector('.tabs').style.display='none';document.querySelectorAll('.view').forEach(function(v){v.style.display='none'});
 var d=document.createElement('section');d.className='soon';d.innerHTML=(f.logo?'<img src="'+esc(f.logo)+'" alt="">':'')+'<h2>'+esc(f.name)+'</h2><p>'+esc(f.note||'Speaker guide coming soon.')+'</p><a class="btn" target="_blank" rel="noopener" href="'+esc(f.url)+'">Visit the official site</a>';document.querySelector('.app').appendChild(d);return}
 $('kick').textContent=f.dates+' \u00B7 '+f.venue;$('h1').textContent=f.name+' '+f.year;$('trkr').textContent='Presence '+f.from+' to '+f.year+' (orange is '+f.year+').';
-for(var y=f.from;y<=f.year;y++)YRS.push(y);
+if(f.years)f.years.forEach(function(y){YRS.push(y)});else for(var y=f.from;y<=f.year;y++)YRS.push(y);
 SH[1][1]='New to '+f.short;var base=f.base;WHY=f.why||{};START=Object.keys(WHY);
 return Promise.all([fetch(base+'data.json?v='+BUILD).then(function(r){return r.json()}),fetch(base+'stats.json?v='+BUILD).then(function(r){return r.json()})]).then(function(a){S=a[0];ST=a[1];
 S.forEach(function(o){if(o.ph)o.ph=base+o.ph;(o.bk||[]).forEach(function(b){if(b.c)b.c=base+b.c})});

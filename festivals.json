@@ -55,6 +55,28 @@
    "base": "festivals/jn/"
   },
   {
+   "id": "klf",
+   "status": "live",
+   "name": "Kerala Literature Festival",
+   "short": "KLF",
+   "year": 2026,
+   "dates": "22–25 Jan 2026 (next: 21–24 Jan 2027)",
+   "venue": "Kozhikode Beach, Kerala",
+   "url": "https://keralaliteraturefestival.com/",
+   "logo": "festivals/klf/logo.png",
+   "base": "festivals/klf/",
+   "from": 2023,
+   "to": 2024,
+   "years": [
+    2023,
+    2024,
+    2026
+   ],
+   "sched": 2023,
+   "partUrl": "https://keralaliteraturefestival.com/speakers",
+   "why": {}
+  },
+  {
    "id": "bbl",
    "type": "programme",
    "status": "live",
