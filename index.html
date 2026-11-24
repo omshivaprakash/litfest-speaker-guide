@@ -65,6 +65,7 @@ h2{font:700 1.1rem/1.15 var(--display);margin:0}
 .sbar{display:flex;height:16px;border-radius:5px;overflow:hidden;gap:2px}.sbar i{display:block}
 .callout{border:1px solid var(--line);border-radius:12px;padding:8px 11px;background:#fff;font-size:12.5px}.callout b{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600}.callout span{font:800 18px var(--display,Fraunces,serif);color:var(--accent)}.callout em{display:block;font-style:normal;margin-top:2px}
 .chips{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:4px}.chips small{color:var(--muted)}
+.pr2{align-items:center;gap:10px}.pr2 .th{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:center 20%;flex:0 0 auto;background:var(--surface)}.pr2 small{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;color:var(--muted);font-size:11.5px}
 .vb{display:grid;grid-template-columns:118px 1fr 26px;gap:6px;align-items:center;font-size:12px;margin:4px 0}.vb i{display:block;height:12px;background:var(--accent);border-radius:3px;min-width:2px}.vb span:last-child{color:var(--muted);text-align:right}
 .vh{font:600 12px var(--body);margin:14px 0 4px;color:var(--fg)}.vh small{font-weight:400;color:var(--muted)}
 .tlr text{font-size:9.5px;fill:var(--muted)}.tlr rect.b{rx:3}
@@ -433,7 +434,7 @@ $('tq').addEventListener('keydown',function(e){if(e.key==='Enter')$('tadd').clic
 $('tbody').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(b){delete stars[S[+b.dataset.rm].n];save();tracker();return}var c=e.target.closest('[data-open]');if(c)openSheet(+c.dataset.open,c)});
 /* boot */
 
-var BUILD='20261124c';var FC=['#7c2d12','#1e3a5f','#14532d','#581c87','#3f3f46'],RL={p:'Speakers',c:'Moderator',m:'Host',r:'Respondents',g:'Guests',s:'Performers',h:'Chair',k:'Opening talk',v:'Poets'};
+var BUILD='20261124d';var FC=['#7c2d12','#1e3a5f','#14532d','#581c87','#831843','#155e75','#a16207','#3f6212','#9a3412'],MAINC='#3f3f46',RL={p:'Speakers',c:'Moderator',m:'Host',r:'Respondents',g:'Guests',s:'Performers',h:'Chair',k:'Opening talk',v:'Poets'};
 var KA=[[74.1,15.0],[74.35,14.4],[74.7,13.6],[74.9,12.9],[75.2,12.6],[75.8,12.1],[76.5,11.6],[77.2,11.65],[77.9,12.0],[78.4,12.8],[78.4,13.1],[77.6,13.3],[77.5,13.9],[77.8,14.4],[77.4,15.1],[77.6,16.1],[77.9,17.4],[77.2,18.45],[76.8,18.0],[76.3,17.6],[75.5,17.3],[75.0,17.1],[74.6,16.7],[74.2,15.9],[74.1,15.7]];
 var DIST={'Bengaluru':[77.59,12.97,'ಬೆಂಗಳೂರು'],'Ramanagara':[77.28,12.72,'ರಾಮನಗರ'],'Mysuru':[76.64,12.3,'ಮೈಸೂರು'],'Mandya':[76.9,12.52,'ಮಂಡ್ಯ'],'Chamarajanagar':[77.0,11.92,'ಚಾಮರಾಜನಗರ'],'Dakshina Kannada':[75.0,12.85,'ದಕ್ಷಿಣ ಕನ್ನಡ'],'Udupi':[74.78,13.4,'ಉಡುಪಿ'],'Uttara Kannada':[74.6,14.8,'ಉತ್ತರ ಕನ್ನಡ'],'Chikkamagaluru':[75.78,13.32,'ಚಿಕ್ಕಮಗಳೂರು'],'Tumakuru':[77.1,13.34,'ತುಮಕೂರು'],'Chitradurga':[76.4,14.23,'ಚಿತ್ರದುರ್ಗ'],'Koppal':[76.15,15.35,'ಕೊಪ್ಪಳ'],'Vijayanagara':[76.5,15.15,'ವಿಜಯನಗರ'],'Bagalkot':[75.7,16.18,'ಬಾಗಲಕೋಟೆ'],'Gadag':[75.63,15.43,'ಗದಗ']};
 function progApp(f,D){
@@ -442,11 +443,11 @@ var P={tab:'home',day:0,fo:0,q:'',pg:0,shelf:'start'},SS=D.sessions,EN=D.en||{},
 var cnt={};SS.forEach(function(x){x.pp.forEach(function(p){var n=p[1];(cnt[n]=cnt[n]||{n:n,c:0,r:{}}).c++;cnt[n].r[p[0]]=1})});
 var PL=Object.keys(cnt).map(function(k){return cnt[k]}).sort(function(a,b){return b.c-a.c||a.n.localeCompare(b.n)});
 var el=document.createElement('section');el.className='prog';app.appendChild(el);
-var DAYS=D.days||[{d:1,l:'Sat 28 Nov'},{d:2,l:'Sun 29 Nov'}];
+var DAYS=D.days||[{d:1,l:'Sat 28 Nov'},{d:2,l:'Sun 29 Nov'}],BIO=D.bios||{};
 function nm(n){return EN[n]?esc(n)+' <span style="color:var(--muted);font-size:12px">'+esc(EN[n])+'</span>':esc(n)}
 function match(x){var q=P.q.toLowerCase();if(!q)return true;return (x.k+' '+x.e+' '+x.pp.map(function(p){return p[1]+' '+(EN[p[1]]||'')}).join(' ')).toLowerCase().indexOf(q)>-1}
 function card(x){var g={};x.pp.forEach(function(p){(g[p[0]]=g[p[0]]||[]).push(p[1])});
-var h='<div class="sc"><div class="m"><span>Day '+x.d+' · '+x.t+'</span>'+(x.f?'<span class="fg" style="background:'+FC[x.f-1]+'">'+esc(FOR[x.f].e.replace(' forum',''))+'</span>':(D.forums.length?'<span class="fg" style="background:'+FC[4]+'">Main stage</span>':''))+'</div><h3 lang="kn">'+esc(x.k)+'</h3>'+(x.e&&x.e!==x.k?'<p class="en">'+esc(x.e)+'</p>':'');
+var h='<div class="sc"><div class="m"><span>Day '+x.d+' · '+x.t+'</span>'+(x.f?'<span class="fg" style="background:'+FC[(x.f-1)%FC.length]+'">'+esc(FOR[x.f].e.replace(' forum',''))+'</span>':(D.forums.length?'<span class="fg" style="background:'+MAINC+'">Main stage</span>':''))+'</div><h3 lang="kn">'+esc(x.k)+'</h3>'+(x.e&&x.e!==x.k?'<p class="en">'+esc(x.e)+'</p>':'');
 ['g','h','k','p','v','s','c','m','r'].forEach(function(r){if(g[r])h+='<div class="pp"><b>'+RL[r]+'</b>'+g[r].map(function(n){return '<span class="pn" lang="kn" data-n="'+esc(n)+'">'+nm(n)+'</span>'}).join(', ')+'</div>'});
 return h+'</div>'}
 /* greedy pagination: render every item once, measure, then group so a page never overflows */
@@ -458,6 +459,7 @@ if(cur.length)pages.push(cur);pb.style.visibility='';return pages.map(function(p
 function tm(x){var m=/(\d+):(\d+)/.exec(x);var h=+m[1]+(+m[2])/60;return h<8?h+12:h}
 function span(t){var q=t.split('–');var a=tm(q[0]);var b=q[1]?tm(q[1]):a+1;if(b<=a)b+=12;return [a,b]}
 function bars(M,col){var mx=Math.max.apply(null,M.map(function(x){return x[1]}));return M.map(function(x){return '<div class="vb"><span>'+esc(x[0])+'</span><i style="width:'+(x[1]/mx*100)+'%;'+(col?'background:'+col:'')+'"></i><span>'+x[1]+'</span></div>'}).join('')}
+var LCOL={'Kannada':'#c2410c','English':'#1e3a5f','Telugu':'#0e7490','Tamil':'#7c3aed','Malayalam':'#14532d','Bengali':'#b91c1c','Multilingual':'#a16207','Hindi':'#831843','Language not stated':'#a8a29e'};function tcol(k){return TC[k]||LCOL[k]||TC.Other}
 var TC={'Ceremony & performance':'#a16207','Technology & AI':'#0e7490','Politics & society':'#b91c1c','Arts, theatre & music':'#7c3aed','Language, editing & knowledge':'#1e3a5f','Literature & criticism':'#c2410c','Other':'#78716c'};
 function vizSlides(pb){var N=PL.length,slots=0,rc={},th={},sz={},mxS=null,hrs=0;
 SS.forEach(function(x){var u={};x.pp.forEach(function(p){slots++;rc[p[0]]=(rc[p[0]]||0)+1;u[p[1]]=1});var n=Object.keys(u).length;sz[n>=8?'8+':n]=(sz[n>=8?'8+':n]||0)+1;var t=x.th||'Other';th[t]=(th[t]||0)+1;var sp=span(x.t);hrs+=sp[1]-sp[0];if(!mxS||sp[1]-sp[0]>mxS[0])mxS=[sp[1]-sp[0],x]});
@@ -466,27 +468,31 @@ function tile(b,l){return '<div><b>'+b+'</b><span>'+l+'</span></div>'}
 function head(t,sub){return '<div class="sh"><h4>'+t+'</h4><p>'+sub+'</p></div>'}
 /* slide 1: timeline coloured by theme */
 var lanes=D.forums.length?[{id:0,e:'Main'}].concat(D.forums.map(function(x){return {id:x.id,e:x.e.replace(' forum','').replace('Samskriti Sampada','Culture').replace('Classical and scholarly','Classical')}})):[{id:0,e:'Sessions'}];
-var s1=head('Programme at a glance','Each block is a session, coloured by theme. '+SS.length+' sessions over '+DAYS.length+' days.')+'<div class="pk pk4">'+tile(SS.length,'sessions')+tile(N,'named people')+tile(hrs%1?hrs.toFixed(1):hrs,'hours of programme')+tile((slots/SS.length).toFixed(1),'people per session')+'</div>';
-DAYS.forEach(function(dy){var LH=D.forums.length?26:44,W=360,x0=60,hs=[9,19],H=lanes.length*LH+20;function X(t){return x0+(t-hs[0])/(hs[1]-hs[0])*(W-x0-14)}
+var many=lanes.length>5,mxE=19;SS.forEach(function(x){mxE=Math.max(mxE,Math.ceil(span(x.t)[1]))});
+var tiles4='<div class="pk pk4">'+tile(SS.length,'sessions')+tile(N,'named people')+tile(hrs%1?hrs.toFixed(1):hrs,'hours of programme')+tile((slots/SS.length).toFixed(1),'people per session')+'</div>';
+var lgd='<div class="lg">'+Object.keys(th).sort(function(a,b){return th[b]-th[a]}).map(function(k){return '<span><i style="background:'+tcol(k)+'"></i>'+esc(k)+'</span>'}).join('')+'</div>';
+function tlFor(dy,LH){var W=360,x0=many?66:60,hs=[9,mxE],H=lanes.length*LH+20;function X(t){return x0+(t-hs[0])/(hs[1]-hs[0])*(W-x0-14)}
 var sv='<svg class="tlr" viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto" role="img" aria-label="Timeline, '+esc(dy.l)+'">';
 for(var t=hs[0];t<=hs[1];t+=2)sv+='<path d="M'+X(t)+' 0V'+(H-16)+'" stroke="#e4e2dc"/><text x="'+X(t)+'" y="'+(H-4)+'" text-anchor="middle">'+(t>12?t-12:t)+(t>=12?'pm':'am')+'</text>';
 lanes.forEach(function(l,i){sv+='<text x="1" y="'+(i*LH+LH/2+3)+'">'+esc(l.e)+'</text>'});
-SS.filter(function(x){return x.d===dy.d}).forEach(function(x){var sp=span(x.t),li=D.forums.length?(x.f===0?0:x.f):0;sv+='<rect x="'+X(sp[0]).toFixed(1)+'" y="'+(li*LH+3)+'" width="'+Math.max(3,X(sp[1])-X(sp[0])-1.5).toFixed(1)+'" height="'+(LH-6)+'" rx="3" fill="'+(TC[x.th]||TC.Other)+'"><title>'+esc(x.t+' '+x.e)+'</title></rect>'});
-s1+='<div class="tld"><p class="vh">'+esc(dy.l)+'</p>'+sv+'</svg></div>'});
-s1+='<div class="lg">'+Object.keys(th).map(function(k){return '<span><i style="background:'+TC[k]+'"></i>'+esc(k)+'</span>'}).join('')+'</div>';
+SS.filter(function(x){return x.d===dy.d}).forEach(function(x){var sp=span(x.t),li=D.forums.length?(x.f===0?0:x.f):0;sv+='<rect x="'+X(sp[0]).toFixed(1)+'" y="'+(li*LH+3)+'" width="'+Math.max(3,X(sp[1])-X(sp[0])-1.5).toFixed(1)+'" height="'+(LH-6)+'" rx="3" fill="'+tcol(x.th)+'"><title>'+esc(x.t+' '+x.e)+'</title></rect>'});
+return '<div class="tld"><p class="vh">'+esc(dy.l)+'</p>'+sv+'</svg></div>'}
+var s1s=[];
+if(!many){var s1=head('Programme at a glance','Each block is a session, coloured by '+(D.themeLabel||'theme')+'. '+SS.length+' sessions over '+DAYS.length+' days.')+tiles4;DAYS.forEach(function(dy){s1+=tlFor(dy,D.forums.length?26:44)});s1s.push(s1+lgd)}
+else{var td=DAYS.filter(function(dy){return SS.filter(function(x){return x.d===dy.d}).length>=3}),LH=Math.max(14,Math.min(30,Math.floor((pb.clientHeight-150)/lanes.length)));td.forEach(function(dy,i){s1s.push(head(i?esc(dy.l)+' at a glance':'Programme at a glance','Each block is a session, coloured by '+(D.themeLabel||'theme')+'. '+SS.length+' sessions over '+DAYS.length+' days.')+(i?'':tiles4)+tlFor(dy,LH)+lgd)})}
 /* slide 2: donut of themes + role bar */
 var ks=Object.keys(th).sort(function(a,b){return th[b]-th[a]}),tot=SS.length,R=40,C=2*Math.PI*R,off=0,dn='<svg viewBox="0 0 120 120" class="dn" role="img" aria-label="Sessions by theme"><g transform="rotate(-90 60 60)">';
-ks.forEach(function(k){var l=th[k]/tot*C;dn+='<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="'+TC[k]+'" stroke-width="20" stroke-dasharray="'+l.toFixed(2)+' '+(C-l).toFixed(2)+'" stroke-dashoffset="'+(-off).toFixed(2)+'"><title>'+esc(k)+': '+th[k]+'</title></circle>';off+=l});
+ks.forEach(function(k){var l=th[k]/tot*C;dn+='<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="'+tcol(k)+'" stroke-width="20" stroke-dasharray="'+l.toFixed(2)+' '+(C-l).toFixed(2)+'" stroke-dashoffset="'+(-off).toFixed(2)+'"><title>'+esc(k)+': '+th[k]+'</title></circle>';off+=l});
 dn+='</g><text x="60" y="58" text-anchor="middle" style="font:800 20px Fraunces,serif;fill:var(--fg)">'+tot+'</text><text x="60" y="72" text-anchor="middle" style="font:500 8px Inter,sans-serif;fill:var(--muted)">sessions</text></svg>';
 var rk=Object.keys(rc).sort(function(a,b){return rc[b]-rc[a]}),RC=['#1b1d22','#c2410c','#0e7490','#7c3aed','#b91c1c','#a16207','#14532d','#1e3a5f','#78716c'];
-var s2=head('What it is about','Themes are tagged from session titles, so treat them as a guide.')+'<div class="grow dnw">'+dn+'<div class="lgv">'+ks.map(function(k){return '<div><i style="background:'+TC[k]+'"></i><span>'+esc(k)+'</span><b>'+th[k]+'</b></div>'}).join('')+'</div></div>'
+var s2=head('What it is about','Themes are tagged from session titles, so treat them as a guide.')+'<div class="grow dnw">'+dn+'<div class="lgv">'+ks.map(function(k){return '<div><i style="background:'+tcol(k)+'"></i><span>'+esc(k)+'</span><b>'+th[k]+'</b></div>'}).join('')+'</div></div>'
 +'<p class="vh">Who does what <small>'+slots+' appearances</small></p><div class="sbar">'+rk.map(function(k,i){return '<i style="flex:'+rc[k]+';background:'+RC[i%RC.length]+'" title="'+esc(RL[k]+': '+rc[k])+'"></i>'}).join('')+'</div><div class="lg">'+rk.map(function(k,i){return '<span><i style="background:'+RC[i%RC.length]+'"></i>'+RL[k]+' '+rc[k]+'</span>'}).join('')+'</div>';
 /* slide 3: panel sizes as columns + repeat names + longest */
 var keys=['0','1','2','3','4','5','6','7','8+'].filter(function(k){return sz[k]}),mx=Math.max.apply(null,keys.map(function(k){return sz[k]})),BW=300/(keys.length),cs='<svg viewBox="0 0 300 130" class="cols" role="img" aria-label="People per session" style="width:100%;height:100%;max-height:170px">';
 keys.forEach(function(k,i){var hh=sz[k]/mx*88,x=i*BW+BW*.15;cs+='<rect x="'+x.toFixed(1)+'" y="'+(104-hh).toFixed(1)+'" width="'+(BW*.7).toFixed(1)+'" height="'+hh.toFixed(1)+'" rx="3" fill="#0e7490"/><text x="'+(x+BW*.35).toFixed(1)+'" y="'+(100-hh).toFixed(1)+'" text-anchor="middle" style="font:700 11px Inter,sans-serif;fill:var(--fg)">'+sz[k]+'</text><text x="'+(x+BW*.35).toFixed(1)+'" y="120" text-anchor="middle" style="font:500 10px Inter,sans-serif;fill:var(--muted)">'+k+'</text>'});
 cs+='</svg>';
 var s3=head('Who is on stage','Sessions by number of named people.')+'<div class="grow">'+cs+'</div><div class="callout"><b>Longest session</b><span>'+(mxS[0]%1?mxS[0].toFixed(2):mxS[0])+' hours</span><em lang="kn">'+esc(mxS[1].k)+'</em></div><div class="callout"><b>In more than one session</b><span>'+multi.length+' of '+N+' people</span>'+(multi.length?'<div class="chips">'+multi.slice(0,8).map(function(x){return '<a class="pn" lang="kn" data-n="'+esc(x.n)+'">'+esc(x.n)+' <small>×'+x.c+'</small></a>'}).join('')+'</div>':'<em>Everyone appears once.</em>')+'</div>';
-return [s1,s2,s3].map(function(x){return '<div class="sl">'+x+'</div>'})}
+return s1s.concat([s2,s3]).map(function(x){return '<div class="sl">'+x+'</div>'})}
 function mapPage(pb){var PLs=D.places||{},byD={},out={};Object.keys(PLs).forEach(function(n){var v=PLs[n];if(DIST[v.d])(byD[v.d]=byD[v.d]||[]).push([n,v.w]);else(out[v.d]=out[v.d]||[]).push([n,v.w])});
 var tot=PL.length,inK=0,inO=0;Object.keys(byD).forEach(function(k){inK+=byD[k].length});Object.keys(out).forEach(function(k){inO+=out[k].length});
 var o={w:300,h:400,x0:73.8,x1:78.8,y0:11.3,y1:18.7},pr=proj(o),hh=Math.max(150,pb.clientHeight-58);
@@ -506,7 +512,8 @@ h+='<div class="pb" id="pb"></div><div class="pager" id="pgr"></div>';el.innerHT
 function gl(n){n=n.replace(/^(ಡಾ\.|ಪ್ರೊ\.|ಶ್ರೀ|Dr\.?|Prof\.?)\s*/,'');var m=/^[ಀ-೿][಼-್ೕೖಂಃ]*/.exec(n);return m?m[0]:n.charAt(0)}
 function shelves(){var role={},first={};SS.forEach(function(x,i){x.pp.forEach(function(p){(role[p[1]]=role[p[1]]||{})[p[0]]=1;if(!first[p[1]])first[p[1]]=x})});
 function by(rs){return PL.filter(function(x){return rs.some(function(r){return role[x.n][r]})})}
-var L=[['start','Start here',by(['g','k']).concat(PL.filter(function(x){return x.c>1})).filter(function(x,i,a){return a.indexOf(x)===i})],['sp','Speakers',by(['p'])],['ch','Chairs & hosts',by(['h','m','c'])]];
+var st0=by(['g','k']).concat(PL.filter(function(x){return x.c>1})).filter(function(x,i,a){return a.indexOf(x)===i});if(st0.length<12)st0=st0.concat(PL.filter(function(x){return BIO[x.n]&&BIO[x.n].ph&&st0.indexOf(x)<0}).slice(0,24));
+var L=[['start','Start here',st0],['sp','Speakers',by(['p'])],['ch','Chairs & hosts',by(['h','m','c'])]];
 var pr=by(['v','s']);if(pr.length)L.push(['pf','Poets & performers',pr]);L.push(['all','Everyone',PL]);
 return {L:L.filter(function(x){return x[2].length}),first:first,role:role}}
 function homeFill(pb){var sh=shelves(),n=PL.length,DM={};var inK=0,inO=0,PLs=D.places||{};Object.keys(PLs).forEach(function(k){if(DIST[PLs[k].d]){inK++;DM[PLs[k].d]=(DM[PLs[k].d]||0)+1;}else inO++});
@@ -515,18 +522,18 @@ var d1=SS.filter(function(x){return x.d===1}).length,d2=SS.length-d1,rp=0,ro=0;S
 function gb(lab,a,b,ca,cb){var t=a+b;return '<div class="gr"><div>'+lab+'</div><div class="tr"><b style="width:'+pct(a,t)+'%;background:'+ca+'">'+pct(a,t)+'%</b><b style="width:'+pct(b,t)+'%;background:'+cb+'">'+(pct(b,t)>8?pct(b,t)+'%':'')+'</b></div></div>'}
 var o={w:300,h:400,x0:73.8,x1:78.8,y0:11.3,y1:18.7},pr=proj(o),mp='';if(D.places){mp='<svg class="map" viewBox="0 0 300 400" role="img" aria-label="Karnataka"><polygon class="land" points="'+KA.map(function(p){return pr.x(p[0]).toFixed(1)+','+pr.y(p[1]).toFixed(1)}).join(' ')+'"/>';Object.keys(DM).forEach(function(k){mp+=bub(pr,DIST[k],DM[k],'data-dist',k,'',6,7,false)});mp+='</svg>'}
 $('pdash').innerHTML='<div class="kpis"><button class="kpi" data-kpi="prog"><b>'+SS.length+'</b><span>sessions</span></button><button class="kpi" data-kpi="ppl"><b>'+n+'</b><span>named people</span></button><button class="kpi" data-kpi="viz"><b>'+(D.forums.length||DAYS.length)+'</b><span>'+(D.forums.length?'forums, '+DAYS.length+' days':'days')+'</span></button>'+(D.places?'<button class="kpi" data-kpi="map"><b>'+inK+'</b><span>placed in Karnataka, '+Object.keys(DM).length+' districts</span></button>':'<button class="kpi" data-kpi="viz"><b>'+PL.filter(function(x){return x.c>1}).length+'</b><span>in 2+ sessions</span></button>')+'</div>'+
-'<div class="mini"><div class="panel" data-kpi="map"><h5>Where they are from</h5>'+mp+'</div><div class="panel" data-kpi="viz"><h5>Sessions by theme</h5><div class="vc">'+tk.map(function(k){return '<div title="'+esc(k+': '+th[k])+'"><div class="col" style="height:'+(th[k]/mx*100)+'%"><b style="height:100%;background:'+(TC[k]||TC.Other)+'"></b></div><div class="y">'+th[k]+'</div></div>'}).join('')+'</div></div></div>'+
+'<div class="mini"><div class="panel" data-kpi="map"><h5>Where they are from</h5>'+mp+'</div><div class="panel" data-kpi="viz"><h5>Sessions by theme</h5><div class="vc">'+tk.map(function(k){return '<div title="'+esc(k+': '+th[k])+'"><div class="col" style="height:'+(th[k]/mx*100)+'%"><b style="height:100%;background:'+tcol(k)+'"></b></div><div class="y">'+th[k]+'</div></div>'}).join('')+'</div></div></div>'+
 '<div class="hb"><div data-kpi="prog" style="cursor:pointer">'+gb('Day 1 · Day 2',d1,d2,'var(--accent)','var(--fg)')+'</div><div data-kpi="viz" style="cursor:pointer">'+gb('Speakers · others',rp,ro,'var(--accent)','var(--fg)')+'</div></div>';
 if(!sh.L.some(function(x){return x[0]===P.shelf}))P.shelf=sh.L[0][0];
 $('pseg').innerHTML=sh.L.map(function(x){return '<button class="pill" data-shelf="'+x[0]+'" aria-pressed="'+(P.shelf===x[0])+'">'+x[1]+'</button>'}).join('');
 var L=sh.L.filter(function(x){return x[0]===P.shelf})[0][2];
 var w=pb.clientWidth,h=pb.clientHeight,gap=10,target=Math.min(w>700?150:104,Math.max(44,h-86)),cols=Math.max(2,Math.ceil((w+gap)/(target+gap))),per=cols;
 var N=Math.max(1,Math.ceil(L.length/per));if(P.pg>=N)P.pg=N-1;
-pb.innerHTML='<div class="grid" style="grid-template-columns:repeat('+cols+',minmax(0,1fr))">'+L.slice(P.pg*per,P.pg*per+per).map(function(x){var fs=sh.first[x.n],rk=Object.keys(sh.role[x.n])[0];return '<button class="card" data-n="'+esc(x.n)+'"><div class="ph" lang="kn">'+esc(gl(x.n))+'</div><div class="nm" lang="kn">'+esc(x.n)+'</div><div class="ln" lang="kn">'+esc(RL[rk]+' · '+fs.k)+'</div></button>'}).join('')+'</div>';
+pb.innerHTML='<div class="grid" style="grid-template-columns:repeat('+cols+',minmax(0,1fr))">'+L.slice(P.pg*per,P.pg*per+per).map(function(x){var fs=sh.first[x.n],rk=Object.keys(sh.role[x.n])[0];return '<button class="card" data-n="'+esc(x.n)+'">'+(BIO[x.n]&&BIO[x.n].ph?'<img src="'+esc(f.base+BIO[x.n].ph)+'" alt="" loading="lazy">':'<div class="ph" lang="kn">'+esc(gl(x.n))+'</div>')+'<div class="nm" lang="kn">'+esc(x.n)+'</div><div class="ln" lang="kn">'+esc(RL[rk]+' · '+fs.k)+'</div></button>'}).join('')+'</div>';
 PAGES=new Array(N);$('pgr').innerHTML='<button class="pbtn" data-pp="-1"'+(P.pg<=0?' disabled':'')+'>‹ Prev</button><span>Page '+(P.pg+1)+' of '+N+'</span><button class="pbtn" data-pp="1"'+(P.pg>=N-1?' disabled':'')+'>Next ›</button>'}
 function fill(){var pb=$('pb'),items;if(P.tab==='home'){homeFill(pb);return}
 if(P.tab==='prog')PAGES=pagesFrom(SS.filter(function(x){return(!P.day||x.d===P.day)&&(!P.fo||x.f===P.fo||x.f===0)&&match(x)}).map(card),pb);
-else if(P.tab==='ppl'){var q=P.q.toLowerCase();PAGES=pagesFrom(PL.filter(function(x){return !q||(x.n+' '+(EN[x.n]||'')).toLowerCase().indexOf(q)>-1}).map(function(x){return '<div class="prow" data-n="'+esc(x.n)+'"><div lang="kn">'+nm(x.n)+'</div><span>'+x.c+' session'+(x.c>1?'s':'')+'</span></div>'}),pb)}
+else if(P.tab==='ppl'){var q=P.q.toLowerCase();PAGES=pagesFrom(PL.filter(function(x){return !q||(x.n+' '+(EN[x.n]||'')).toLowerCase().indexOf(q)>-1}).map(function(x){var bo=BIO[x.n];return '<div class="prow'+(bo?' pr2':'')+'" data-n="'+esc(x.n)+'">'+(bo&&bo.ph?'<img class="th" src="'+esc(f.base+bo.ph)+'" alt="" loading="lazy">':'')+'<div style="flex:1;min-width:0"><div lang="kn">'+nm(x.n)+'</div>'+(bo&&bo.b?'<small>'+esc(bo.b)+'</small>':'')+'</div><span>'+x.c+' session'+(x.c>1?'s':'')+'</span></div>'}),pb)}
 else if(P.tab==='map'){var m=mapPage(pb);PAGES=[m.first].concat(pagesFrom(m.rows,pb))}
 else PAGES=vizSlides(pb);
 if(P.pg>=PAGES.length)P.pg=PAGES.length-1;if(P.pg<0)P.pg=0;
