@@ -25,7 +25,8 @@
     "Geoff Dyer": "Essayist; new memoir, Homework.",
     "Vishal Bhardwaj": "Director of Maqbool, Omkara, Haider.",
     "Priyamvada Natarajan": "Yale astrophysicist mapping dark matter."
-   }
+   },
+   "updated": "Nov 2026"
   },
   {
    "id": "sjm",
@@ -38,7 +39,8 @@
    "venue": "Bharat Scouts and Guides, Palace Road, Bengaluru",
    "url": "https://samajamukhi.com/",
    "logo": "festivals/sjm/logo.png",
-   "base": "festivals/sjm/"
+   "base": "festivals/sjm/",
+   "updated": "Nov 2026 (typed from the invitation)"
   },
   {
    "id": "jn",
@@ -52,7 +54,8 @@
    "sub": "ಯುವಜನ ರಾಜಕಾರಣ: ದಿಕ್ಕು – ಭವಿಷ್ಯ – ಸವಾಲು",
    "url": "",
    "logo": "festivals/jn/logo.png",
-   "base": "festivals/jn/"
+   "base": "festivals/jn/",
+   "updated": "Nov 2026 (typed from the invitation)"
   },
   {
    "id": "tll",
@@ -74,7 +77,8 @@
    ],
    "sched": 2024,
    "partUrl": "https://www.litlive.in/fest26/speakers/{u}",
-   "why": {}
+   "why": {},
+   "updated": "Nov 2026"
   },
   {
    "id": "klf",
@@ -96,7 +100,8 @@
    ],
    "sched": 2023,
    "partUrl": "https://keralaliteraturefestival.com/speakers",
-   "why": {}
+   "why": {},
+   "updated": "Nov 2026"
   },
   {
    "id": "bbl",
@@ -111,7 +116,8 @@
    "url": "https://bookbrahmalitfest.com/",
    "logo": "festivals/bbl/logo.png",
    "base": "festivals/bbl/",
-   "themeLabel": "language"
+   "themeLabel": "language",
+   "updated": "Nov 2026"
   },
   {
    "id": "hlf",
@@ -128,7 +134,8 @@
    "to": 2026,
    "sched": 2021,
    "partUrl": "https://hydlitfest.org/{u}/",
-   "why": {}
+   "why": {},
+   "updated": "Nov 2026"
   },
   {
    "id": "jlf",
@@ -145,7 +152,8 @@
    "to": 2026,
    "sched": 2018,
    "partUrl": "https://www.jaipurliteraturefestival.org/2027/speaker/{u}",
-   "why": {}
+   "why": {},
+   "updated": "Nov 2026"
   }
  ]
 }
