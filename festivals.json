@@ -55,6 +55,21 @@
    "base": "festivals/jn/"
   },
   {
+   "id": "bbl",
+   "type": "programme",
+   "status": "live",
+   "name": "Book Brahma Literature Festival",
+   "short": "Book Brahma",
+   "year": 2026,
+   "dates": "14–23 Aug 2026",
+   "venue": "St John’s Auditorium, Koramangala, Bengaluru",
+   "sub": "Edition 3 · Soul of South · held in August 2026",
+   "url": "https://bookbrahmalitfest.com/",
+   "logo": "festivals/bbl/logo.png",
+   "base": "festivals/bbl/",
+   "themeLabel": "language"
+  },
+  {
    "id": "jlf",
    "status": "live",
    "name": "Jaipur Literature Festival",

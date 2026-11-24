@@ -11,6 +11,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Bangalore Literature Festival 2026 (`?f=blf`) | Live: 243 speakers |
 | Samajamukhi Sahitya Sammelana, 28–29 Nov 2026 (`?f=sjm`) | Live: programme only (sessions and names, Kannada) |
 | Jananudi 2026, 28–29 Nov, Mangaluru (`?f=jn`) | Live: programme only (sessions and names, Kannada) |
+| Book Brahma Literature Festival 2026, 14–23 Aug (`?f=bbl`) | Live: 212 sessions, 400 speakers with bios and photos (no earlier editions) |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -53,3 +54,6 @@ The Samajamukhi and Jananudi pages have a "Map" tab: a schematic Karnataka map w
 An "Insights" tab shows a day-by-day timeline, sessions by theme, appearances by role, panel sizes and repeat names. Themes come from `tools/tag_themes.py`, which tags each session from its English title with simple keyword rules, so treat them as a rough guide.
 
 The programme festivals page through content (Prev / Next) so nothing scrolls, like the Bangalore pages. Insights are three screens: a theme-coloured timeline, themes and roles, and panel sizes.
+
+## Book Brahma data
+Built by `tools/fetch_bblf.py` (speaker pages) and `tools/build_bblf.py` (the festival's published schedule PDF). A person is listed in a session only if their name in the schedule matches the official speakers page, so about 100 of the 400 speakers have no session shown. Earlier editions (2024, 2025) have only photo galleries on the festival site, so there is no history, first-time flag or trend for this festival. Languages shown are the session language printed in the schedule; many sessions do not print one.

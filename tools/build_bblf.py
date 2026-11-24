@@ -80,12 +80,12 @@ D.sort(key=lambda s:(s['d'],tt:=s['t'],s['f']))
 def tkey(s):
     h,mi=s['t'].split('–')[0].split(':');h=int(h);h=h+12 if h<8 else h;return (s['d'],h*60+int(mi),s['f'])
 D.sort(key=tkey)
-for s in D: s.pop('n',None)
+for s in D: s.pop('n',None); s.pop('raw',None)
 bios={}
 for s in spk:
     if s['bio'] or s['ph']: bios[s['name']]={'b':s['bio'],'ph':s['ph']}
 days=[{'d':14,'l':'Fri 14 Aug'},{'d':15,'l':'Sat 15 Aug'},{'d':16,'l':'Sun 16 Aug'},{'d':21,'l':'Fri 21 Aug'},{'d':22,'l':'Sat 22 Aug'},{'d':23,'l':'Sun 23 Aug'}]
 forums=[{'id':FID[e],'k':e,'e':e} for _,e in STAGES]
-json.dump({'sessions':D,'en':{},'forums':forums,'days':days,'bios':bios,'speakers':len(spk)},open(OUT,'w',encoding='utf8').write and open(OUT,'w',encoding='utf8'),ensure_ascii=False)
+json.dump({'sessions':D,'en':{},'forums':forums,'days':days,'bios':bios,'speakers':len(spk),'forumLabel':'stages','themeLabel':'language'},open(OUT,'w',encoding='utf8').write and open(OUT,'w',encoding='utf8'),ensure_ascii=False)
 import collections
 print(len(D),'sessions;',len({n for s in D for _,n in s['pp']}),'speakers placed of',len(spk));print(collections.Counter(s['d'] for s in D));print(collections.Counter(s['f'] for s in D))
