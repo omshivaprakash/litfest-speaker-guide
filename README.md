@@ -18,6 +18,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Bengaluru Poetry Festival 2026, 1–2 Aug (`?f=bpf`) | Live: 71 poets with bios and photos; history 2016–2025 (no 2021) |
 | Kolkata Literary Meet 2026, 22–26 Jan (`?f=klm`) | Live: 171 speakers with bios, photos, sessions and books; history 2023–2025 |
 | Neev Literature Festival 2026, 26–27 Sep (`?f=nlf`) | Live, small: the featured speakers only (about ten a year), history 2023–2025 |
+| Kalinga Literary Festival 2026, 8–11 Jan (`?f=klf2`) | Live: 132 speakers with bios and photos; earlier years list featured names only (2021, 2022, 2024) |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -90,3 +91,6 @@ Built by `tools/build_nlf.py` from the speakers page of neevliteraturefestival.o
 
 ## License
 The code is released under the [MIT License](LICENSE). The MIT license covers the code only. Speaker names, bios, photos, festival logos and book covers belong to their owners and are included for identification, education and research; they are not covered by this license.
+
+## Kalinga data
+Built by `tools/build_kalinga.py` from the /klf-speakers/ page of kalingaliteraryfestival.com, which tags each speaker by edition. The current edition is listed in full; 2021, 2022 and 2024 list only a few featured names, so history is partial. Books come from titles in bios and Open Library (`tools/add_books_ol.py`).

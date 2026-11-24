@@ -105,6 +105,30 @@
    "updated": "Nov 2026"
   },
   {
+   "id": "klf2",
+   "status": "live",
+   "name": "Kalinga Literary Festival",
+   "short": "Kalinga",
+   "year": 2026,
+   "dates": "8–11 Jan 2026",
+   "venue": "Mayfair Lagoon, Bhubaneswar",
+   "url": "https://kalingaliteraryfestival.com/",
+   "logo": "festivals/klf2/logo.png",
+   "base": "festivals/klf2/",
+   "from": 2021,
+   "to": 2024,
+   "years": [
+    2021,
+    2022,
+    2024,
+    2026
+   ],
+   "sched": 2021,
+   "partUrl": "https://kalingaliteraryfestival.com/speakers/{u}/",
+   "why": {},
+   "updated": "Nov 2026 (earlier years list featured names only)"
+  },
+  {
    "id": "nlf",
    "status": "live",
    "name": "Neev Literature Festival",
