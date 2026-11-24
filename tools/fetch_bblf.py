@@ -23,7 +23,7 @@ def work(sp):
     h=get(f"https://bookbrahmalitfest.com/speaker/{sp['id']}-{sp['slug']}")
     if not h: return dict(sp,bio='',ph='',fail=1)
     t=re.sub(r'<script.*?</script>|<style.*?</style>','',h,flags=re.S); t=html.unescape(re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',t)))
-    a=t.find('Contact Us',t.find('Hotel Guide')); b=t.find('Book Brahma Foundation Social')
+    b=t.find('Book Brahma Foundation Social'); a=t.rfind('Contact Us',0,b)
     seg=t[a+10:b].strip() if a>0 and b>a else ''; nm=sp['name']
     if seg.startswith(nm+' '+nm): seg=seg[len(nm)*2+2:].strip()
     elif seg.startswith(nm): seg=seg[len(nm):].strip()
