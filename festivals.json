@@ -26,7 +26,8 @@
     "Vishal Bhardwaj": "Director of Maqbool, Omkara, Haider.",
     "Priyamvada Natarajan": "Yale astrophysicist mapping dark matter."
    },
-   "updated": "Nov 2026"
+   "updated": "Nov 2026",
+   "ab": "BLF"
   },
   {
    "id": "sjm",
@@ -40,7 +41,8 @@
    "url": "https://samajamukhi.com/",
    "logo": "festivals/sjm/logo.png",
    "base": "festivals/sjm/",
-   "updated": "Nov 2026 (typed from the invitation)"
+   "updated": "Nov 2026 (typed from the invitation)",
+   "ab": "SJM"
   },
   {
    "id": "jn",
@@ -55,7 +57,8 @@
    "url": "",
    "logo": "festivals/jn/logo.png",
    "base": "festivals/jn/",
-   "updated": "Nov 2026 (typed from the invitation)"
+   "updated": "Nov 2026 (typed from the invitation)",
+   "ab": "JN"
   },
   {
    "id": "tll",
@@ -78,7 +81,8 @@
    "sched": 2024,
    "partUrl": "https://www.litlive.in/fest26/speakers/{u}",
    "why": {},
-   "updated": "Nov 2026"
+   "updated": "Nov 2026",
+   "ab": "LL"
   },
   {
    "id": "klm",
@@ -102,7 +106,8 @@
    "sched": 2023,
    "partUrl": "https://kolkatalitmeet.in/2026/",
    "why": {},
-   "updated": "Nov 2026"
+   "updated": "Nov 2026",
+   "ab": "KLM"
   },
   {
    "id": "galf",
@@ -126,7 +131,8 @@
    "sched": 2023,
    "partUrl": "https://goaartlitfest.com/{u}/",
    "why": {},
-   "updated": "Nov 2026 (2023 lists only a few names)"
+   "updated": "Nov 2026 (2023 lists only a few names)",
+   "ab": "GAL"
   },
   {
    "id": "klf2",
@@ -150,7 +156,8 @@
    "sched": 2021,
    "partUrl": "https://kalingaliteraryfestival.com/speakers/{u}/",
    "why": {},
-   "updated": "Nov 2026 (earlier years list featured names only)"
+   "updated": "Nov 2026 (earlier years list featured names only)",
+   "ab": "KAL"
   },
   {
    "id": "nlf",
@@ -174,7 +181,8 @@
    "sched": 2023,
    "partUrl": "https://www.neevliteraturefestival.org/speaker/{u}/",
    "why": {},
-   "updated": "Nov 2026 (featured speakers only, about ten a year)"
+   "updated": "Nov 2026 (featured speakers only, about ten a year)",
+   "ab": "NEV"
   },
   {
    "id": "bpf",
@@ -204,7 +212,8 @@
    "sched": 2016,
    "partUrl": "https://bengalurupoetryfestival.org/poets.php",
    "why": {},
-   "updated": "Nov 2026"
+   "updated": "Nov 2026",
+   "ab": "BPF"
   },
   {
    "id": "klf",
@@ -227,7 +236,8 @@
    "sched": 2023,
    "partUrl": "https://keralaliteraturefestival.com/speakers",
    "why": {},
-   "updated": "Nov 2026"
+   "updated": "Nov 2026",
+   "ab": "KLF"
   },
   {
    "id": "bbl",
@@ -243,7 +253,8 @@
    "logo": "festivals/bbl/logo.png",
    "base": "festivals/bbl/",
    "themeLabel": "language",
-   "updated": "Nov 2026"
+   "updated": "Nov 2026",
+   "ab": "BB"
   },
   {
    "id": "hlf",
@@ -261,7 +272,8 @@
    "sched": 2021,
    "partUrl": "https://hydlitfest.org/{u}/",
    "why": {},
-   "updated": "Nov 2026"
+   "updated": "Nov 2026",
+   "ab": "HLF"
   },
   {
    "id": "jlf",
@@ -279,7 +291,8 @@
    "sched": 2018,
    "partUrl": "https://www.jaipurliteraturefestival.org/2027/speaker/{u}",
    "why": {},
-   "updated": "Nov 2026"
+   "updated": "Nov 2026",
+   "ab": "JLF"
   }
  ]
 }

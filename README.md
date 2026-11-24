@@ -98,3 +98,6 @@ Built by `tools/build_kalinga.py` from the /klf-speakers/ page of kalingaliterar
 
 ## Goa data
 Built by `tools/build_galf.py` from the yearly speaker pages of goaartlitfest.com (speaker-2023 to speaker-2026). The site lists a modest number of names per year and some bios sit in image captions, so counts are lower than the festival's full programme. Country and gender are guessed from those bios.
+
+## Across festivals
+The "Across" button opens an overlap grid (people named at both of two festivals, tap a square to list them) and a list of the most-travelled people. It uses the same per-festival `history.json` files as the search and matches people by spelling of their name. Festivals cover different years and some lists are partial, so the numbers are indicative.

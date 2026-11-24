@@ -26,6 +26,7 @@ h2{font:700 1.1rem/1.15 var(--display);margin:0}
 .fbar{flex:0 0 auto;display:flex;flex-direction:column;gap:5px;padding:6px 0 5px;border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:8px;min-width:0}.brand b{font:800 1.15rem/1 var(--display);letter-spacing:-.01em;white-space:nowrap}.brand .bt{flex:1;min-width:0;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brand .bb{display:flex;gap:6px;margin-left:auto}
 @media (max-width:560px){.brand .bt{display:none}}
+@media (max-width:420px){.brand{gap:4px}.brand b{font-size:1rem}.fsearch{padding:0 8px;font-size:11.5px}.brand .bb{gap:4px}}
 .card .nm{overflow-wrap:anywhere;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .fline{display:flex;align-items:center;gap:8px;min-width:0;padding:2px 0}.fline img{height:26px;width:auto;max-width:64px;object-fit:contain;flex:0 0 auto}.fline .fn{font-weight:700;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.fline .fd{font-size:11.5px;color:var(--muted);white-space:nowrap}.fline .fext{margin-left:auto}
 .fb-l{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
@@ -81,6 +82,11 @@ h2{font:700 1.1rem/1.15 var(--display);margin:0}
 .gres a{display:flex;gap:8px;align-items:baseline;padding:3px 0;color:var(--fg);text-decoration:none;font-size:13px;border-top:1px solid var(--line)}
 .gres a b{flex:0 0 auto;min-width:74px;color:var(--accent)}.gres a span{color:var(--muted);font-size:12.5px;line-height:1.35}
 .abt{overflow:auto;flex:1;min-height:0;font-size:13.5px;line-height:1.55;padding:6px 0}.abt h4{margin:14px 0 3px;font:700 14px var(--display)}.abt p{margin:0 0 6px}.abt a{color:var(--accent);font-weight:600}
+.ax{display:grid;gap:2px;margin:6px 0 4px;justify-content:center}
+.ax b,.ax i,.ax em,.ax button{display:flex;align-items:center;justify-content:center;font-style:normal;font-size:9.5px;border-radius:3px;min-width:0;padding:0}
+.ax b{font-weight:700;color:var(--muted);font-size:9px}.ax b.rl{justify-content:flex-end;padding-right:4px}.ax button{border:0;cursor:pointer;color:#1b1d22;font-weight:600}.ax em{background:var(--surface);color:var(--muted);font-weight:700}
+.axn{font-size:12px;color:var(--muted);margin:4px 0}.ax2{display:flex;gap:6px;margin:6px 0 2px}.ax2 button{height:30px;border:1px solid var(--line);border-radius:999px;background:#fff;padding:0 12px;font:600 12.5px var(--body);cursor:pointer}.ax2 button.on{background:var(--fg);color:#fff;border-color:var(--fg)}
+.axr{border:1px solid var(--line);border-radius:12px;padding:8px 12px;cursor:pointer}.axr h3{margin:0 0 3px;font:700 .95rem/1.2 var(--display)}.axr .ch{display:flex;flex-wrap:wrap;gap:4px}.axr .ch span{font-size:10.5px;background:var(--surface);border-radius:999px;padding:1px 8px;color:var(--fg);font-weight:600}.axr p{margin:2px 0 0;font-size:12px;color:var(--muted)}
 .vb{display:grid;grid-template-columns:118px 1fr 26px;gap:6px;align-items:center;font-size:12px;margin:4px 0}.vb i{display:block;height:12px;background:var(--accent);border-radius:3px;min-width:2px}.vb span:last-child{color:var(--muted);text-align:right}
 .vh{font:600 12px var(--body);margin:14px 0 4px;color:var(--fg)}.vh small{font-weight:400;color:var(--muted)}
 .tlr text{font-size:9.5px;fill:var(--muted)}.tlr rect.b{rx:3}
@@ -570,7 +576,7 @@ function gsLoad(L,done){var map={},n=0,left=L.festivals.length;L.festivals.forEa
 fetch(f.base+'history.json?v='+BUILD).then(function(r){return r.ok?r.json():{}}).catch(function(){return {}}).then(function(H){n++;Object.keys(H).forEach(function(y){H[y].forEach(function(nm){var k=gnorm(nm);if(!k)return;var e=map[k]=map[k]||{k:k,n:nm,f:{}};var ff=e.f[f.id]=e.f[f.id]||{id:f.id,short:f.short,name:f.name,ys:[]};if(ff.ys.indexOf(y)<0)ff.ys.push(y)})});if(--left===0){GS.idx=Object.keys(map).map(function(k){var e=map[k];e.fl=Object.keys(e.f).map(function(i){e.f[i].ys.sort();return e.f[i]});e.tot=e.fl.reduce(function(a,x){return a+x.ys.length},0);return e});GS.nF=n;GS.ready=true;done()}})});
 if(left===0){GS.ready=true;done()}}
 function gsCard(e){return '<div class="gres"><h3 lang="kn">'+esc(e.n)+'</h3>'+e.fl.sort(function(a,b){return b.ys.length-a.ys.length}).map(function(x){return '<a href="?f='+x.id+'&q='+encodeURIComponent(e.n)+'"><b>'+esc(x.short)+'</b><span>'+x.ys.join(' · ')+'</span></a>'}).join('')+'</div>'}
-function gsOpen(L){var o=document.createElement('div');o.className='gso';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.innerHTML='<div class="gsh"><input id="gsq" type="search" placeholder="Search a speaker across all festivals and years" aria-label="Search all festivals"><button id="gsx">Close</button></div><p class="gsn" id="gsn" role="status" aria-live="polite">Loading every edition…</p><div class="gsbx" id="gsbox"></div><div class="pager" id="gsp"></div>';document.body.appendChild(o);
+function gsOpen(L,pre){var o=document.createElement('div');o.className='gso';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.innerHTML='<div class="gsh"><input id="gsq" type="search" placeholder="Search a speaker across all festivals and years" aria-label="Search all festivals"><button id="gsx">Close</button></div><p class="gsn" id="gsn" role="status" aria-live="polite">Loading every edition…</p><div class="gsbx" id="gsbox"></div><div class="pager" id="gsp"></div>';document.body.appendChild(o);
 var inp=o.querySelector('#gsq');function fill(){var q=gnorm(inp.value),box=o.querySelector('#gsbox'),pgr=o.querySelector('#gsp'),M;
 if(!GS.ready)return;
 if(!q){M=GS.idx.filter(function(e){return e.fl.length>1}).sort(function(a,b){return b.fl.length-a.fl.length||b.tot-a.tot||a.n.localeCompare(b.n)}).slice(0,60);o.querySelector('#gsn').textContent=GS.idx.length+' people across '+GS.nF+' festivals. Showing people seen at more than one festival.'}
@@ -583,7 +589,7 @@ inp.addEventListener('input',function(){GS.pg=0;fill()});o.querySelector('#gsx')
 o.addEventListener('click',function(e){var b=e.target.closest('[data-gp]');if(b&&!b.disabled){GS.pg+=+b.dataset.gp;fill()}});
 document.addEventListener('keydown',function esc2(e){if(e.key==='Escape'&&document.body.contains(o)){o.remove();document.removeEventListener('keydown',esc2)}});
 window.addEventListener('resize',function(){if(document.body.contains(o))fill()});
-if(GS.ready)fill();else gsLoad(L,fill);setTimeout(function(){inp.focus()},50)}
+if(pre)inp.value=pre;if(GS.ready)fill();else gsLoad(L,fill);setTimeout(function(){inp.focus()},50)}
 
 function aboutOpen(){var o=document.createElement('div');o.className='gso';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');
 var G='https://github.com/omshivaprakash/litfest-speaker-guide';
@@ -591,18 +597,48 @@ o.innerHTML='<div class="gsh"><h2 style="flex:1;margin:0">About this portal</h2>
 '<p>An independent, non-commercial project for <b>education and research</b>. It helps readers explore who speaks at Indian literature festivals and how that changes over the years. It is not affiliated with, endorsed by or sponsored by any festival.</p>'+
 '<h4>Where the information comes from</h4><p>Each festival’s public speaker pages, schedules and bios, plus Open Library for book titles and covers. Some programmes were typed in by hand from printed invitations. Official sources always win: please check the festival’s own site for the final programme.</p>'+
 '<h4>What to keep in mind</h4><p>Gender, country, role and language are inferred from bios and can be wrong or blank. “First-time” only means a name was not found in the lists we have. Books are matched by author name and can include a same-name author. Maps are schematic.</p>'+
-'<h4>How the guessed fields are worked out</h4><p><b>Gender:</b> only from she/her or he/his in a bio, and left unknown when the bio is missing or mixed. <b>Country and city:</b> from places named in the bio, or stated by the festival where it prints them. <b>Role:</b> from keywords in the bio such as “journalist” or “poet”. <b>Language:</b> read from the bio or the session. <b>First-time:</b> not found in the lists we collected, so it depends on how many years we have. <b>Books:</b> titles named in the bio, or Open Library entries whose author name matches exactly.</p>'+
+'<h4>How the guessed fields are worked out</h4><p><b>Gender:</b> only from she/her or he/his in a bio, and left unknown when the bio is missing or mixed. <b>Country and city:</b> from places named in the bio, or stated by the festival where it prints them. <b>Role:</b> from keywords in the bio such as “journalist” or “poet”. <b>Language:</b> read from the bio or the session. <b>First-time:</b> not found in the lists we collected, so it depends on how many years we have. <b>Books:</b> titles named in the bio, or Open Library entries whose author name matches exactly. <b>Across festivals:</b> people are matched by spelling of their name, so a spelling variant counts as two people, and festivals cover different years.</p>'+
 '<h4>Names, photos and logos</h4><p>These belong to their owners and are shown only to identify people and festivals. Nothing here is for sale, and the site collects no personal data (stars are kept in your own browser).</p>'+
 '<h4>Corrections, removal and contact</h4><p>Spotted a mistake, or want a name, photo or festival changed or removed? <a href="'+G+'/issues/new" target="_blank" rel="noopener">Open an issue on GitHub</a> and say which person and festival. Festivals and people listed here are welcome to ask.</p>'+
 '<p>Code and data: <a href="'+G+'" target="_blank" rel="noopener">github.com/omshivaprakash/litfest-speaker-guide</a> · Built by <a href="https://omshivaprakash.github.io/" target="_blank" rel="noopener">omshivaprakash</a>.</p></div>';
 if(window.__L){var lu=window.__L.festivals.filter(function(x){return x.updated}).map(function(x){return '<li>'+esc(x.name)+': '+esc(x.updated)+'</li>'}).join('');if(lu)o.querySelector('.abt').insertAdjacentHTML('beforeend','<h4>Data last updated</h4><ul style="margin:0 0 6px;padding-left:18px">'+lu+'</ul>')}
 document.body.appendChild(o);o.querySelector('#abx').onclick=function(){o.remove()};document.addEventListener('keydown',function e2(e){if(e.key==='Escape'&&document.body.contains(o)){o.remove();document.removeEventListener('keydown',e2)}})}
+
+function acrossOpen(L){var AB={};L.festivals.forEach(function(f){AB[f.id]={ab:f.ab||f.short.slice(0,4).toUpperCase(),name:f.name}});
+var o=document.createElement('div');o.className='gso';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');
+var A={tab:'grid',sel:null,pg:0,pages:[]};
+o.innerHTML='<div class="gsh"><h2 style="flex:1;margin:0;font-size:1.1rem">Across festivals</h2><button id="axx">Close</button></div><div class="ax2" id="axt"></div><p class="gsn" id="axn" role="status" aria-live="polite">Loading every edition…</p><div class="gsbx" id="axb"></div><div class="pager" id="axp"></div>';document.body.appendChild(o);
+function q(i){return o.querySelector('#'+i)}
+function ready(){var n={},cnt={},pair={};GS.idx.forEach(function(e){if(e.k.indexOf(' ')<0)return;var ids=e.fl.map(function(x){return x.id});ids.forEach(function(a){n[a]=(n[a]||0)+1});ids.forEach(function(a){ids.forEach(function(b){if(a<b){var k=a+'|'+b;(pair[k]=pair[k]||[]).push(e)}})})});
+A.n=n;A.pm=pair;A.fest=L.festivals.filter(function(f){return (n[f.id]||0)>=30});draw()}
+function pgz(items){var box=q('axb');box.style.visibility='hidden';box.innerHTML=items.map(function(x){return '<div class="it">'+x+'</div>'}).join('');var av=box.clientHeight-6,pages=[],cur=[],used=0;[].slice.call(box.children).forEach(function(c,i){var h=c.offsetHeight+8;if(cur.length&&used+h>av){pages.push(cur);cur=[];used=0}cur.push(items[i]);used+=h});if(cur.length)pages.push(cur);box.style.visibility='';return pages.map(function(p){return p.map(function(x){return '<div class="it">'+x+'</div>'}).join('')})}
+function rowHtml(e,hl){return '<div class="axr" data-k="'+esc(e.n)+'"><h3 lang="kn">'+esc(e.n)+'</h3><div class="ch">'+e.fl.map(function(x){return '<span title="'+esc(x.ys.join(', '))+'">'+esc(AB[x.id].ab)+' · '+x.ys.length+'</span>'}).join('')+'</div></div>'}
+function draw(){var box=q('axb'),pgr=q('axp');q('axt').innerHTML='<button data-t="grid" class="'+(A.tab==='grid'&&!A.sel?'on':'')+'">Overlap</button><button data-t="people" class="'+(A.tab==='people'?'on':'')+'">Most travelled</button>'+(A.sel?'<button class="on">'+esc(AB[A.sel[0]].ab+' + '+AB[A.sel[1]].ab)+'</button>':'');
+if(A.tab==='grid'&&!A.sel){var F=A.fest,N=F.length,w=box.clientWidth,cs=Math.max(16,Math.min(36,Math.floor((w-44-2*(N+2))/N))),mx=1;F.forEach(function(a){F.forEach(function(b){if(a.id<b.id){var c=A.pm[a.id+'|'+b.id];mx=Math.max(mx,c?c.length:0)}})});
+var h='<div class="ax" style="grid-template-columns:44px repeat('+N+','+cs+'px)"><b></b>'+F.map(function(f){return '<b title="'+esc(f.name)+'">'+esc(AB[f.id].ab)+'</b>'}).join('');
+F.forEach(function(a){h+='<b class="rl" title="'+esc(a.name)+'">'+esc(AB[a.id].ab)+'</b>';F.forEach(function(b){if(a.id===b.id)h+='<em style="height:'+cs+'px" title="'+esc(a.name)+': '+A.n[a.id]+' people">'+A.n[a.id]+'</em>';else{var k=a.id<b.id?a.id+'|'+b.id:b.id+'|'+a.id,c=A.pm[k]?A.pm[k].length:0,t=c/mx;h+='<button style="height:'+cs+'px;background:rgba(194,65,12,'+(c?(.1+.85*Math.sqrt(t)).toFixed(2):0.04)+')'+(t>.55?';color:#fff':'')+'" data-p="'+k+'" title="'+esc(a.name+' and '+b.name+': '+c+' people')+'">'+(c||'')+'</button>'}})});
+h+='</div>';q('axn').textContent='Each square is the number of people named at both festivals (all years we have). Tap one to list them. The diagonal is each festival’s own total.';
+var pgs=[h];A.pages=pgs;box.innerHTML=pgs[0];pgr.innerHTML='';return}
+var items,note;
+if(A.sel){var E=A.pm[A.sel.join('|')]||[];items=E.slice().sort(function(a,b){return b.tot-a.tot||a.n.localeCompare(b.n)}).map(function(e){return rowHtml(e)});note=E.length+(E.length===1?' person':' people')+' at both '+AB[A.sel[0]].name+' and '+AB[A.sel[1]].name}
+else{var P=GS.idx.filter(function(e){return e.k.indexOf(' ')>-1&&e.fl.length>=3}).sort(function(a,b){return b.fl.length-a.fl.length||b.tot-a.tot||a.n.localeCompare(b.n)}).slice(0,120);items=P.map(function(e){return rowHtml(e)});note=P.length+' people seen at three or more festivals, most first. Tap a name to see every year.'}
+q('axn').textContent=note;A.pages=pgz(items);if(A.pg>=A.pages.length)A.pg=A.pages.length-1;if(A.pg<0)A.pg=0;box.innerHTML=A.pages[A.pg]||'<p class="empty">No one yet.</p>';
+pgr.innerHTML='<button class="pbtn" data-g="-1"'+(A.pg<=0?' disabled':'')+'>‹ Prev</button><span>Page '+(A.pg+1)+' of '+Math.max(1,A.pages.length)+'</span><button class="pbtn" data-g="1"'+(A.pg>=A.pages.length-1?' disabled':'')+'>Next ›</button>'}
+o.addEventListener('click',function(e){var b=e.target.closest('button'),r=e.target.closest('.axr');
+if(b&&b.id==='axx'){o.remove();return}
+if(b&&b.dataset.t){A.tab=b.dataset.t;A.sel=null;A.pg=0;draw();return}
+if(b&&b.dataset.p){A.sel=b.dataset.p.split('|');A.tab='pair';A.pg=0;draw();return}
+if(b&&b.dataset.g){A.pg+=+b.dataset.g;draw();return}
+if(r){o.remove();gsOpen(L,r.dataset.k)}});
+document.addEventListener('keydown',function e3(ev){if(ev.key==='Escape'&&document.body.contains(o)){o.remove();document.removeEventListener('keydown',e3)}});
+window.addEventListener('resize',function(){if(document.body.contains(o)&&GS.ready)draw()});
+if(GS.ready)ready();else gsLoad(L,ready)}
 function boot(){
 fetch('festivals.json?v='+BUILD).then(function(r){return r.json()}).then(function(L){
 window.__L=L;var id=(new URLSearchParams(location.search)).get('f')||L.default,f=null;L.festivals.forEach(function(x){if(x.id===id)f=x});if(!f)f=L.festivals[0];FE=f;
-var h='<div class="brand"><b>LitFest Guide</b><span class="bt">Indian literature festivals, speakers and history</span><div class="bb"><button class="fsearch" id="gsb">Search all</button><button class="fsearch" id="abb" aria-label="About and disclaimer">About</button></div></div><div class="fb-l">';
+var h='<div class="brand"><b>LitFest Guide</b><span class="bt">Indian literature festivals, speakers and history</span><div class="bb"><button class="fsearch" id="gsb">Search all</button><button class="fsearch" id="axb2">Across</button><button class="fsearch" id="abb" aria-label="About and disclaimer">About</button></div></div><div class="fb-l">';
 L.festivals.forEach(function(x){h+='<a class="fchip'+(x.id===f.id?' on':'')+'" href="?f='+x.id+'" title="'+esc(x.name)+'"><span>'+esc(x.short)+'</span>'+(x.status==='live'?'':'<em>soon</em>')+'</a>'});
-h+='</div><div class="fline">'+(f.logo?'<img src="'+esc(f.logo)+'" alt="">':'')+'<span class="fn">'+esc(f.name)+'</span><span class="fd">'+esc((f.dates||'').replace(/ \(.*$/,''))+'</span>'+(f.url?'<a class="fext" target="_blank" rel="noopener" href="'+esc(f.url)+'">Official site \u2197</a>':'')+'</div>';$('fbar').innerHTML=h;$('gsb').onclick=function(){gsOpen(L)};$('abb').onclick=aboutOpen;
+h+='</div><div class="fline">'+(f.logo?'<img src="'+esc(f.logo)+'" alt="">':'')+'<span class="fn">'+esc(f.name)+'</span><span class="fd">'+esc((f.dates||'').replace(/ \(.*$/,''))+'</span>'+(f.url?'<a class="fext" target="_blank" rel="noopener" href="'+esc(f.url)+'">Official site \u2197</a>':'')+'</div>';$('fbar').innerHTML=h;$('gsb').onclick=function(){gsOpen(L)};$('axb2').onclick=function(){acrossOpen(L)};$('abb').onclick=aboutOpen;
 document.title='LitFest Guide: '+f.name;
 if(f.type==='programme'&&f.status==='live'){return fetch(f.base+'data.json?v='+BUILD).then(function(r){return r.json()}).then(function(D){progApp(f,D)})}
 if(f.status!=='live'){document.querySelector('.tabs').style.display='none';document.querySelectorAll('.view').forEach(function(v){v.style.display='none'});
