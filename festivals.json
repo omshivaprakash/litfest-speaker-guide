@@ -105,6 +105,30 @@
    "updated": "Nov 2026"
   },
   {
+   "id": "galf",
+   "status": "live",
+   "name": "Goa Arts and Literature Festival",
+   "short": "GALF",
+   "year": 2026,
+   "dates": "12–14 Feb 2026",
+   "venue": "International Centre Goa, Dona Paula",
+   "url": "https://goaartlitfest.com/",
+   "logo": "festivals/galf/logo.jpg",
+   "base": "festivals/galf/",
+   "from": 2023,
+   "to": 2025,
+   "years": [
+    2023,
+    2024,
+    2025,
+    2026
+   ],
+   "sched": 2023,
+   "partUrl": "https://goaartlitfest.com/{u}/",
+   "why": {},
+   "updated": "Nov 2026 (2023 lists only a few names)"
+  },
+  {
    "id": "klf2",
    "status": "live",
    "name": "Kalinga Literary Festival",

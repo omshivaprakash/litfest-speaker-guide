@@ -19,6 +19,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Kolkata Literary Meet 2026, 22–26 Jan (`?f=klm`) | Live: 171 speakers with bios, photos, sessions and books; history 2023–2025 |
 | Neev Literature Festival 2026, 26–27 Sep (`?f=nlf`) | Live, small: the featured speakers only (about ten a year), history 2023–2025 |
 | Kalinga Literary Festival 2026, 8–11 Jan (`?f=klf2`) | Live: 132 speakers with bios and photos; earlier years list featured names only (2021, 2022, 2024) |
+| Goa Arts and Literature Festival 2026, 12–14 Feb (`?f=galf`) | Live: 28 speakers with bios and photos; history 2023–2025 (2023 lists only a few names) |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -94,3 +95,6 @@ The code is released under the [MIT License](LICENSE). The MIT license covers th
 
 ## Kalinga data
 Built by `tools/build_kalinga.py` from the /klf-speakers/ page of kalingaliteraryfestival.com, which tags each speaker by edition. The current edition is listed in full; 2021, 2022 and 2024 list only a few featured names, so history is partial. Books come from titles in bios and Open Library (`tools/add_books_ol.py`).
+
+## Goa data
+Built by `tools/build_galf.py` from the yearly speaker pages of goaartlitfest.com (speaker-2023 to speaker-2026). The site lists a modest number of names per year and some bios sit in image captions, so counts are lower than the festival's full programme. Country and gender are guessed from those bios.
