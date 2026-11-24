@@ -41,6 +41,20 @@
    "base": "festivals/sjm/"
   },
   {
+   "id": "jn",
+   "type": "programme",
+   "status": "live",
+   "name": "Jananudi",
+   "short": "Jananudi",
+   "year": 2026,
+   "dates": "28–29 Nov 2026",
+   "venue": "Bishop Jattanna Sabhangana, KTC Campus, Balmatta, Mangaluru",
+   "sub": "ಯುವಜನ ರಾಜಕಾರಣ: ದಿಕ್ಕು – ಭವಿಷ್ಯ – ಸವಾಲು",
+   "url": "",
+   "logo": "festivals/jn/logo.png",
+   "base": "festivals/jn/"
+  },
+  {
    "id": "jlf",
    "status": "live",
    "name": "Jaipur Literature Festival",

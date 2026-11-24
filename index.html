@@ -34,7 +34,7 @@ h2{font:700 1.1rem/1.15 var(--display);margin:0}
 .soon img{height:70px;object-fit:contain}.soon p{max-width:420px;color:#57534e}
 .prog{flex:1;min-height:0;display:flex;flex-direction:column}
 .ph1{flex:0 0 auto;display:flex;align-items:center;gap:12px;padding:8px 0 4px}
-.ph1 img{height:54px;width:auto}.ph1 h1{font-size:19px;line-height:1.15;margin:0}
+.ph1 img{height:54px;width:auto;max-width:40%;object-fit:contain}.ph1 h1{font-size:19px;line-height:1.15;margin:0}
 .pt{flex:0 0 auto;display:flex;border-bottom:1px solid var(--line)}
 .pt button{flex:1;padding:9px 4px;border:0;background:none;font:600 13.5px var(--body);color:var(--muted);border-bottom:2px solid transparent;cursor:pointer}
 .pt button.on{color:var(--fg);border-color:var(--accent)}
@@ -417,7 +417,7 @@ $('tq').addEventListener('keydown',function(e){if(e.key==='Enter')$('tadd').clic
 $('tbody').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(b){delete stars[S[+b.dataset.rm].n];save();tracker();return}var c=e.target.closest('[data-open]');if(c)openSheet(+c.dataset.open,c)});
 /* boot */
 
-var FC=['#7c2d12','#1e3a5f','#14532d','#581c87','#3f3f46'],RL={p:'Panel',c:'Coordinator',m:'Host',r:'Respondents',g:'Guests',s:'Performers'};
+var FC=['#7c2d12','#1e3a5f','#14532d','#581c87','#3f3f46'],RL={p:'Speakers',c:'Moderator',m:'Host',r:'Respondents',g:'Guests',s:'Performers',h:'Chair',k:'Opening talk',v:'Poets'};
 function progApp(f,D){
 var app=document.querySelector('.app');document.querySelector('.tabs').style.display='none';document.querySelectorAll('.view').forEach(function(v){v.style.display='none'});
 var P={tab:'prog',day:0,fo:0,q:''},SS=D.sessions,EN=D.en||{},FOR={};D.forums.forEach(function(x){FOR[x.id]=x});
@@ -428,10 +428,10 @@ function nm(n){return EN[n]?esc(n)+' <span style="color:var(--muted);font-size:1
 function match(x){var q=P.q.toLowerCase();if(!q)return true;return (x.k+' '+x.e+' '+x.pp.map(function(p){return p[1]+' '+(EN[p[1]]||'')}).join(' ')).toLowerCase().indexOf(q)>-1}
 function card(x){var g={};x.pp.forEach(function(p){(g[p[0]]=g[p[0]]||[]).push(p[1])});
 var h='<div class="sc"><div class="m"><span>Day '+x.d+' · '+x.t+'</span>'+(x.f?'<span class="fg" style="background:'+FC[x.f-1]+'">'+esc(FOR[x.f].e.replace(' forum',''))+'</span>':'<span class="fg" style="background:'+FC[4]+'">Main stage</span>')+'</div><h3 lang="kn">'+esc(x.k)+'</h3>'+(x.e&&x.e!==x.k?'<p class="en">'+esc(x.e)+'</p>':'');
-['p','s','g','m','c','r'].forEach(function(r){if(g[r])h+='<div class="pp"><b>'+RL[r]+'</b>'+g[r].map(function(n){return '<span class="pn" lang="kn" data-n="'+esc(n)+'">'+nm(n)+'</span>'}).join(', ')+'</div>'});
+['g','h','k','p','v','s','c','m','r'].forEach(function(r){if(g[r])h+='<div class="pp"><b>'+RL[r]+'</b>'+g[r].map(function(n){return '<span class="pn" lang="kn" data-n="'+esc(n)+'">'+nm(n)+'</span>'}).join(', ')+'</div>'});
 return h+'</div>'}
-function draw(){var h='<div class="ph1"><img src="'+esc(f.logo)+'" alt=""><div><h1>'+esc(f.name)+'</h1><p class="kicker" style="margin:2px 0 0">'+esc(f.dates)+' · '+esc(f.venue)+'</p></div></div><div class="pt">'+[['prog','Programme'],['ppl','People']].map(function(t){return '<button data-t="'+t[0]+'" class="'+(P.tab===t[0]?'on':'')+'">'+t[1]+'</button>'}).join('')+'</div>';
-if(P.tab==='prog'){h+='<div class="pc">'+[[0,'Both days'],[1,'Sat 28 Nov'],[2,'Sun 29 Nov']].map(function(d){return '<button data-d="'+d[0]+'" class="'+(P.day===d[0]?'on':'')+'">'+d[1]+'</button>'}).join('')+'<input id="pq" type="search" placeholder="Search name or topic" value="'+esc(P.q)+'"></div><div class="pc" style="padding-top:0"><button data-fo="0" class="'+(P.fo===0?'on':'')+'">All forums</button>'+D.forums.map(function(x){return '<button data-fo="'+x.id+'" class="'+(P.fo===x.id?'on':'')+'" lang="kn">'+esc(x.k.replace(' ವೇದಿಕೆ',''))+'</button>'}).join('')+'</div>';
+function draw(){var h='<div class="ph1"><img src="'+esc(f.logo)+'" alt=""><div><h1>'+esc(f.name)+'</h1><p class="kicker" style="margin:2px 0 0">'+esc(f.dates)+' · '+esc(f.venue)+'</p>'+(f.sub?'<p class="sub" lang="kn" style="margin:3px 0 0">'+esc(f.sub)+'</p>':'')+'</div></div><div class="pt">'+[['prog','Programme'],['ppl','People']].map(function(t){return '<button data-t="'+t[0]+'" class="'+(P.tab===t[0]?'on':'')+'">'+t[1]+'</button>'}).join('')+'</div>';
+if(P.tab==='prog'){h+='<div class="pc">'+[[0,'Both days']].concat((D.days||[{d:1,l:'Sat 28 Nov'},{d:2,l:'Sun 29 Nov'}]).map(function(x){return [x.d,x.l]})).map(function(d){return '<button data-d="'+d[0]+'" class="'+(P.day===d[0]?'on':'')+'">'+d[1]+'</button>'}).join('')+'<input id="pq" type="search" placeholder="Search name or topic" value="'+esc(P.q)+'"></div>'+(D.forums.length>1?'<div class="pc" style="padding-top:0"><button data-fo="0" class="'+(P.fo===0?'on':'')+'">All forums</button>'+D.forums.map(function(x){return '<button data-fo="'+x.id+'" class="'+(P.fo===x.id?'on':'')+'" lang="kn">'+esc(x.k.replace(' ವೇದಿಕೆ',''))+'</button>'}).join('')+'</div>':'');
 var L=SS.filter(function(x){return(!P.day||x.d===P.day)&&(!P.fo||x.f===P.fo||x.f===0)&&match(x)});
 h+='<div class="pl">'+(L.length?L.map(card).join(''):'<p class="empty">No sessions match.</p>')+'</div>'}
 else if(P.tab==='ppl'){var T=SS.length,np=PL.length,mx=PL[0];
@@ -449,7 +449,7 @@ fetch('festivals.json').then(function(r){return r.json()}).then(function(L){
 var id=(new URLSearchParams(location.search)).get('f')||L.default,f=null;L.festivals.forEach(function(x){if(x.id===id)f=x});if(!f)f=L.festivals[0];FE=f;
 var h='<div class="fb-l">';
 L.festivals.forEach(function(x){h+='<a class="fchip'+(x.id===f.id?' on':'')+'" href="?f='+x.id+'" title="'+esc(x.name)+'">'+(x.logo?'<img src="'+esc(x.logo)+'" alt="">':'')+'<span>'+esc(x.short)+'</span>'+(x.status==='live'?'':'<em>soon</em>')+'</a>'});
-h+='</div><a class="fext" target="_blank" rel="noopener" href="'+esc(f.url)+'">Official site \u2197</a>';$('fbar').innerHTML=h;
+h+='</div>'+(f.url?'<a class="fext" target="_blank" rel="noopener" href="'+esc(f.url)+'">Official site \u2197</a>':'');$('fbar').innerHTML=h;
 document.title=f.short+' '+f.year+' Speaker Guide';
 if(f.type==='programme'&&f.status==='live'){return fetch(f.base+'data.json').then(function(r){return r.json()}).then(function(D){progApp(f,D)})}
 if(f.status!=='live'){document.querySelector('.tabs').style.display='none';document.querySelectorAll('.view').forEach(function(v){v.style.display='none'});
