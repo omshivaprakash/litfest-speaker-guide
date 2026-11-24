@@ -346,6 +346,35 @@
    "partUrl": "https://www.bhopalliteraturefestival.com/event/blf-2027/speakers",
    "why": {},
    "updated": "Nov 2026 (2027 speakers announced so far; history 2019–2026)"
+  },
+  {
+   "id": "mbifl",
+   "status": "live",
+   "name": "Mathrubhumi International Festival of Letters",
+   "short": "MBIFL",
+   "ab": "MBI",
+   "year": 2027,
+   "dates": "28–31 Jan 2027",
+   "venue": "Kanakakkunnu, Thiruvananthapuram",
+   "url": "https://www.mbifl.com/",
+   "logo": "festivals/mbifl/logo.png",
+   "base": "festivals/mbifl/",
+   "from": 2018,
+   "to": 2026,
+   "years": [
+    2018,
+    2019,
+    2020,
+    2023,
+    2024,
+    2025,
+    2026,
+    2027
+   ],
+   "sched": 2026,
+   "partUrl": "https://www.mbifl.com/speakers",
+   "why": {},
+   "updated": "Nov 2026 (only 6 of the 2027 speakers announced; 2025 shows 60 listed)"
   }
  ]
 }

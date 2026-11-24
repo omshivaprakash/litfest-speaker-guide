@@ -22,6 +22,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Goa Arts and Literature Festival 2026, 12–14 Feb (`?f=galf`) | Live: 28 speakers with bios and photos; history 2023–2025 (2023 lists only a few names) |
 | Dehradun Literature Festival 2026, 27–29 Nov (`?f=ddlf`) | Live, thin: 55 speakers (names and photos), 2025 history only |
 | Bhopal Literature & Art Festival 2027, 8–10 Jan (`?f=bplf`) | Live: 65 speakers announced so far (with bios), history 2019–2026 |
+| Mathrubhumi International Festival of Letters 2027, 28–31 Jan (`?f=mbifl`) | Live, thin: 6 speakers announced so far; history 2018–2020 and 2023–2026 |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -109,3 +110,6 @@ Built by `tools/build_ddlf.py` from the Wix pages of www.dehradunliteraturefesti
 
 ## Bhopal data
 Built by `tools/build_bhopal.py` from bhopalliteraturefestival.com: `/event/blf-YYYY/speakers` for 2019–2027 and the 2027 author pages for bios. The 2027 list is partial (announced so far). Gender, country and role come from the bio text only; unknown where the bio is silent. No books are listed yet.
+
+## MBIFL data
+Built by `tools/build_mbifl.py` from www.mbifl.com, assets.mbifl.com and english.mathrubhumi.com: the 2027 speaker feed (only a few announced so far; re-run to refresh), the 2026 speakers page, the 2025 feed (first 20 per Regional/National/International list, so 2025 is partial), 2024 and 2018–2020 feeds, and the 2023 page. There was no festival in 2021 or 2022. Names are matched across years by normalised spelling, so some repeat guests may be missed. No books listed yet.
