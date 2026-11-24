@@ -105,6 +105,30 @@
    "updated": "Nov 2026"
   },
   {
+   "id": "nlf",
+   "status": "live",
+   "name": "Neev Literature Festival",
+   "short": "Neev",
+   "year": 2026,
+   "dates": "26–27 Sep 2026",
+   "venue": "Neev Academy, Yemalur, Bengaluru",
+   "url": "https://www.neevliteraturefestival.org/",
+   "logo": "festivals/nlf/logo.png",
+   "base": "festivals/nlf/",
+   "from": 2023,
+   "to": 2025,
+   "years": [
+    2023,
+    2024,
+    2025,
+    2026
+   ],
+   "sched": 2023,
+   "partUrl": "https://www.neevliteraturefestival.org/speaker/{u}/",
+   "why": {},
+   "updated": "Nov 2026 (featured speakers only, about ten a year)"
+  },
+  {
    "id": "bpf",
    "status": "live",
    "name": "Bengaluru Poetry Festival",

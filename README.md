@@ -17,6 +17,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Literature Live! The Mumbai LitFest 2026, 23–25 Oct (`?f=tll`) | Live: 103 speakers with bios, photos and sessions; history 2024–2025; books from the festival's own list |
 | Bengaluru Poetry Festival 2026, 1–2 Aug (`?f=bpf`) | Live: 71 poets with bios and photos; history 2016–2025 (no 2021) |
 | Kolkata Literary Meet 2026, 22–26 Jan (`?f=klm`) | Live: 171 speakers with bios, photos, sessions and books; history 2023–2025 |
+| Neev Literature Festival 2026, 26–27 Sep (`?f=nlf`) | Live, small: the featured speakers only (about ten a year), history 2023–2025 |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -83,3 +84,6 @@ Built by `tools/build_bpf.py` from bengalurupoetryfestival.org: the 2026 poets p
 
 ## Kolkata data
 Built by `tools/build_klm.py` from kolkatalitmeet.in (each year's site lists its speakers; the 2026 pages give bios, photos and sessions) plus books from bio titles and Open Library (`tools/add_books_ol.py`). The 2020–2022 sites use a different layout and are not included, so history starts in 2023.
+
+## Neev data
+Built by `tools/build_nlf.py` from the speakers page of neevliteraturefestival.org, which lists only the featured speakers for each year (about ten, selected with `?y=`). The site's full events and speakers listings load through scripts, so the guest list is incomplete and 2022 is left out (its filter returns the unfiltered page).
