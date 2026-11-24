@@ -1,6 +1,7 @@
 /* One-screen and error checks for every festival, tab and overlay at three phone/desktop sizes.
    Usage: python3 -m http.server 8765 &   then   BASE=http://localhost:8765 node tests/run.js   (needs: npm i playwright) */
 const {chromium}=require('playwright');const BASE=process.env.BASE||'http://localhost:8765';const VPS=[[390,780],[360,640],[1280,720]];
+let axeSrc=null;try{axeSrc=require('fs').readFileSync(require.resolve('axe-core/axe.min.js'),'utf8')}catch(e){}
 let fails=0;const bad=(m)=>{fails++;console.log('FAIL',m)};
 (async()=>{const b=await chromium.launch();const L=await (await fetch(BASE+'/festivals.json')).json();
 for(const [w,h] of VPS){const p=await b.newPage({viewport:{width:w,height:h}});const errs=[];
@@ -12,6 +13,7 @@ for(const [w,h] of VPS){const p=await b.newPage({viewport:{width:w,height:h}});c
   const n=(await p.$$('.tabs button, .tabs a')).length;
   for(let i=0;i<n;i++){const t=(await p.$$('.tabs button, .tabs a'))[i];if(!t||!(await t.isVisible()))continue;await t.click({timeout:5000});await p.waitForTimeout(350);await fit(`${f.id} tab ${i}`)}}
  await p.goto(BASE+'/?f=blf');await p.waitForTimeout(800);
+ if(axeSrc&&w===390){await p.evaluate(axeSrc);const r=await p.evaluate(()=>axe.run(document,{runOnly:['wcag2a','wcag2aa']}));r.violations.forEach(v=>bad('accessibility: '+v.id+' ('+v.nodes.length+') '+v.help))}
  for(const [btn,name] of [['#gsb','search'],['#abb','about']]){await p.click(btn);await p.waitForTimeout(600);await fit(name);await p.keyboard.press('Escape');await p.waitForTimeout(150)}
  await p.click('#axb2');await p.waitForTimeout(3500);await fit('across');await p.click('#axx');
  await p.click('#exb2');await p.waitForTimeout(3500);

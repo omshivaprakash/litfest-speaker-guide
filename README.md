@@ -140,3 +140,5 @@ The site is only static files (HTML, JSON, images, fonts): there is no server co
 
 ## Checks
 `python3 tools/validate.py` checks the data (files, photos, covers, dates). `node tests/run.js` (with `python3 -m http.server 8765` running, and `npm i playwright`) opens every festival, tab and overlay at 390×780, 360×640 and 1280×720 and fails if a page scrolls or any script or file errors. `.github/workflows/check.yml` runs both on every push.
+
+`tools/check_dates.py` lists festivals whose dates are stale or whose sites no longer answer. `tools/stamp.py` stamps one build id into `index.html` and `sw.js` before you commit (so installed copies refresh). `tools/build_index.py` rebuilds `data/history-all.json` after any data build. With `axe-core` installed, `tests/run.js` also checks WCAG 2 A/AA accessibility.

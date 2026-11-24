@@ -1,6 +1,6 @@
 /* LitFest Guide service worker: the whole site is static files, so after the first visit it runs offline.
    Bump VERSION when index.html changes shape; data files refresh in the background on every visit. */
-var VERSION='litfest-v8',SHELL=['./','index.html','manifest.webmanifest','fonts/fonts.css','assets/logo.svg','explore.js','assets/icon-192.png','assets/icon-512.png','festivals.json'];
+var VERSION='litfest-202611241847ad7216b',SHELL=['./','index.html','manifest.webmanifest','fonts/fonts.css','assets/logo.svg','explore.js','assets/icon-192.png','assets/icon-512.png','festivals.json'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(VERSION).then(function(c){return c.addAll(SHELL).then(function(){return fetch('festivals.json').then(function(r){return r.json()}).then(function(L){var u=['data/debut.json','data/history-all.json'];L.festivals.forEach(function(f){if(f.status==='live'){['data','history','stats'].forEach(function(k){u.push(f.base+k+'.json')})}});return Promise.all(u.map(function(x){return c.add(x).catch(function(){})}))}).catch(function(){})})}).then(function(){return self.skipWaiting()}))});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(k){return Promise.all(k.filter(function(x){return x!==VERSION}).map(function(x){return caches.delete(x)}))}).then(function(){return self.clients.claim()}))});
 self.addEventListener('fetch',function(e){var r=e.request;if(r.method!=='GET')return;var u=new URL(r.url);if(u.origin!==location.origin)return;

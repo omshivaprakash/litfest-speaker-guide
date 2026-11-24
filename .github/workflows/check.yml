@@ -15,7 +15,7 @@ jobs:
         run: python3 tools/validate.py
       - name: Layout and error checks
         run: |
-          npm i --no-save playwright
+          npm i --no-save playwright axe-core
           npx playwright install --with-deps chromium
           python3 -m http.server 8765 >/dev/null 2>&1 &
           sleep 2
