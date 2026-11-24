@@ -28,6 +28,19 @@
    }
   },
   {
+   "id": "sjm",
+   "type": "programme",
+   "status": "live",
+   "name": "Samajamukhi Sahitya Sammelana",
+   "short": "Samajamukhi",
+   "year": 2026,
+   "dates": "28–29 Nov 2026",
+   "venue": "Bharat Scouts and Guides, Palace Road, Bengaluru",
+   "url": "https://samajamukhi.com/",
+   "logo": "festivals/sjm/logo.png",
+   "base": "festivals/sjm/"
+  },
+  {
    "id": "jlf",
    "status": "soon",
    "name": "Jaipur Literature Festival",
