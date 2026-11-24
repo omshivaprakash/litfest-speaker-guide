@@ -75,6 +75,7 @@ h2{font:700 1.1rem/1.15 var(--display);margin:0}
 .gres{border:1px solid var(--line);border-radius:12px;padding:9px 12px}.gres h3{margin:0 0 4px;font:700 1rem/1.2 var(--display)}
 .gres a{display:flex;gap:8px;align-items:baseline;padding:3px 0;color:var(--fg);text-decoration:none;font-size:13px;border-top:1px solid var(--line)}
 .gres a b{flex:0 0 auto;min-width:74px;color:var(--accent)}.gres a span{color:var(--muted);font-size:12.5px;line-height:1.35}
+.abt{overflow:auto;flex:1;min-height:0;font-size:13.5px;line-height:1.55;padding:6px 0}.abt h4{margin:14px 0 3px;font:700 14px var(--display)}.abt p{margin:0 0 6px}.abt a{color:var(--accent);font-weight:600}
 .vb{display:grid;grid-template-columns:118px 1fr 26px;gap:6px;align-items:center;font-size:12px;margin:4px 0}.vb i{display:block;height:12px;background:var(--accent);border-radius:3px;min-width:2px}.vb span:last-child{color:var(--muted);text-align:right}
 .vh{font:600 12px var(--body);margin:14px 0 4px;color:var(--fg)}.vh small{font-weight:400;color:var(--muted)}
 .tlr text{font-size:9.5px;fill:var(--muted)}.tlr rect.b{rx:3}
@@ -578,12 +579,23 @@ o.addEventListener('click',function(e){var b=e.target.closest('[data-gp]');if(b&
 document.addEventListener('keydown',function esc2(e){if(e.key==='Escape'&&document.body.contains(o)){o.remove();document.removeEventListener('keydown',esc2)}});
 window.addEventListener('resize',function(){if(document.body.contains(o))fill()});
 if(GS.ready)fill();else gsLoad(L,fill);setTimeout(function(){inp.focus()},50)}
+
+function aboutOpen(){var o=document.createElement('div');o.className='gso';
+var G='https://github.com/omshivaprakash/litfest-speaker-guide';
+o.innerHTML='<div class="gsh"><h2 style="flex:1;margin:0">About this portal</h2><button id="abx">Close</button></div><div class="abt">'+
+'<p>An independent, non-commercial project for <b>education and research</b>. It helps readers explore who speaks at Indian literature festivals and how that changes over the years. It is not affiliated with, endorsed by or sponsored by any festival.</p>'+
+'<h4>Where the information comes from</h4><p>Each festival’s public speaker pages, schedules and bios, plus Open Library for book titles and covers. Some programmes were typed in by hand from printed invitations. Official sources always win: please check the festival’s own site for the final programme.</p>'+
+'<h4>What to keep in mind</h4><p>Gender, country, role and language are inferred from bios and can be wrong or blank. “First-time” only means a name was not found in the lists we have. Books are matched by author name and can include a same-name author. Maps are schematic.</p>'+
+'<h4>Names, photos and logos</h4><p>These belong to their owners and are shown only to identify people and festivals. Nothing here is for sale, and the site collects no personal data (stars are kept in your own browser).</p>'+
+'<h4>Corrections, removal and contact</h4><p>Spotted a mistake, or want a name, photo or festival changed or removed? <a href="'+G+'/issues/new" target="_blank" rel="noopener">Open an issue on GitHub</a> and say which person and festival. Festivals and people listed here are welcome to ask.</p>'+
+'<p>Code and data: <a href="'+G+'" target="_blank" rel="noopener">github.com/omshivaprakash/litfest-speaker-guide</a> · Built by <a href="https://github.com/omshivaprakash" target="_blank" rel="noopener">omshivaprakash</a>.</p></div>';
+document.body.appendChild(o);o.querySelector('#abx').onclick=function(){o.remove()};document.addEventListener('keydown',function e2(e){if(e.key==='Escape'&&document.body.contains(o)){o.remove();document.removeEventListener('keydown',e2)}})}
 function boot(){
 fetch('festivals.json?v='+BUILD).then(function(r){return r.json()}).then(function(L){
 var id=(new URLSearchParams(location.search)).get('f')||L.default,f=null;L.festivals.forEach(function(x){if(x.id===id)f=x});if(!f)f=L.festivals[0];FE=f;
 var h='<div class="fb-l">';
 L.festivals.forEach(function(x){h+='<a class="fchip'+(x.id===f.id?' on':'')+'" href="?f='+x.id+'" title="'+esc(x.name)+'">'+(x.logo?'<img src="'+esc(x.logo)+'" alt="">':'')+'<span>'+esc(x.short)+'</span>'+(x.status==='live'?'':'<em>soon</em>')+'</a>'});
-h+='</div><button class="fsearch" id="gsb">Search all</button>'+(f.url?'<a class="fext" target="_blank" rel="noopener" href="'+esc(f.url)+'">Official site \u2197</a>':'');$('fbar').innerHTML=h;$('gsb').onclick=function(){gsOpen(L)};
+h+='</div><button class="fsearch" id="gsb">Search all</button><button class="fsearch" id="abb" aria-label="About and disclaimer">About</button>'+(f.url?'<a class="fext" target="_blank" rel="noopener" href="'+esc(f.url)+'">Official site \u2197</a>':'');$('fbar').innerHTML=h;$('gsb').onclick=function(){gsOpen(L)};$('abb').onclick=aboutOpen;
 document.title=f.short+' '+f.year+' Speaker Guide';
 if(f.type==='programme'&&f.status==='live'){return fetch(f.base+'data.json?v='+BUILD).then(function(r){return r.json()}).then(function(D){progApp(f,D)})}
 if(f.status!=='live'){document.querySelector('.tabs').style.display='none';document.querySelectorAll('.view').forEach(function(v){v.style.display='none'});

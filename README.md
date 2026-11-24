@@ -64,3 +64,6 @@ Built by `tools/build_hlf.py` from hydlitfest.org: the 2027 speakers and moderat
 
 ## Search all festivals
 The "Search all" button searches every festival's speaker list for every year (`festivals/<id>/history.json`, built by `tools/build_history.py` and `tools/build_hlf.py`) and shows which festivals and years a person appeared in. Tapping a result opens that festival filtered to the person.
+
+## Disclaimer and contact
+This is an independent, non-commercial project for education and research. It is not affiliated with any festival. Names, photos, logos and book covers belong to their owners and are shown to identify people and festivals. Gender, country, role and language are inferred from public bios and can be wrong. To report a mistake or ask for a name, photo or festival to be changed or removed, [open an issue](https://github.com/omshivaprakash/litfest-speaker-guide/issues/new).
