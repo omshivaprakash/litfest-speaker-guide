@@ -15,7 +15,13 @@ def norm(n):
     return re.sub(r'\s+',' ',re.sub(r'[^a-z ]',' ',n)).strip()
 def titles(fn): 
     s=open(f'{RAW}/{fn}',encoding='utf8',errors='ignore').read()
-    return [html.unescape(re.sub(r'\s+',' ',re.sub(r'<[^>]+>','',t))).strip() for t in re.findall(r'<h3 class="elementor-image-box-title">(.*?)</h3>',s,re.S)]
+    out=[html.unescape(re.sub(r'\s+',' ',re.sub(r'<[^>]+>','',t))).strip() for t in re.findall(r'<h3 class="elementor-image-box-title">(.*?)</h3>',s,re.S)]
+    if not out:  # some years link each name to its profile page instead
+        seen=set()
+        for sl,t in re.findall(r'<a[^>]+href=["\']https://hydlitfest.org/speaker/([a-z0-9-]+)/?["\'][^>]*>(.*?)</a>',s,re.S):
+            t=html.unescape(re.sub(r'\s+',' ',re.sub(r'<[^>]+>','',t))).strip()
+            if t and sl not in seen and sl not in ('moderators','mmb-authors'): seen.add(sl); out.append(t)
+    return out
 def get(u,b=False):
     for _ in range(3):
         try:
