@@ -70,6 +70,23 @@
    "themeLabel": "language"
   },
   {
+   "id": "hlf",
+   "status": "live",
+   "name": "Hyderabad Literary Festival",
+   "short": "HLF",
+   "year": 2027,
+   "dates": "Jan 2027, dates to be confirmed",
+   "venue": "Hyderabad",
+   "url": "https://hydlitfest.org/",
+   "logo": "festivals/hlf/logo.svg",
+   "base": "festivals/hlf/",
+   "from": 2021,
+   "to": 2026,
+   "sched": 2021,
+   "partUrl": "https://hydlitfest.org/{u}/",
+   "why": {}
+  },
+  {
    "id": "jlf",
    "status": "live",
    "name": "Jaipur Literature Festival",

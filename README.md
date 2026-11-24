@@ -12,6 +12,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Samajamukhi Sahitya Sammelana, 28–29 Nov 2026 (`?f=sjm`) | Live: programme only (sessions and names, Kannada) |
 | Jananudi 2026, 28–29 Nov, Mangaluru (`?f=jn`) | Live: programme only (sessions and names, Kannada) |
 | Book Brahma Literature Festival 2026, 14–23 Aug (`?f=bbl`) | Live: 212 sessions, 400 speakers with bios and photos (no earlier editions) |
+| Hyderabad Literary Festival 2027 (`?f=hlf`) | Live: 135 announced so far (speakers and moderators); history 2021–2026 |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -57,3 +58,6 @@ The programme festivals page through content (Prev / Next) so nothing scrolls, l
 
 ## Book Brahma data
 Built by `tools/fetch_bblf.py` (speaker pages) and `tools/build_bblf.py` (the festival's published schedule PDF). A person is listed in a session only if their name in the schedule matches the official speakers page, so about 100 of the 400 speakers have no session shown. Earlier editions (2024, 2025) have only photo galleries on the festival site, so there is no history, first-time flag or trend for this festival. Languages shown are the session language printed in the schedule; many sessions do not print one.
+
+## Hyderabad data
+Built by `tools/build_hlf.py` from hydlitfest.org: the 2027 speakers and moderators pages (with profile pages and photos) and the past-speakers pages for 2021–2026. The site does not yet state the 2027 dates, so none are shown. 2022 combines the two small events that year (Anuvaad and Kaavya Dhaara), so its count is low. Names are matched across years by spelling, so a person listed under a different spelling counts as new. Roles and countries are guessed from bio keywords; books, languages and ages are not included.

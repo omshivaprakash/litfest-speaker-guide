@@ -40,7 +40,7 @@ RULES=[(r'\b(nobel|booker prize|pulitzer)\b','Prize-winning author'),(r'\b(ambas
  (r'\b(publisher|literary agent|editor-in-chief|editorial director)\b','Publishing professional'),(r'\b(translator)\b','Translator'),(r'\b(singer|musician|composer|vocalist)\b','Musician'),
  (r'\b(scientist|physicist|astrophysicist|neuroscientist|biologist|doctor|physician|surgeon|ecologist|climate)\b','Scientist or doctor'),(r'\b(historian)\b','Historian'),
  (r'\b(professor|scholar|academic|lecturer)\b','Scholar'),(r'\b(journalist|correspondent|columnist|reporter|broadcaster)\b','Journalist'),(r'\b(poet)\b','Poet'),(r'\b(playwright|dramatist)\b','Playwright'),
- (r'\b(illustrator|cartoonist|artist|dancer)\b','Artist or illustrator'),(r'\b(entrepreneur|founder|investor|ceo)\b','Entrepreneur'),(r'\b(novelist|author|writer|memoirist|essayist|biographer)\b','Author')]
+ (r'\b(illustrator|cartoonist|artist|dancer)\b','Artist or illustrator'),(r'\b(entrepreneur|investor|ceo)\b','Entrepreneur'),(r'\b(novelist|author|writer|memoirist|essayist|biographer)\b','Author')]
 def role(b):
     l=b.lower()
     for rx,lab in RULES:
@@ -105,7 +105,7 @@ for p in info:
     city=next((c for c,rx in CITY if full and re.search(rx,full.lower())),'')
     r='Moderator' if p['kind']=='moderators' and not full else (role(full) if full else 'Speaker')
     S.append({'n':p['name'],'b':short(full),'f':full,'y':ys,'pre':[],'first':0 if past else 1,'g':gender(full) if full else 'u','t':r if r!='Speaker' else 'Other voices',
-      'p':0,'r':0,'a':'','l':'','s':[],'u':p['slug'] if p['kind']=='speaker' else 'moderators/'+p['slug'],'bk':[],'lg':[],'le':'','role':r,'nonauth':0 if r in('Author','Prize-winning author','Poet','Playwright') else 1,
+      'p':0,'r':0,'a':'','l':'','s':[],'u':('speaker/' if p['kind']=='speaker' else 'moderators/')+p['slug'],'bk':[],'lg':[],'le':'','role':r,'nonauth':0 if r in('Author','Prize-winning author','Poet','Playwright') else 1,
       'cc':cc,'cb':cb,'dia':0,'city':city,'ph':p['ph']})
 # picks = most frequent returning speakers
 fr=sorted([o for o in S if sum(1 for y in o['y'] if y<NOW)>=3],key=lambda o:(-len(o['y']),o['n']))
