@@ -438,6 +438,38 @@
    "logo": "festivals/eibf/logo.png",
    "base": "festivals/eibf/",
    "note": "International. The next programme has not been announced yet; we will add it when it is."
+  },
+  {
+   "id": "hay",
+   "status": "soon",
+   "name": "Hay Festival (Hay-on-Wye)",
+   "short": "Hay",
+   "ab": "HAY",
+   "year": 2027,
+   "dates": "27 May–6 Jun 2027",
+   "venue": "Hay-on-Wye, Wales",
+   "url": "https://www.hayfestival.com/",
+   "logo": "festivals/hay/logo.png",
+   "base": "festivals/hay/",
+   "start": "2027-05-27",
+   "end": "2027-06-06",
+   "note": "International. The 2027 programme is not out yet. Hay Festival also runs editions in Cartagena, Nairobi, Segovia, Querétaro and elsewhere; see the official site."
+  },
+  {
+   "id": "hayww",
+   "status": "soon",
+   "name": "Hay Festival Winter Weekend",
+   "short": "Hay Winter",
+   "ab": "HWW",
+   "year": 2026,
+   "dates": "26–29 Nov 2026",
+   "venue": "Hay-on-Wye, Wales",
+   "url": "https://www.hayfestival.com/winter-weekend/home",
+   "logo": "festivals/hay/logo.png",
+   "base": "festivals/hay/",
+   "start": "2026-11-26",
+   "end": "2026-11-29",
+   "note": "International. The programme is published on the official site; we have not added its speakers here."
   }
  ]
 }

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LitFest Guide Press Note</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Press note: LitFest Guide, a free app that maps who speaks at India's literature festivals.">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+/* Layout: one editorial column, hero pairing a desktop window with a phone, then alternating feature rows. White ground, ink text, one orange accent from the app itself. */
+:root{
+  --bg:#ffffff; --ink:#1c1917; --muted:#57534e; --line:#e7e5e4; --soft:#f6f5f3; --accent:#c2410c; --accent-ink:#ffffff; --frame:#1c1917; --tint:#fff1e6;
+  --display:'Fraunces',Georgia,'Times New Roman',serif; --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171412;--ink:#f5f2ee;--muted:#b4aca4;--line:#322d29;--soft:#201c19;--accent:#fb923c;--accent-ink:#171412;--frame:#3a3430;--tint:#2a1d14;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#171412;--ink:#f5f2ee;--muted:#b4aca4;--line:#322d29;--soft:#201c19;--accent:#fb923c;--accent-ink:#171412;--frame:#3a3430;--tint:#2a1d14;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);margin:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+.wrap{max-width:1040px;margin:0 auto}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent)}
+.top{display:flex;align-items:center;gap:12px;padding-block:20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.top img{width:34px;height:34px;border-radius:9px}
+.top b{font:800 1.2rem var(--display)}
+.top span{margin-left:auto;font:600 .75rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center;padding-block:48px 40px}
+.kick{font:600 .78rem var(--body);letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+h1{font:800 clamp(2rem,5vw,3.3rem)/1.08 var(--display);letter-spacing:-.015em;margin:0 0 16px;text-wrap:balance}
+.dek{font-size:1.15rem;color:var(--muted);margin:0 0 20px;max-width:34em}
+.meta{font-size:.85rem;color:var(--muted);margin:0}
+.stage{position:relative;min-width:0}
+.win{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 18px 40px -22px rgba(0,0,0,.45);background:var(--bg)}
+.win::before{content:"";display:block;height:22px;background:var(--soft);border-bottom:1px solid var(--line);background-image:radial-gradient(circle,#d6d3d1 3px,transparent 3.5px);background-size:16px 22px;background-repeat:repeat-x;background-position:10px 0;background-clip:border-box}
+.win img{width:100%}
+.phone{border:6px solid var(--frame);border-radius:28px;overflow:hidden;background:var(--bg);box-shadow:0 18px 40px -20px rgba(0,0,0,.5)}
+.phone img{width:100%}
+.stage .phone{position:absolute;right:-10px;bottom:-36px;width:34%}
+.figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 56px;padding:0;list-style:none}
+.figs li{background:var(--soft);border-radius:12px;padding:14px 16px}
+.figs b{display:block;font:800 1.9rem/1.1 var(--display);color:var(--accent)}
+.figs span{font-size:.85rem;color:var(--muted)}
+section{padding-block:8px 8px}
+h2{font:700 1.7rem/1.2 var(--display);margin:0 0 10px;text-wrap:balance}
+p{margin:0 0 14px;max-width:44em}
+.lead{max-width:44em;margin-bottom:40px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:36px;align-items:center;margin:0 0 56px}
+.row.flip .txt{order:2}
+.row h3{font:700 1.35rem/1.25 var(--display);margin:0 0 8px}
+.shots{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.34fr);gap:16px;align-items:end;min-width:0}
+.shots .win{align-self:center}
+.cap{font-size:.78rem;color:var(--muted);margin:8px 0 0}
+.ticks{margin:0 0 14px;padding-left:18px}
+.ticks li{margin:0 0 4px}
+.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:12px 0 56px}
+.gal figure{margin:0}
+.gal .phone{border-width:4px;border-radius:18px}
+.gal figcaption{font-size:.78rem;color:var(--muted);margin-top:6px}
+.facts{background:var(--soft);border-radius:14px;padding:22px 24px;margin:0 0 40px}
+.facts dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 20px;margin:0}
+.facts dt{font-weight:600}
+.facts dd{margin:0;color:var(--muted)}
+.fests{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;padding:0;list-style:none}
+.fests li{font-size:.82rem;border:1px solid var(--line);border-radius:999px;padding:3px 12px}
+.fests li.soon{border-style:dashed;color:var(--muted)}
+.note{border-left:3px solid var(--accent);background:var(--tint);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 40px;font-size:.92rem}
+.about{border-top:1px solid var(--line);padding-top:24px;font-size:.92rem;color:var(--muted)}
+.about p{max-width:46em}
+@media (max-width:820px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:24px;padding-block:32px 48px}
+  .stage .phone{right:-4px;width:36%}
+  .row,.row.flip{grid-template-columns:minmax(0,1fr);gap:18px}
+  .row.flip .txt{order:0}
+  .figs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts dl{grid-template-columns:minmax(0,1fr)}
+  .facts dt{margin-top:6px}
+}
+@media (prefers-reduced-motion:no-preference){a{transition:opacity .15s}a:hover{opacity:.8}}
+</style>
+
+</head><body>
+<div class="wrap">
+  <header class="top">
+    <img src="../assets/icon-192.png" alt="LitFest Guide logo">
+    <b>LitFest Guide</b>
+    <span>Press note · For immediate release · 24 November 2026</span>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="kick">New, free and open source</p>
+      <h1>A pocket guide to who speaks at India’s literature festivals</h1>
+      <p class="dek">LitFest Guide gathers the speaker lists of 16 Indian literature festivals into one app. Readers can see who is coming, who is new, who keeps coming back, and which books to pick up before they go.</p>
+      <p class="meta">Works on any phone or laptop. Installs like an app, opens offline, needs no account.</p>
+    </div>
+    <div class="stage">
+      <div class="win"><img src="img/d-discover.jpg" alt="Desktop view of the Bangalore Literature Festival 2026 page showing speaker numbers, a map, a chart of speakers per year and speaker photos" width="1500" height="800"></div>
+      <div class="phone"><img src="img/m-speakers.jpg" alt="Phone view of the All speakers list with photos, countries and star buttons" width="780" height="1688"></div>
+    </div>
+  </div>
+
+  <ul class="figs">
+    <li><b>16</b><span>festivals with speaker data, from Bengaluru to Jaipur, Kolkata, Kozhikode and Bhopal</span></li>
+    <li><b>8,500</b><span>writers, thinkers and artists tracked across 2016 to 2027</span></li>
+    <li><b>13,700</b><span>festival appearances, so you can see who returns</span></li>
+    <li><b>2,500</b><span>book entries, with covers, to start a reading list</span></li>
+  </ul>
+
+  <section class="lead">
+    <h2>Every festival has a programme. Nobody had the whole picture.</h2>
+    <p>Each festival publishes its speakers on its own website, in its own format, and last year’s list quietly disappears. A reader who loves Kannada poetry, or wants to catch the debut novelists, or simply wonders whether a favourite author tours the circuit, has had to open a dozen tabs.</p>
+    <p>LitFest Guide puts the lists side by side. Each festival gets one clean page per view, built for a thumb on a phone, with photos, countries, roles and past appearances.</p>
+  </section>
+
+  <div class="row">
+    <div class="txt">
+      <h3>See a festival at a glance</h3>
+      <p>Open any festival and the first screen answers the questions readers ask: how many speakers, how many are first-timers, how many are women, where they are from, and how the line-up has grown since 2018.</p>
+      <ul class="ticks"><li>Photos and short bios, with a prompt for who to hear first</li><li>Filters for new faces, returning guests and languages</li><li>A one-tap star on any speaker for your own shortlist</li></ul>
+    </div>
+    <div class="shots">
+      <div class="win"><img src="img/d-data.jpg" alt="Desktop view of the Jaipur Literature Festival 2027 page with figures, map and chart" width="1500" height="800" loading="lazy"></div>
+      <div class="phone"><img src="img/m-discover.jpg" alt="Phone view of the Bangalore Literature Festival page" width="780" height="1688" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="row flip">
+    <div class="txt">
+      <h3>Follow writers across festivals</h3>
+      <p>The Across view is a grid of every festival against every other, showing how many speakers they share. Jaipur and Bengaluru overlap by more than 300 people. Tap any square for the names. Search finds one person across every festival and year at once.</p>
+    </div>
+    <div class="shots">
+      <div class="win"><img src="img/d-across.jpg" alt="Grid showing how many speakers each pair of festivals share" width="1500" height="940" loading="lazy"></div>
+      <div class="phone"><img src="img/m-across.jpg" alt="Phone view of the festival overlap grid" width="780" height="1688" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="txt">
+      <h3>A bookshelf made of the festivals’ own books</h3>
+      <p>Explore turns the data into things a book lover will enjoy browsing. The Shelf draws more than 800 books as spines on a wooden shelf; tap one for its cover, author and festival.</p>
+      <ul class="ticks"><li><b>Debuts:</b> authors grouped by the decade of their earliest listed book</li><li><b>Prizes:</b> who has won the Booker, Sahitya Akademi, JCB and more, with a timeline</li><li><b>Translators:</b> which languages the translators work from</li><li><b>Trails:</b> pick history, poetry or children’s books and get a reading route</li></ul>
+    </div>
+    <div class="shots">
+      <div class="win"><img src="img/d-shelf.jpg" alt="Rows of colourful book spines on a wooden shelf" width="1500" height="800" loading="lazy"></div>
+      <div class="phone"><img src="img/m-shelf.jpg" alt="Phone view of the book shelf with a festival filter" width="780" height="1688" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="row flip">
+    <div class="txt">
+      <h3>Never miss a festival</h3>
+      <p>The Upcoming tab counts down to every festival, adds the dates to your calendar with a reminder the day before, and can show a banner when a festival you follow is a week away. Bookmark festivals and speakers and they are waiting in one place.</p>
+    </div>
+    <div class="shots">
+      <div class="win"><img src="img/d-upcoming.jpg" alt="List of upcoming festivals with countdowns, calendar and reminder buttons" width="1500" height="800" loading="lazy"></div>
+      <div class="phone"><img src="img/m-upcoming.jpg" alt="Phone view of upcoming festivals with countdown pills" width="780" height="1688" loading="lazy"></div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Festivals covered</h2>
+    <ul class="fests">
+      <li>Bangalore Literature Festival</li><li>Jaipur Literature Festival</li><li>Hyderabad Literary Festival</li><li>Kerala Literature Festival</li><li>Mathrubhumi International Festival of Letters</li><li>Tata Literature Live, Mumbai</li><li>Kolkata Literary Meet</li><li>Kalinga Literary Festival</li><li>Goa Arts and Literary Festival</li><li>Bhopal Literature and Art Festival</li><li>Dehradun Literature Festival</li><li>Neev Literature Festival</li><li>Bengaluru Poetry Festival</li><li>Book Brahma</li><li>Samajamukhi</li><li>Jananudi</li>
+    </ul>
+    <ul class="fests">
+      <li class="soon">Galle Literary Festival, Sri Lanka (dates listed)</li><li class="soon">Edinburgh International Book Festival (coming)</li><li class="soon">Hay Festival and Hay Winter Weekend (dates listed)</li>
+    </ul>
+    <p>Samajamukhi and Jananudi are Kannada festivals, with their programmes entered by hand from printed invitations. International festivals are being added as their speaker lists are published.</p>
+  </section>
+
+  <div class="gal" aria-label="Phone screenshots">
+    <figure><div class="phone"><img src="img/m-debuts.jpg" alt="Authors grouped by decade of earliest listed book" loading="lazy"></div><figcaption>Debuts by decade</figcaption></figure>
+    <figure><div class="phone"><img src="img/m-prizes.jpg" alt="Prize timeline by year" loading="lazy"></div><figcaption>Prize timeline</figcaption></figure>
+    <figure><div class="phone"><img src="img/m-shelf.jpg" alt="Book shelf on a phone" loading="lazy"></div><figcaption>The shelf</figcaption></figure>
+    <figure><div class="phone"><img src="img/m-upcoming.jpg" alt="Upcoming festivals on a phone" loading="lazy"></div><figcaption>Upcoming festivals</figcaption></figure>
+  </div>
+
+  <div class="facts">
+    <h2>At a glance</h2>
+    <dl>
+      <dt>Cost</dt><dd>Free. No ads, no account, no tracking. Your stars and bookmarks stay in your own browser.</dd>
+      <dt>Works on</dt><dd>Any modern phone, tablet or laptop browser. Install it to the home screen like an app.</dd>
+      <dt>Offline</dt><dd>After one visit, every festival’s data opens without a connection.</dd>
+      <dt>Open source</dt><dd>MIT licence. The data, the app and the tools that build them are public.</dd>
+      <dt>Code and data</dt><dd><a href="https://github.com/omshivaprakash/litfest-speaker-guide">github.com/omshivaprakash/litfest-speaker-guide</a></dd>
+      <dt>Try it</dt><dd><a href="https://omshivaprakash.github.io/litfest-speaker-guide/">omshivaprakash.github.io/litfest-speaker-guide</a></dd>
+    </dl>
+  </div>
+
+  <p class="note"><b>Notes for editors.</b> LitFest Guide is an independent project for education and research. It is not affiliated with, endorsed by or sponsored by any festival. Speaker lists come from each festival’s public pages; gender, country and role are inferred from bios and can be wrong or blank; books are matched by author name through Open Library. The festivals’ own sites are the final word on programmes. Corrections and removal requests are welcome through the project’s GitHub issues.</p>
+
+  <footer class="about">
+    <h2 style="font-size:1.1rem">About the project</h2>
+    <p>LitFest Guide is built and maintained by omshivaprakash as a reader’s tool for India’s literature festival circuit. Festival organisers, authors and readers can suggest corrections, new festivals or new views through GitHub, or through <a href="https://omshivaprakash.github.io/">omshivaprakash.github.io</a>.</p>
+    <p>Images: screenshots of the app on desktop and phone are free to use with a credit to LitFest Guide. Speaker photographs and festival logos belong to their owners. Press-size image files are in the project’s <code>press/img</code> folder.</p>
+  </footer>
+</div>
+
+</body></html>
