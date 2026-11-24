@@ -113,3 +113,6 @@ Built by `tools/build_bhopal.py` from bhopalliteraturefestival.com: `/event/blf-
 
 ## MBIFL data
 Built by `tools/build_mbifl.py` from www.mbifl.com, assets.mbifl.com and english.mathrubhumi.com: the 2027 speaker feed (only a few announced so far; re-run to refresh), the 2026 speakers page, the 2025 feed (first 20 per Regional/National/International list, so 2025 is partial), 2024 and 2018–2020 feeds, and the 2023 page. There was no festival in 2021 or 2022. Names are matched across years by normalised spelling, so some repeat guests may be missed. No books listed yet.
+
+## Self-contained
+Everything the site displays is served from this repository: speaker photos, book covers, festival logos, data and the Fraunces and Inter fonts (`fonts/`). The only outbound links are ones you click (official festival sites, GitHub issues, the builder's page); no third-party requests are made when a page loads.
