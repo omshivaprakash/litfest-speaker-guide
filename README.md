@@ -43,6 +43,7 @@ It was built by a reader, for readers. It is free, it will stay free, and it is 
 | Understand the numbers: new vs returning, gender, countries, books | **The data** tab |
 | Keep a shortlist of people you want to see | Tap the **☆** on any speaker, then open **Tracker** or **Explore → Bookmarks** |
 | Look up one person across **every festival and year** | **Search** (top bar) |
+| See who is a **journalist, filmmaker, politician, scholar…**, not only authors | The colour-coded profession tags, the **Other professions** shelf and the **Profession** filter |
 | Find the **children's** sessions and the people who write for young readers | **Explore → Kids**, or the **Children's** tag and filter inside a festival |
 | See whether winning a prize led to a festival invitation | **Explore → Prizes → Prize effect** |
 | See which festivals share the same speakers | **Across** (top bar) |

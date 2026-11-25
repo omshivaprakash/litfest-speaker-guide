@@ -10,6 +10,8 @@ This guide walks through everything in LitFest Guide, in the order you are likel
 
 When you open the site you land on a page listing **every festival**, soonest first, each with its logo, dates and a countdown ("in 3 days", "Happening now", "Archive" and so on). Tap one to open it.
 
+Under the heading are the **grand totals** across every festival: people on record, festival appearances, festival editions and how many people have spoken at two or more festivals. Like every other page, the home page **fits one screen** with no scrolling: the festival list is split into pages, so use **Prev / Next**, the ← → keys, or swipe.
+
 Above the list are **region filters**: **All**, **India** and **International**. Pick **India** and a row of **states** appears (Karnataka, Kerala, Goa and so on, each with a count); pick **International** and the countries appear. Each card also shows its city, state and country in orange. Inside a festival, the line above its name shows the same place.
 
 The row of round buttons near the top is the **festival bar**. Tap any festival name to jump there. Use the **‹ ›** arrows (or swipe the row) to see more. The **All** button takes you back to the home page. The **LitFest Guide** name at the very top does the same.
@@ -32,6 +34,10 @@ Open any festival and you will see its name, dates and an **Official site ↗** 
 Below it are tabs. Most festivals have these:
 
 ### Discover
+**Children's track:** where a festival has a children's strand (Bangalore's C|L|F, Hyderabad's Dreamcatchers, Children's KLF and others), an amber **Children's track ›** chip comes first in the row under the numbers and opens its sessions. People whose work is for young readers carry a **Children's** tag.
+
+**Professions:** every speaker's profession is shown, and the non-author ones are colour-coded (journalism, film and stage, public life, academia, science and medicine, business, arts and music, book trade). The **Other professions** shelf lists them, the **Filters** have a **Profession** group, and the colour shows on the cards and in the lists.
+
 The festival at a glance: how many speakers, how many are **first-timers**, the share of **women** among speakers whose gender is stated, how many come from outside India, a **map** of where they are from, and a chart of **speakers per year**. Underneath is a row of photo cards: **Start here**, **New to this festival**, **Back again**, **Languages**. Tap a card to open that person.
 
 ### Who to hear
