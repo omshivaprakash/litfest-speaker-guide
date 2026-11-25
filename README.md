@@ -56,7 +56,7 @@ Detailed steps are in the **[User guide](docs/USER-GUIDE.md)**.
 
 ## Festivals covered
 
-**Live now (22):** Bangalore Literature Festival · Jaipur Literature Festival · Hyderabad Literary Festival · Kerala Literature Festival · Mathrubhumi International Festival of Letters · Literature Live! The Mumbai LitFest · Kolkata Literary Meet · Kalinga Literary Festival · Goa Arts and Literature Festival · Bhopal Literature & Art Festival · Dehradun Literature Festival · Neev Literature Festival · Bengaluru Poetry Festival · Wayanad Literature Festival · Koshala Literature Festival (Lucknow) · Ahmedabad International Literature Festival · Shillong Literary Festival · Book Brahma Literature Festival · JSW Sahitya Habba · Samajamukhi Sahitya Sammelana · Jananudi · Hay Festival Winter Weekend
+**Live now (23):** Bangalore Literature Festival · Jaipur Literature Festival · Hyderabad Literary Festival · Kerala Literature Festival · Mathrubhumi International Festival of Letters · Literature Live! The Mumbai LitFest · Kolkata Literary Meet · Kalinga Literary Festival · Goa Arts and Literature Festival · Bhopal Literature & Art Festival · Dehradun Literature Festival · Neev Literature Festival · Bengaluru Poetry Festival · Wayanad Literature Festival · Koshala Literature Festival (Lucknow) · Mysuru Literature Festival · Ahmedabad International Literature Festival · Shillong Literary Festival · Book Brahma Literature Festival · JSW Sahitya Habba · Samajamukhi Sahitya Sammelana · Jananudi · Hay Festival Winter Weekend
 
 **Listed, with dates from the official site and speakers to come:** CLF Literati, Chandigarh (4 to 6 Dec 2026) · Nalanda Literature Festival, Bihar (main festival Oct 2027) · Khushwant Singh Literary Festival, Kasauli (held 23 to 25 Oct 2026)
 

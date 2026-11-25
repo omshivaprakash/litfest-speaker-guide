@@ -116,6 +116,9 @@ Past-only people with profiles (photo, and bio where the festival published one)
 
 *Other topics that used to live here moved to: [User guide](USER-GUIDE.md) (features, keyboard, offline, language), [Maintaining](MAINTAINING.md) (adding festivals, checks, daily check), [Data dictionary](DATA-DICTIONARY.md) (formats, programme data) and [FAQ](FAQ.md) (disclaimer, name matching).*
 
+## Mysuru Literature Festival
+`tools/build_mysuru.py` reads mysuruliteraturefestival.com. The 10th edition (4 to 5 July 2026) comes from the site's speaker feed: 110 people with bios and photos, some bios in Kannada. The festival's official dates for the next edition are 3 to 4 July 2027; its speakers are not announced yet, so the countdown points to 2027 while the speaker list is the 2026 one. Earlier editions 2017 to 2022 are name lists read from each edition's page (2020 and 2021 were online); 2023 to 2025 pages show pictures only, so those years are not captured. Mysuru also has a separate Mysuru Literary Fest run by the Mysore Literary Association (Jan 2025 was its sixth edition), which is not covered yet.
+
 ## Koshala, Ahmedabad and Shillong
 Added from the festivals' own sites. **Koshala** (`tools/build_koshala.py`): the speakers page has a tab per year (2022 to 2026) and a detail page per speaker; 2026 (27 to 30 Nov) is the current list, earlier years are history and past profiles. **Ahmedabad** (`tools/build_ailf.py`): the 11th edition (24 to 25 Oct 2026) speaker page, 66 speakers with bios; earlier editions from 2016 are not captured yet. **Shillong** (`tools/build_shillong.py`): the Edition VI page, 12 speakers with bios (12 to 14 Nov 2026); editions I to V are shown on the site only in a form we cannot read. All three are watched by the daily check.
 

@@ -1,31 +1,40 @@
 {
- "checked": "2026-11-25T15:24Z",
+ "checked": "2026-11-25T16:48Z",
  "festivals": {
-  "koshala": {
-   "name": "Koshala",
-   "count": 51,
+  "mlf": {
+   "name": "Mysuru",
+   "count": 110,
    "previous": null,
    "added": [],
    "removed": [],
    "status": "baseline recorded",
+   "not_in_app": []
+  },
+  "koshala": {
+   "name": "Koshala",
+   "count": 51,
+   "previous": 51,
+   "added": [],
+   "removed": [],
+   "status": "ok",
    "not_in_app": []
   },
   "ailf": {
    "name": "Ahmedabad",
    "count": 66,
-   "previous": null,
+   "previous": 66,
    "added": [],
    "removed": [],
-   "status": "baseline recorded",
+   "status": "ok",
    "not_in_app": []
   },
   "shillong": {
    "name": "Shillong",
    "count": 12,
-   "previous": null,
+   "previous": 12,
    "added": [],
    "removed": [],
-   "status": "baseline recorded",
+   "status": "ok",
    "not_in_app": []
   },
   "blf": {
@@ -47,15 +56,10 @@
   "jlf": {
    "name": "JLF",
    "count": 281,
-   "previous": 282,
-   "added": [
-    "Jamie Andrews"
-   ],
-   "removed": [
-    "Kaushik Basu",
-    "Stephen Witt"
-   ],
-   "status": "changed",
+   "previous": 281,
+   "added": [],
+   "removed": [],
+   "status": "ok",
    "not_in_app": [
     "Jamie Andrews",
     "Justice Madan Lokur",
