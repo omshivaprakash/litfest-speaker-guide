@@ -27,6 +27,11 @@ for f in F:
         for bk in o.get('bk',[]):
             if bk.get('c'): chk(os.path.exists(b+bk['c']),f'{f["id"]}: cover missing {bk["c"]}')
         for y in o.get('y',[]): chk(1990<=y<=2035,f'{f["id"]}: odd year {y} for {o["n"]}')
+for f in F:
+    pj=R+'/'+f['base']+'past.json'
+    if f['status']=='live' and os.path.exists(pj):
+        for o in json.load(open(pj,encoding='utf8')):
+            if o.get('ph'): chk(os.path.exists(R+'/'+f['base']+o['ph']),f'{f["id"]}: past photo missing {o["ph"]} ({o["n"]})')
 print(f'{len(F)} festivals checked; {len(warn)} warnings')
 for w in warn[:15]: print('warn',w)
 for m in bad[:40]: print('FAIL',m)

@@ -157,7 +157,13 @@ Built by `tools/build_wlf.py` from wlfwayanad.com's WordPress API: the 2026 spea
 ## JSW Sahitya Habba data
 `tools/build_jsw.py` holds the programme typed from the festival's 8-page agenda PDF (Canva) and crops the speaker photos from its first page. The PDF gives no website, so the festival has no official-site link. English titles beside the Kannada session titles are our own translations. Evening performances and film screenings are included with the times printed in the PDF; venues for the evening programme are not stated.
 
-The two archived Wayanad editions (`?f=wlf24`, `?f=wlf22`) are speaker lists with bios and photos for every speaker on the 2024 site (195) and the 2022 site (39), built by `tools/build_wlf_archive.py`. They are flagged `archive` in `festivals.json`: they stay out of Search, Across, Explore and Upcoming so people are not counted twice (those already use the Wayanad history).
+Wayanad's earlier editions (2022 and 2024) live in `festivals/wlf/past.json`: profiles, bios and photos of everyone who spoke then but is not in the 2026 list (built by `tools/build_past_wlf.py` from the archive sites). They open in the **Past years** tab.
 
 ## Past years
 Every speaker-type festival has a **Past years** tab: pick an edition (for example last year) to see who spoke that year, how it compares with the year before, and filter to first-timers, returning speakers, those back in the next edition, or those also at the current edition. People in the current list open their full profile; people who only appear in the history show by name. It reads each festival's `history.json`.
+
+## Past speakers (`past.json`)
+Each festival may have `past.json`: the same profile records as `data.json` for people who spoke in earlier editions but are not in the current one (photos in `pph/`). The Past years tab loads it so those people open the same profile sheet. `tools/pastlib.py` is the shared builder; a festival's own `tools/build_past_*.py` fills it. 'First time' only ever means no earlier appearance in the editions we have; a festival's earliest edition on record is labelled as such.
+
+### Past-speaker coverage
+Past-only people with profiles (photo, and bio where the festival published one): BLF 1,884 (2012 to 2025, bios; 1,659 with photos), JLF 2,264 (2018 to 2026), HLF 1,065 (photos; bios only for 2026), Neev 327, BPF 559 (photos only), Bhopal 488, MBIFL 443 (2026 bios and photos, 2024 photos; other years name-only), Wayanad 171, Kolkata 296, Tata Literature Live 180, Goa 79. Not available: Kerala (its archive site lists no speakers), Dehradun (names only), Kalinga (earlier editions are all in the current list), and the programme-style festivals. People who only appear in `history.json` still show by name in Past years. Builders: `tools/build_past_*.py`; then `tools/drop_placeholder_photos.py`, `tools/shrink_past.py` and `tools/build_index.py` (which flags festivals that have a `past.json`).

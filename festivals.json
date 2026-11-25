@@ -12,7 +12,7 @@
    "url": "https://bangaloreliteraturefestival.org/",
    "logo": "festivals/blf/logo.png",
    "base": "festivals/blf/",
-   "from": 2018,
+   "from": 2012,
    "to": 2025,
    "sched": 2012,
    "partUrl": "https://bangaloreliteraturefestival.org/participant/{u}/",
@@ -29,7 +29,8 @@
    "updated": "Nov 2026",
    "ab": "BLF",
    "start": "2026-12-11",
-   "end": "2026-12-13"
+   "end": "2026-12-13",
+   "past": 1
   },
   {
    "id": "sjm",
@@ -109,7 +110,8 @@
    "updated": "Nov 2026",
    "ab": "LL",
    "start": "2026-10-23",
-   "end": "2026-10-25"
+   "end": "2026-10-25",
+   "past": 1
   },
   {
    "id": "klm",
@@ -136,7 +138,8 @@
    "updated": "Nov 2026",
    "ab": "KLM",
    "start": "2026-01-22",
-   "end": "2026-01-26"
+   "end": "2026-01-26",
+   "past": 1
   },
   {
    "id": "ddlf",
@@ -188,7 +191,8 @@
    "updated": "Nov 2026 (2023 lists only a few names)",
    "ab": "GAL",
    "start": "2026-02-12",
-   "end": "2026-02-14"
+   "end": "2026-02-14",
+   "past": 1
   },
   {
    "id": "klf2",
@@ -248,7 +252,8 @@
    "updated": "Nov 2026 (all speakers listed on the festival site, 2017–2026; no 2022 gaps)",
    "ab": "NEV",
    "start": "2026-09-26",
-   "end": "2026-09-27"
+   "end": "2026-09-27",
+   "past": 1
   },
   {
    "id": "bpf",
@@ -281,7 +286,8 @@
    "updated": "Nov 2026",
    "ab": "BPF",
    "start": "2026-08-01",
-   "end": "2026-08-02"
+   "end": "2026-08-02",
+   "past": 1
   },
   {
    "id": "klf",
@@ -348,7 +354,8 @@
    "ab": "HLF",
    "start": "2027-01-01",
    "end": "2027-01-31",
-   "tbc": 1
+   "tbc": 1,
+   "past": 1
   },
   {
    "id": "jlf",
@@ -369,7 +376,8 @@
    "updated": "Nov 2026",
    "ab": "JLF",
    "start": "2027-01-14",
-   "end": "2027-01-18"
+   "end": "2027-01-18",
+   "past": 1
   },
   {
    "id": "bplf",
@@ -401,7 +409,8 @@
    "why": {},
    "updated": "Nov 2026 (2027 speakers announced so far; history 2019–2026)",
    "start": "2027-01-08",
-   "end": "2027-01-10"
+   "end": "2027-01-10",
+   "past": 1
   },
   {
    "id": "mbifl",
@@ -432,7 +441,8 @@
    "why": {},
    "updated": "Nov 2026 (only 6 of the 2027 speakers announced; 2025 shows 60 listed)",
    "start": "2027-01-28",
-   "end": "2027-01-31"
+   "end": "2027-01-31",
+   "past": 1
   },
   {
    "id": "wlf",
@@ -456,56 +466,10 @@
    "sched": 2026,
    "partUrl": "https://wlfwayanad.com/speakers/{u}/",
    "why": {},
-   "updated": "Nov 2026 (67 speakers announced so far; history 2022 and 2024; no festival in 2023 or 2025)",
+   "updated": "Nov 2026 (67 speakers announced so far; past editions 2022 and 2024 with profiles; no festival in 2023 or 2025)",
    "start": "2026-12-19",
-   "end": "2026-12-23"
-  },
-  {
-   "status": "live",
-   "venue": "Wayanad, Kerala",
-   "logo": "festivals/wlf/logo.png",
-   "why": {},
-   "archive": true,
-   "id": "wlf24",
-   "name": "Wayanad Literature Festival",
-   "short": "Wayanad 2024",
-   "ab": "WL4",
-   "year": 2024,
-   "dates": "27–29 Dec 2024",
-   "url": "https://wlfwayanad.com/2024/",
-   "base": "festivals/wlf24/",
-   "from": 2022,
-   "to": 2022,
-   "years": [
-    2022,
-    2024
-   ],
-   "sched": 2024,
-   "partUrl": "https://wlfwayanad.com/2024/speakers/{u}/",
-   "updated": "Archive: all 195 speakers on the 2024 site, with who also spoke in 2022"
-  },
-  {
-   "status": "live",
-   "venue": "Wayanad, Kerala",
-   "logo": "festivals/wlf/logo.png",
-   "why": {},
-   "archive": true,
-   "id": "wlf22",
-   "name": "Wayanad Literature Festival",
-   "short": "Wayanad 2022",
-   "ab": "WL2",
-   "year": 2022,
-   "dates": "29–31 Dec 2022",
-   "url": "https://wlfwayanad.com/2022/",
-   "base": "festivals/wlf22/",
-   "from": 2022,
-   "to": 2022,
-   "years": [
-    2022
-   ],
-   "sched": 2022,
-   "partUrl": "https://wlfwayanad.com/2022/speakers/{u}/",
-   "updated": "Archive: the 39 speakers on the 2022 site (first edition)"
+   "end": "2026-12-23",
+   "past": 1
   },
   {
    "id": "glf",
