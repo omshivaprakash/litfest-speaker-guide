@@ -8,7 +8,7 @@ kn:{'Search':'ಹುಡುಕಿ','Across':'ಹೋಲಿಕೆ','Explore':'ಅ�
 'Overlap':'ಸಾಮಾನ್ಯ ಭಾಷಣಕಾರರು','Most travelled':'ಹೆಚ್ಚು ಉತ್ಸವಗಳಲ್ಲಿ','Start here':'ಇಲ್ಲಿಂದ ಆರಂಭಿಸಿ','Back again':'ಮತ್ತೆ ಬಂದವರು','Filters':'ಫಿಲ್ಟರ್‌ಗಳು',
 'Add to calendar':'ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ','Remind me':'ನನಗೆ ನೆನಪಿಸಿ','Reminder on ✓':'ನೆನಪು ಆನ್ ✓','Copy list':'ಪಟ್ಟಿ ನಕಲಿಸಿ','Install app':'ಆ್ಯಪ್ ಸ್ಥಾಪಿಸಿ',
 'Tomorrow':'ನಾಳೆ','Happening now':'ಈಗ ನಡೆಯುತ್ತಿದೆ','Ended':'ಮುಗಿದಿದೆ','Dates to be announced':'ದಿನಾಂಕ ಇನ್ನೂ ಪ್ರಕಟವಾಗಿಲ್ಲ','‹ Prev':'‹ ಹಿಂದೆ','Next ›':'ಮುಂದೆ ›','All':'ಎಲ್ಲಾ','By prize':'ಪ್ರಶಸ್ತಿ ಪ್ರಕಾರ','Timeline':'ಕಾಲಾನುಕ್ರಮ','‹ All prizes':'‹ ಎಲ್ಲಾ ಪ್ರಶಸ್ತಿಗಳು',
-'Who speaks at India’s literature festivals':'ಭಾರತದ ಸಾಹಿತ್ಯ ಉತ್ಸವಗಳಲ್ಲಿ ಯಾರು ಮಾತನಾಡುತ್ತಾರೆ','About this portal':'ಈ ಪೋರ್ಟಲ್ ಬಗ್ಗೆ',
+'Who speaks at literature festivals, starting with India':'ಸಾಹಿತ್ಯ ಉತ್ಸವಗಳಲ್ಲಿ ಯಾರು ಮಾತನಾಡುತ್ತಾರೆ: ಭಾರತದಿಂದ ಆರಂಭ','About this portal':'ಈ ಪೋರ್ಟಲ್ ಬಗ್ಗೆ',
 pat:[[/^in (\d+) days$/,'$1 ದಿನಗಳಲ್ಲಿ'],[/^About in (\d+) days$/,'ಸುಮಾರು $1 ದಿನಗಳಲ್ಲಿ'],[/^Page (\d+) of (\d+)$/,'ಪುಟ $1 / $2']]},
 hi:{'Search':'खोजें','Across':'तुलना','Explore':'खोजबीन','About':'परिचय','Close':'बंद करें','Official site ↗':'आधिकारिक साइट ↗',
 'Discover':'खोज','Who to hear':'किसे सुनें','All speakers':'सभी वक्ता','Past years':'पिछले वर्ष','The data':'आँकड़े','Tracker':'मेरी सूची','Programme':'कार्यक्रम','People':'लोग','Map':'नक्शा','Insights':'अंतर्दृष्टि',
@@ -16,7 +16,7 @@ hi:{'Search':'खोजें','Across':'तुलना','Explore':'खोज�
 'Overlap':'साझा वक्ता','Most travelled':'सबसे अधिक उत्सवों में','Start here':'यहाँ से शुरू करें','Back again':'फिर आए','Filters':'फ़िल्टर',
 'Add to calendar':'कैलेंडर में जोड़ें','Remind me':'मुझे याद दिलाएँ','Reminder on ✓':'याद दिलाना चालू ✓','Copy list':'सूची कॉपी करें','Install app':'ऐप इंस्टॉल करें',
 'Tomorrow':'कल','Happening now':'अभी जारी','Ended':'समाप्त','Dates to be announced':'तारीखें घोषित होना बाकी','‹ Prev':'‹ पिछला','Next ›':'अगला ›','All':'सभी','By prize':'पुरस्कार के अनुसार','Timeline':'समयरेखा','‹ All prizes':'‹ सभी पुरस्कार',
-'Who speaks at India’s literature festivals':'भारत के साहित्य उत्सवों में कौन बोलता है','About this portal':'इस पोर्टल के बारे में',
+'Who speaks at literature festivals, starting with India':'साहित्य उत्सवों में कौन बोलता है: भारत से शुरुआत','About this portal':'इस पोर्टल के बारे में',
 pat:[[/^in (\d+) days$/,'$1 दिन में'],[/^About in (\d+) days$/,'लगभग $1 दिन में'],[/^Page (\d+) of (\d+)$/,'पृष्ठ $1 / $2']]}
 };
 var lang='en',orig=new WeakMap(),busy=false,queued=false;

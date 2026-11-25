@@ -1,7 +1,7 @@
 {
   "name": "LitFest Guide",
   "short_name": "LitFest Guide",
-  "description": "Speakers, history and dates for Indian literature festivals. Works offline once opened.",
+  "description": "Speakers, history and dates for literature festivals, starting with India. Works offline once opened.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
