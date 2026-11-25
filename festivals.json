@@ -67,6 +67,25 @@
    "end": "2026-11-29"
   },
   {
+   "id": "jsw",
+   "type": "programme",
+   "status": "live",
+   "name": "JSW Sahitya Habba",
+   "short": "JSW Habba",
+   "year": 2026,
+   "dates": "28–29 Nov 2026",
+   "venue": "OPJ Museum, J-Max and Kaladham, Vidyanagar Township, Toranagallu, Karnataka",
+   "sub": "1st edition · Celebrating Culture. Inspiring Generations.",
+   "logo": "festivals/jsw/logo.png",
+   "base": "festivals/jsw/",
+   "themeLabel": "format",
+   "forumLabel": "venue",
+   "updated": "Nov 2026 (typed from the festival's agenda PDF; no official site listed)",
+   "ab": "JSW",
+   "start": "2026-11-28",
+   "end": "2026-11-29"
+  },
+  {
    "id": "tll",
    "status": "live",
    "name": "Literature Live! The Mumbai LitFest",

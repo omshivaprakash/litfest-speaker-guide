@@ -24,6 +24,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Bhopal Literature & Art Festival 2027, 8–10 Jan (`?f=bplf`) | Live: 65 speakers announced so far (with bios), history 2019–2026 |
 | Mathrubhumi International Festival of Letters 2027, 28–31 Jan (`?f=mbifl`) | Live, thin: 6 speakers announced so far; history 2018–2020 and 2023–2026 |
 | Wayanad Literature Festival 2026, 19–23 Dec (`?f=wlf`) | Live: 67 speakers announced so far (bios, photos), history 2022 and 2024 |
+| JSW Sahitya Habba 2026, 28–29 Nov (`?f=jsw`) | Live: programme of 20 sessions and 27 photographed speakers, typed from the festival's agenda PDF |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -152,3 +153,6 @@ The festival bar has arrow buttons and fading edges, and scrolls to the festival
 
 ## Wayanad data
 Built by `tools/build_wlf.py` from wlfwayanad.com's WordPress API: the 2026 speaker posts (with photos from the speakers page) and the speaker posts of the archived 2022 and 2024 sites. There was no festival in 2023 or 2025. Gender, country and role come from bios only; books are Open Library matches.
+
+## JSW Sahitya Habba data
+`tools/build_jsw.py` holds the programme typed from the festival's 8-page agenda PDF (Canva) and crops the speaker photos from its first page. The PDF gives no website, so the festival has no official-site link. English titles beside the Kannada session titles are our own translations. Evening performances and film screenings are included with the times printed in the PDF; venues for the evening programme are not stated.
