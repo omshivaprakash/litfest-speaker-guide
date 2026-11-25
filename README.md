@@ -1,172 +1,126 @@
-# LitFest Speaker Guide
+# LitFest Guide
 
-An interactive, mobile-friendly guide to literature-festival speakers: who is new, who keeps coming back, books, languages, countries and gender representation over the years.
+**One free guide to who speaks at India's literature festivals, who is new, who keeps coming back, and what to read before you go.**
 
-Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide/
+Open it here: **https://omshivaprakash.github.io/litfest-speaker-guide/**
+Works on any phone or laptop. No account, no ads, no app store. You can install it like an app, and it keeps working without internet after your first visit.
 
-## Festivals
+<p align="center">
+  <img src="press/img/d-discover.jpg" alt="LitFest Guide on a laptop: the Bangalore Literature Festival page with speaker numbers, a map and a chart" width="62%">
+  <img src="press/img/m-speakers.jpg" alt="LitFest Guide on a phone: a scrolling list of speakers with photos" width="22%">
+</p>
 
-| Festival | Status |
+---
+
+## Why this exists (the short, honest version)
+
+If you love books, a literature festival is a gift. But planning for one is oddly hard.
+
+- Every festival puts its speakers on **its own website**, in **its own format**.
+- Last year's list quietly disappears when the new one goes up.
+- You cannot easily answer simple questions like:
+  - *"Who is coming this year that I have never seen before?"*
+  - *"Is my favourite author doing the festival circuit, and where?"*
+  - *"What did this festival look like five years ago?"*
+  - *"Which books should I read before I go?"*
+- And if you go to more than one festival, you end up with a dozen browser tabs open.
+
+**LitFest Guide puts all of it side by side**, in one clean place, built for a thumb on a phone.
+
+It was built by a reader, for readers. It is free, it will stay free, and it is not run by any festival.
+
+---
+
+## What you can do with it
+
+| You want to… | Where to go |
 |---|---|
-| Bangalore Literature Festival 2026 (`?f=blf`) | Live: 243 speakers |
-| Samajamukhi Sahitya Sammelana, 28–29 Nov 2026 (`?f=sjm`) | Live: programme only (sessions and names, Kannada) |
-| Jananudi 2026, 28–29 Nov, Mangaluru (`?f=jn`) | Live: programme only (sessions and names, Kannada) |
-| Book Brahma Literature Festival 2026, 14–23 Aug (`?f=bbl`) | Live: 212 sessions, 400 speakers with bios and photos (no earlier editions) |
-| Hyderabad Literary Festival 2027 (`?f=hlf`) | Live: 135 announced so far (speakers and moderators); history 2021–2026 |
-| Kerala Literature Festival 2026 (`?f=klf`) | Live: 495 speakers with bios, photos and 2026 sessions; history 2023–2024 only |
-| Literature Live! The Mumbai LitFest 2026, 23–25 Oct (`?f=tll`) | Live: 103 speakers with bios, photos and sessions; history 2024–2025; books from the festival's own list |
-| Bengaluru Poetry Festival 2026, 1–2 Aug (`?f=bpf`) | Live: 71 poets with bios and photos; history 2016–2025 (no 2021) |
-| Kolkata Literary Meet 2026, 22–26 Jan (`?f=klm`) | Live: 171 speakers with bios, photos, sessions and books; history 2023–2025 |
-| Neev Literature Festival 2026, 26–27 Sep (`?f=nlf`) | Live: 70 speakers for 2026 (with bios and photos), history 2017–2025 |
-| Kalinga Literary Festival 2026, 8–11 Jan (`?f=klf2`) | Live: 132 speakers with bios and photos; earlier years list featured names only (2021, 2022, 2024) |
-| Goa Arts and Literature Festival 2026, 12–14 Feb (`?f=galf`) | Live: 28 speakers with bios and photos; history 2023–2025 (2023 lists only a few names) |
-| Dehradun Literature Festival 2026, 27–29 Nov (`?f=ddlf`) | Live, thin: 55 speakers (names and photos), 2025 history only |
-| Bhopal Literature & Art Festival 2027, 8–10 Jan (`?f=bplf`) | Live: 65 speakers announced so far (with bios), history 2019–2026 |
-| Mathrubhumi International Festival of Letters 2027, 28–31 Jan (`?f=mbifl`) | Live, thin: 6 speakers announced so far; history 2018–2020 and 2023–2026 |
-| Wayanad Literature Festival 2026, 19–23 Dec (`?f=wlf`) | Live: 67 speakers announced so far (bios, photos), history 2022 and 2024 |
-| JSW Sahitya Habba 2026, 28–29 Nov (`?f=jsw`) | Live: programme of 20 sessions and 27 photographed speakers, typed from the festival's agenda PDF |
-| Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
+| See a festival at a glance: how many speakers, how many are new, how many women, where they come from | Open any festival, **Discover** tab |
+| Find who to hear first | **Who to hear** tab |
+| Browse everyone, search by name, book or topic, filter by country or language | **All speakers** tab |
+| See what happened **last year** (or any year): who spoke, who was new, who came back | **Past years** tab |
+| Understand the numbers: new vs returning, gender, countries, books | **The data** tab |
+| Keep a shortlist of people you want to see | Tap the **☆** on any speaker, then open **Tracker** or **Explore → Bookmarks** |
+| Look up one person across **every festival and year** | **Search** (top bar) |
+| See which festivals share the same speakers | **Across** (top bar) |
+| Browse a bookshelf made of the speakers' books, see prize winners, debut decades, translators | **Explore** (top bar) |
+| Know when the next festival starts, add it to your calendar, get a reminder | **Explore → Upcoming** |
+| Use it in Kannada or Hindi | **About → Language** (beta) |
 
-## Layout
+Detailed steps are in the **[User guide](docs/USER-GUIDE.md)**.
 
-```
-index.html            the app (no build step, no dependencies)
-festivals.json        list of festivals and their settings
-festivals/<id>/       data.json, stats.json, logo.png, ph/ (photos), bk/ (book covers)
-```
+---
 
-## Adding a festival
+## Festivals covered
 
-1. Create `festivals/<id>/` with `data.json`, `stats.json`, `logo.png`, `ph/` and `bk/`.
-2. In `festivals.json`, add or edit its entry: set `status` to `live`, and fill `name`, `short`, `year`, `dates`, `venue`, `url`, `logo`, `base` (`festivals/<id>/`), `from` and `to` (archive years of speaker pages), `sched` (first year with schedule data), `partUrl` (speaker page URL with `{u}` for the slug) and `why` (optional one-line notes for the "Start here" shelf).
-3. Commit and push. Pages redeploys.
+**Live now (19):** Bangalore Literature Festival · Jaipur Literature Festival · Hyderabad Literary Festival · Kerala Literature Festival · Mathrubhumi International Festival of Letters · Literature Live! The Mumbai LitFest · Kolkata Literary Meet · Kalinga Literary Festival · Goa Arts and Literature Festival · Bhopal Literature & Art Festival · Dehradun Literature Festival · Neev Literature Festival · Bengaluru Poetry Festival · Wayanad Literature Festival · Book Brahma Literature Festival · JSW Sahitya Habba · Samajamukhi Sahitya Sammelana · Jananudi · Hay Festival Winter Weekend
 
-### `data.json` (one object per speaker)
-`n` name, `b` short bio, `f` full bio, `y` years seen, `first` first-timer flag, `g` gender (`f`/`m`/`u`, from bio pronouns only), `t` theme, `a` age if publicly documented, `l` latest work, `s` past sessions `[year, title]`, `u` slug, `ph` photo path, `bk` books `[{t, c, b}]` (`b`: 0 not named in bio, 1 in bio, 2 Open Library), `lg` languages, `role`, `nonauth`, `cc` country, `dia` diaspora flag, `city`.
+**Listed with dates, speakers coming when published (3):** Galle Literary Festival (Sri Lanka) · Edinburgh International Book Festival · Hay Festival (Hay-on-Wye)
 
-### `stats.json`
-`per[year] = {total, returning, inNow}`, `lead` (most frequent speakers), `hist` (editions-attended histogram).
+**By the numbers:** about 9,000 people and 15,000 festival appearances going back as far as 2012, around 1,900 speaker profiles with photos for the current editions, and about 7,700 more profiles of people who spoke in earlier years.
 
-## Notes on the data
-Built from each festival's public speaker pages, bios and schedules, plus Open Library for book covers. Gender is inferred only from pronouns in bios, so it is missing for some speakers. Photos, logos and book covers belong to their owners and are used here for identification.
+How complete each festival is differs. Some have ten years of history, some only one. The exact picture for each festival is in **[docs/DATA-NOTES.md](docs/DATA-NOTES.md)**.
 
-Run locally: `python3 -m http.server` and open http://localhost:8000/.
+---
 
-## Programme-type festivals
-A festival entry with `"type": "programme"` uses `festivals/<id>/data.json` shaped as `{sessions:[{d,f,t,k,e,pp:[[role,name]]}], forums:[{id,k,e}], en:{name:englishName}}` and shows Programme and People tabs. Roles: `p` panel, `c` coordinator, `m` host, `r` respondent, `g` guest, `s` performer. The Samajamukhi data was transcribed by hand from the printed invitation, so please check it against the official programme.
+## Can I trust it?
 
-## Jaipur data
-Built by `tools/build_jlf.py` from the festival's public speakers API (the same one its website uses). The 2027 line-up is still being announced, so the list will grow; re-run the script with fresh API output to update. Only about 110 speakers have bios so far, so gender, country and role are blank for the rest, and "first-time" means not listed in 2018–2026. Books come from titles in italics in the bios and from Open Library (exact author-name match only; for speakers with no bio, only when at least three titles have covers, so some real authors are missing). Library of Congress and Amazon were not used: the first sits behind a bot check and the second has no free public lookup. Languages and ages are not included. "Start here" lists speakers the festival flags as important.
+Honestly: mostly, with care. Please read this part.
 
-The Samajamukhi and Jananudi programmes were transcribed by hand from their printed invitations; please check names against the official programmes.
+- **Names, photos, bios and dates** come straight from each festival's own public pages. The festival's website is always the final word. Check it before you travel.
+- **Some things are guessed by a computer** from the text of a bio. These are: gender (only from words like *she/her* or *he/his*), country, role, language, and "first time". They can be wrong or blank, and the app says "not stated" rather than pretending to know.
+- **"First time"** only means *we did not find this name in the earlier lists we have*. If we only have two years of history, "first time" is a weaker claim than if we have ten.
+- **Books** are matched by author name on Open Library, so very occasionally a book belongs to a different person with the same name.
+- **Prizes, debut years and translators** are read from bios and Open Library. Treat them as helpful leads, not facts.
 
-## Map (programme festivals)
-The Samajamukhi and Jananudi pages have a "Map" tab: a schematic Karnataka map with people placed by district. `tools/place_names.py` places a person only when the invitation gives a place next to them or their printed name carries a Karnataka town or village. That covers a minority of names (14 of 210 for Samajamukhi, 19 of 73 for Jananudi), and it is an inference from names, not where people live. Edit the `PLACE` and `MANUAL` tables in that script and re-run it to correct or extend it.
+Everything the app guesses is labelled, and the full rules are in the **[FAQ](docs/FAQ.md)**.
 
-## Insights (programme festivals)
-An "Insights" tab shows a day-by-day timeline, sessions by theme, appearances by role, panel sizes and repeat names. Themes come from `tools/tag_themes.py`, which tags each session from its English title with simple keyword rules, so treat them as a rough guide.
+**Is it affiliated with any festival?** No. It is an independent project for **education and research**. Names, photos and logos belong to their owners and are shown only to identify people and festivals. If you are a festival, author or photographer and want something corrected or removed, [open an issue](https://github.com/omshivaprakash/litfest-speaker-guide/issues/new) and say what and where. Requests are taken seriously.
 
-The programme festivals page through content (Prev / Next) so nothing scrolls, like the Bangalore pages. Insights are three screens: a theme-coloured timeline, themes and roles, and panel sizes.
+---
 
-## Book Brahma data
-Built by `tools/fetch_bblf.py` (speaker pages) and `tools/build_bblf.py` (the festival's published schedule PDF). A person is listed in a session only if their name in the schedule matches the official speakers page, so about 100 of the 400 speakers have no session shown. Earlier editions (2024, 2025) have only photo galleries on the festival site, so there is no history, first-time flag or trend for this festival. Languages shown are the session language printed in the schedule; many sessions do not print one.
+## Your privacy
 
-## Hyderabad data
-Built by `tools/build_hlf.py` from hydlitfest.org: the 2027 speakers and moderators pages (with profile pages and photos) and the past-speakers pages for 2021–2026. The site does not yet state the 2027 dates, so none are shown. 2022 combines the two small events that year (Anuvaad and Kaavya Dhaara), so its count is low. Names are matched across years by spelling, so a person listed under a different spelling counts as new. Roles and countries are guessed from bio keywords. Books come from Open Library on an exact author-name match (`tools/add_books_ol.py`); speakers with no bio only get books when at least three titles have covers, so coverage is partial and a same-name author can slip in. Languages and ages are not included.
+- No sign-up, no tracking, no analytics, no cookies from us.
+- Your stars, bookmarks, reminders and language choice stay **inside your own browser** on your own device. We never see them.
+- The site makes **no requests to outside services** when a page loads. Fonts, photos and data are all served from this repository.
 
-## Search all festivals
-The "Search all" button searches every festival's speaker list for every year (`festivals/<id>/history.json`, built by `tools/build_history.py` and `tools/build_hlf.py`) and shows which festivals and years a person appeared in. Tapping a result opens that festival filtered to the person.
+---
 
-## Disclaimer and contact
-This is an independent, non-commercial project for education and research. It is not affiliated with any festival. Names, photos, logos and book covers belong to their owners and are shown to identify people and festivals. Gender, country, role and language are inferred from public bios and can be wrong. To report a mistake or ask for a name, photo or festival to be changed or removed, [open an issue](https://github.com/omshivaprakash/litfest-speaker-guide/issues/new).
+## How it works, in plain words
 
-## Kerala data
-Built by `tools/build_klf.py` from the speakers and sessions files the festival's own site loads, plus the 2023 and 2024 programme pages in its archive; books come from titles in italics in the bios and Open Library (`tools/add_books_ol.py`). 2025 has no usable list in the archive, so history covers 2023, 2024 and 2026 and "first-time" means not seen in those years. The next edition is announced for 21–24 January 2027 with no line-up yet.
+- It is a **website made of plain files**: one page, some data files, and a lot of photos. There is **no server, no database and no login**, which is why it is free to run and hard to break.
+- Each festival has its own folder of data. A set of small scripts (the *tools*) collects each festival's public lists and turns them into those data files.
+- **Every day**, an automatic check looks at each festival's website to see if the speaker list changed, and records it. (See *Staying up to date* below.)
+- After your first visit, the site saves itself to your device, so it opens even without internet.
 
-## Mumbai (Literature Live!) data
-Built by `tools/build_tll.py` from litlive.in: the speakers pages for 2024–2026, each 2026 speaker page (bio, sessions) and the festival's "Books at the LitFest" lists for 2025 and 2026. The festival states each speaker's role and country, so those are not guessed. Earlier years (before 2024) are not on the site in the same form.
+The longer version, with a diagram, is in **[docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md)**.
 
-## Bengaluru Poetry Festival data
-Built by `tools/build_bpf.py` from bengalurupoetryfestival.org: the 2026 poets page (bios, photos) and each past year's archive page (poet names). The festival was not held in 2021, so that year is absent. Language and country are read from bios; books and ages are not included.
+---
 
-## Kolkata data
-Built by `tools/build_klm.py` from kolkatalitmeet.in (each year's site lists its speakers; the 2026 pages give bios, photos and sessions) plus books from bio titles and Open Library (`tools/add_books_ol.py`). The 2020–2022 sites use a different layout and are not included, so history starts in 2023.
+## Staying up to date
 
-## Neev data
-Built by `tools/build_nlf.py` from the festival site's public WordPress API (`/wp-json/wp/v2/speaker`, tagged by event year): every speaker post for 2017–2026, with bios and photos for the 2026 edition. Speakers of the Reading Challenge are marked separately. Names are matched across years by spelling. No books are listed yet.
+A script called the *daily check* compares each festival's live speaker page with the last saved copy. It records who was **added or removed**, flags sites that stopped answering, and lists names that are live on a festival's site but not yet in the app. The latest result shows under **About → Daily check**.
 
-## License
-The code is released under the [MIT License](LICENSE). The MIT license covers the code only. Speaker names, bios, photos, festival logos and book covers belong to their owners and are included for identification, education and research; they are not covered by this license.
+After a change, the maintainer refreshes that festival's data (a short command) and publishes. Step by step in **[docs/MAINTAINING.md](docs/MAINTAINING.md)**.
 
-## Kalinga data
-Built by `tools/build_kalinga.py` from the /klf-speakers/ page of kalingaliteraryfestival.com, which tags each speaker by edition. The current edition is listed in full; 2021, 2022 and 2024 list only a few featured names, so history is partial. Books come from titles in bios and Open Library (`tools/add_books_ol.py`).
+---
 
-## Goa data
-Built by `tools/build_galf.py` from the yearly speaker pages of goaartlitfest.com (speaker-2023 to speaker-2026). The site lists a modest number of names per year and some bios sit in image captions, so counts are lower than the festival's full programme. Country and gender are guessed from those bios.
+## For the curious and the helpful
 
-## Across festivals
-The "Across" button opens an overlap grid (people named at both of two festivals, tap a square to list them) and a list of the most-travelled people. It uses the same per-festival `history.json` files as the search and matches people by spelling of their name. Festivals cover different years and some lists are partial, so the numbers are indicative.
+| I want to… | Read |
+|---|---|
+| Learn how to use every feature | [User guide](docs/USER-GUIDE.md) |
+| Understand how it is built, without jargon | [How it works](docs/HOW-IT-WORKS.md) |
+| Know what each data field means | [Data dictionary](docs/DATA-DICTIONARY.md) |
+| Add a festival or refresh data | [Maintaining](docs/MAINTAINING.md) |
+| See festival-by-festival notes and gaps | [Data notes](docs/DATA-NOTES.md) |
+| Ask "why does it say…?" | [FAQ](docs/FAQ.md) |
+| Report a mistake, suggest a festival, or help | [Contributing](docs/CONTRIBUTING.md) |
+| Read the press note | [press/press-note.html](press/press-note.html) |
 
-## Dehradun data
-Built by `tools/build_ddlf.py` from the Wix pages of www.dehradunliteraturefestival.com: /team (2026 speakers, names and photos only) and /archives (the 2025 list; the other year tabs there load on demand and are not included). There are no bios, so gender, country and role are unknown.
+**Run it on your own computer:** download the folder, open a terminal in it, run `python3 -m http.server`, and visit `http://localhost:8000`. (Opening `index.html` by double-click will not work, because browsers block loading data files that way.)
 
-## Bhopal data
-Built by `tools/build_bhopal.py` from bhopalliteraturefestival.com: `/event/blf-YYYY/speakers` for 2019–2027 and the 2027 author pages for bios. The 2027 list is partial (announced so far). Gender, country and role come from the bio text only; unknown where the bio is silent. No books are listed yet.
+**License:** MIT. Free to use, copy and change. See [LICENSE](LICENSE).
 
-## MBIFL data
-Built by `tools/build_mbifl.py` from www.mbifl.com, assets.mbifl.com and english.mathrubhumi.com: the 2027 speaker feed (only a few announced so far; re-run to refresh), the 2026 speakers page, the 2025 feed (first 20 per Regional/National/International list, so 2025 is partial), 2024 and 2018–2020 feeds, and the 2023 page. There was no festival in 2021 or 2022. Names are matched across years by normalised spelling, so some repeat guests may be missed. Books come from Open Library (exact author-name match).
-
-## Self-contained
-Everything the site displays is served from this repository: speaker photos, book covers, festival logos, data and the Fraunces and Inter fonts (`fonts/`). The only outbound links are ones you click (official festival sites, GitHub issues, the builder's page); no third-party requests are made when a page loads.
-
-## Explore
-The Explore button opens five one-screen views built from every festival's data: **Shelf** (book spines, with covers), **Prizes** (prizes named in bios), **Trails** (people by interest, most-travelled first), **Languages** (where a bio states them) and **My list** (starred people with books to read, copyable). Prizes and trails come from keyword matches in bios, so treat them as leads, not facts. Not built: debut-year cohorts, prize-year timelines and translation chains, because the data does not hold publication years, award years or translators.
-
-## Name matching
-Cross-festival matching (Search, Across, Explore) ignores titles, accents, dots and spacing in initials ("K S Nair" = "KS Nair") and a lone middle initial ("Abhijit V. Banerjee" = "Abhijit Banerjee"), plus a short hand-checked alias list (`GALIAS` in `index.html`). Other spelling variants still count as two people.
-
-## Upcoming alerts
-Explore → Upcoming lists every festival with a countdown, an "Add to calendar" file (.ics, with a reminder the day before) and a "Remind me" switch. Reminders are stored in your browser only: when a starred festival is within a week, a banner appears under the title the next time you open the site (and a browser notification if you allow it). The site has no server, so nothing is pushed to you while it is closed. Dates are in `festivals.json` (`start`, `end`, `tbc`); update them when a festival announces new dates.
-
-## Debuts, prize timeline and translators
-`tools/fetch_debuts.py` asks Open Library for each author's earliest listed work under their exact name (`data/debut.json`, 421 of 881 authors found); Explore → Debuts groups them by decade. It can be later than a real debut or wrong for authors who share a name. Prizes → Timeline and Translators are read from bios (a prize plus a year in the same sentence; "translates from <language>"), so they only cover what bios say. A shared-bookshelf view was skipped: the few titles shared between speakers are mostly co-authors or same-title mismatches.
-
-## International festivals
-Hay Festival Winter Weekend (26–29 Nov 2026) is live as a programme festival: 65 events across 5 venues, from the programme pages on hayfestival.com (`tools/build_hayww.py`; speakers are named where the listing gives names). Galle Literary Festival (17–21 Mar 2027), Edinburgh International Book Festival and Hay Festival 2027 are listed as "soon": the sites have no 2027 speaker list yet, so only dates and links are shown (Galle also appears in Upcoming). 
-
-## App and offline use
-The site is only static files (HTML, JSON, images, fonts): there is no server code, database or build step. Host the folder on any static host (GitHub Pages works) and open it over https. It is also an installable app (`manifest.webmanifest`, `sw.js`): after the first visit the page, every festival's data and the pages and photos you have viewed work offline, and About → Install app (or the browser's "Add to Home screen") puts it on your phone. Opening `index.html` straight from a folder (file://) will not work, because browsers block loading the JSON files that way; run `python3 -m http.server` in the folder instead. Bookmarks: star speakers, and tap ☆ on a festival's title line to bookmark it; both appear in Explore → Bookmarks and are kept in your browser. Bump `VERSION` in `sw.js` when changing `index.html`.
-
-## Press note
-`press/press-note.html` is a ready-to-share press note with desktop and phone screenshots (`press/img`). Screenshots may be used with a credit to LitFest Guide.
-
-## Checks
-`python3 tools/validate.py` checks the data (files, photos, covers, dates). `node tests/run.js` (with `python3 -m http.server 8765` running, and `npm i playwright`) opens every festival, tab and overlay at 390×780, 360×640 and 1280×720 and fails if a page scrolls or any script or file errors. `.github/workflows/check.yml` runs both on every push.
-
-`tools/check_dates.py` lists festivals whose dates are stale or whose sites no longer answer. `tools/stamp.py` stamps one build id into `index.html` and `sw.js` before you commit (so installed copies refresh). `tools/build_index.py` rebuilds `data/history-all.json` after any data build. With `axe-core` installed, `tests/run.js` also checks WCAG 2 A/AA accessibility.
-
-## Photos and languages
-Photos and covers are WebP. The build scripts write JPEGs, so run `python3 tools/to_webp.py` after any of them (it converts, rewrites `data.json` and removes the JPEGs). Menus and buttons can be switched to Kannada or Hindi (beta) from About or the home page; `i18n.js` holds the labels and only swaps fixed text, never names or bios. Translation corrections are welcome as GitHub issues.
-
-## Moving around
-The festival bar has arrow buttons and fading edges, and scrolls to the festival you are on; "All" returns to the home page. Keyboard: left and right arrows turn pages, Shift with them moves to the previous or next festival, [ and ] switch tabs, Esc closes a window. On a phone, swipe left or right to turn pages.
-
-## Wayanad data
-Built by `tools/build_wlf.py` from wlfwayanad.com's WordPress API: the 2026 speaker posts (with photos from the speakers page) and the speaker posts of the archived 2022 and 2024 sites. There was no festival in 2023 or 2025. Gender, country and role come from bios only; books are Open Library matches.
-
-## JSW Sahitya Habba data
-`tools/build_jsw.py` holds the programme typed from the festival's 8-page agenda PDF (Canva) and crops the speaker photos from its first page. The PDF gives no website, so the festival has no official-site link. English titles beside the Kannada session titles are our own translations. Evening performances and film screenings are included with the times printed in the PDF; venues for the evening programme are not stated.
-
-Wayanad's earlier editions (2022 and 2024) live in `festivals/wlf/past.json`: profiles, bios and photos of everyone who spoke then but is not in the 2026 list (built by `tools/build_past_wlf.py` from the archive sites). They open in the **Past years** tab.
-
-## Past years
-Every speaker-type festival has a **Past years** tab: pick an edition (for example last year) to see who spoke that year, how it compares with the year before, and filter to first-timers, returning speakers, those back in the next edition, or those also at the current edition. People in the current list open their full profile; people who only appear in the history show by name. It reads each festival's `history.json`.
-
-## Past speakers (`past.json`)
-Each festival may have `past.json`: the same profile records as `data.json` for people who spoke in earlier editions but are not in the current one (photos in `pph/`). The Past years tab loads it so those people open the same profile sheet. `tools/pastlib.py` is the shared builder; a festival's own `tools/build_past_*.py` fills it. 'First time' only ever means no earlier appearance in the editions we have; a festival's earliest edition on record is labelled as such.
-
-### Past-speaker coverage
-Past-only people with profiles (photo, and bio where the festival published one): BLF 1,884 (2012 to 2025, bios; 1,659 with photos), JLF 2,264 (2018 to 2026), HLF 1,065 (photos; bios only for 2026), Neev 327, BPF 559 (photos only), Bhopal 488, MBIFL 443 (2026 bios and photos, 2024 photos; other years name-only), Wayanad 171, Kolkata 296, Tata Literature Live 180, Goa 79. Not available: Kerala (its archive site lists no speakers), Dehradun (names only), Kalinga (earlier editions are all in the current list), and the programme-style festivals. People who only appear in `history.json` still show by name in Past years. Builders: `tools/build_past_*.py`; then `tools/drop_placeholder_photos.py`, `tools/shrink_past.py` and `tools/build_index.py` (which flags festivals that have a `past.json`).
-
-## Daily check for changed speaker lists
-`tools/check_updates.py` reads each speaker-type festival's live speaker page or API (HLF, BLF, JLF, KLF, MBIFL, Wayanad, Neev, Bhopal, Kolkata, Lit Live, BPF, Goa, Dehradun, Kalinga, and the Hay programme), compares the names with the last snapshot in `data/snapshots/`, and writes `data/updates.json` (latest run), `data/updates-log.json` (every change, newest first) and `data/last-changes.md` when something changed. It also lists names that are live but not yet in the app (`not_in_app`). A source that returns nothing, or under half the names it had, is reported as a fetch problem and never overwrites the snapshot. `.github/workflows/daily-check.yml` runs it every day at 02:23 UTC (and on demand from the Actions tab), commits the report and opens a GitHub issue when a list changed. About → Daily check shows the last run and recent changes. The Samajamukhi, Jananudi, Book Brahma and JSW programmes were typed from printed invitations or PDFs and are not watched. To bring the app up to date after a change, re-run that festival's `build_*.py` (and `build_past_*.py`), then `tools/build_index.py`.
+**Built by** [omshivaprakash](https://omshivaprakash.github.io/). To reach out, use the GitHub issues on this repository.
