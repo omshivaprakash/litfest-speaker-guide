@@ -463,7 +463,7 @@
   },
   {
    "id": "hayww",
-   "status": "soon",
+   "status": "live",
    "name": "Hay Festival Winter Weekend",
    "short": "Hay Winter",
    "ab": "HWW",
@@ -472,10 +472,14 @@
    "venue": "Hay-on-Wye, Wales",
    "url": "https://www.hayfestival.com/winter-weekend/home",
    "logo": "festivals/hay/logo.png",
-   "base": "festivals/hay/",
+   "base": "festivals/hayww/",
    "start": "2026-11-26",
    "end": "2026-11-29",
-   "note": "International. The programme is published on the official site; we have not added its speakers here."
+   "type": "programme",
+   "sub": "Programme as published on the festival site",
+   "themeLabel": "format",
+   "forumLabel": "venue",
+   "updated": "Nov 2026 (programme from the festival site; speakers named where the listing gives names)"
   }
  ]
 }
