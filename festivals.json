@@ -416,6 +416,32 @@
    "end": "2027-01-31"
   },
   {
+   "id": "wlf",
+   "status": "live",
+   "name": "Wayanad Literature Festival",
+   "short": "Wayanad",
+   "ab": "WLF",
+   "year": 2026,
+   "dates": "19–23 Dec 2026",
+   "venue": "Dwaraka, Mananthavady, Wayanad",
+   "url": "https://wlfwayanad.com/",
+   "logo": "festivals/wlf/logo.png",
+   "base": "festivals/wlf/",
+   "from": 2022,
+   "to": 2024,
+   "years": [
+    2022,
+    2024,
+    2026
+   ],
+   "sched": 2026,
+   "partUrl": "https://wlfwayanad.com/speakers/{u}/",
+   "why": {},
+   "updated": "Nov 2026 (67 speakers announced so far; history 2022 and 2024; no festival in 2023 or 2025)",
+   "start": "2026-12-19",
+   "end": "2026-12-23"
+  },
+  {
    "id": "glf",
    "status": "soon",
    "name": "Galle Literary Festival",

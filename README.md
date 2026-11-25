@@ -23,6 +23,7 @@ Live site (GitHub Pages): https://omshivaprakash.github.io/litfest-speaker-guide
 | Dehradun Literature Festival 2026, 27–29 Nov (`?f=ddlf`) | Live, thin: 55 speakers (names and photos), 2025 history only |
 | Bhopal Literature & Art Festival 2027, 8–10 Jan (`?f=bplf`) | Live: 65 speakers announced so far (with bios), history 2019–2026 |
 | Mathrubhumi International Festival of Letters 2027, 28–31 Jan (`?f=mbifl`) | Live, thin: 6 speakers announced so far; history 2018–2020 and 2023–2026 |
+| Wayanad Literature Festival 2026, 19–23 Dec (`?f=wlf`) | Live: 67 speakers announced so far (bios, photos), history 2022 and 2024 |
 | Jaipur Literature Festival 2027, 14–18 Jan (`?f=jlf`) | Live: 280 speakers announced so far; history 2018–2026 |
 
 ## Layout
@@ -148,3 +149,6 @@ Photos and covers are WebP. The build scripts write JPEGs, so run `python3 tools
 
 ## Moving around
 The festival bar has arrow buttons and fading edges, and scrolls to the festival you are on; "All" returns to the home page. Keyboard: left and right arrows turn pages, Shift with them moves to the previous or next festival, [ and ] switch tabs, Esc closes a window. On a phone, swipe left or right to turn pages.
+
+## Wayanad data
+Built by `tools/build_wlf.py` from wlfwayanad.com's WordPress API: the 2026 speaker posts (with photos from the speakers page) and the speaker posts of the archived 2022 and 2024 sites. There was no festival in 2023 or 2025. Gender, country and role come from bios only; books are Open Library matches.
