@@ -177,7 +177,7 @@ input[type=search]{flex:1 1 0}
 .tag{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 6px}
 .tag.new{background:var(--tint);color:var(--accent);border-color:var(--accent);font-weight:600}
 .tag.ret{color:var(--ok);border-color:var(--ok)}.tag.rk{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
-.tag.kid{color:#b45309;border-color:#d97706;background:#fffbeb;font-weight:600}.lk{display:inline-block;margin-left:6px;padding:0 6px;border:1px solid #d97706;border-radius:999px;font-size:10px;font-weight:700;color:#b45309;background:#fffbeb}.kidlink{margin-top:6px;border:1px solid #d97706;background:#fffbeb;color:#b45309;border-radius:999px;font:700 12px var(--body);padding:4px 11px;cursor:pointer}.pc.fr button.kid{border-color:#d97706;background:#fffbeb;color:#b45309}.pc.fr button.kid.on{background:#b45309;color:#fff}.sc.kid{border-left:4px solid #d97706}.kpis3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kpis3 div{border:1px solid var(--line);border-radius:10px;padding:8px}.kpis3 b{display:block;font-size:22px;line-height:1.1}.kpis3 span{font-size:11px;color:var(--mut,#78716c)}
+.tag.kid{color:#b45309;border-color:#d97706;background:#fffbeb;font-weight:600}.lk{display:inline-block;margin-left:6px;padding:0 6px;border:1px solid #d97706;border-radius:999px;font-size:10px;font-weight:700;color:#b45309;background:#fffbeb}.pill.kidchip{border-color:#d97706;background:#fffbeb;color:#b45309;font-weight:700}.pc.fr button.kid{border-color:#d97706;background:#fffbeb;color:#b45309}.pc.fr button.kid.on{background:#b45309;color:#fff}.sc.kid{border-left:4px solid #d97706}.kpis3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kpis3 div{border:1px solid var(--line);border-radius:10px;padding:8px}.kpis3 b{display:block;font-size:22px;line-height:1.1}.kpis3 span{font-size:11px;color:var(--mut,#78716c)}
 .tag.lg{color:#0e7490;border-color:#0e7490}.tag.role{color:var(--fg);border-color:var(--fg)}.tag.nonauth{background:var(--surface);color:var(--fg);border-color:var(--fg);font-weight:600}
 .stabs{display:flex;gap:4px;margin:10px 0 8px;border-bottom:1px solid var(--line)}
 .stab{background:none;border:0;border-bottom:3px solid transparent;padding:6px 10px;font-weight:600;color:var(--muted);cursor:pointer}
@@ -211,6 +211,7 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;p
 .note{font-size:11px;color:var(--muted);margin-top:6px}
 @media (max-width:520px){.sh-body{max-height:50vh}}
 @media (max-height:700px){#v-discover .top .sub,.hb{display:none}}
+@media (max-height:720px){#v-discover .mini{display:none}}
 @media (prefers-reduced-motion:no-preference){.pill,.pbtn{transition:background .12s}}
 /* denser data slides */
 .slide{justify-content:flex-start;gap:0}
@@ -354,14 +355,14 @@ function discover(){
  $('dash').innerHTML='<div class="kpis"><button class="kpi" data-kpi="all"><b>'+n+'</b><span>speakers</span></button><button class="kpi" data-kpi="nw"><b>'+F.length+'</b><span>first-time at '+FE.short+'</span></button><button class="kpi" data-kpi="g"><b>'+pct(W,W+M)+'%</b><span>women, of '+(W+M)+' with a stated gender</span></button><button class="kpi" data-kpi="cc"><b>'+nOut+'</b><span>based outside India, '+nC+(nC===1?' country':' countries')+'</span></button></div>'+
  '<div class="mini"><div class="panel" data-kpi="cc"><h5>Where they are from</h5>'+worldMap(CC)+'</div><div class="panel" data-kpi="yr"><h5>Speakers per year</h5><div class="vc">'+YRS.map(function(y){var p=ST.per[y],ht=p.total/mx*100,rt=p.returning/p.total*100;return '<div><div class="col" style="height:'+ht+'%"><b style="height:'+(100-rt)+'%;background:'+(y===FE.year?'var(--accent)':'var(--u)')+'"></b><b style="height:'+rt+'%;background:var(--fg)"></b></div><div class="y'+(y===FE.year?' now':'')+'">'+String(y).slice(2)+'</div></div>'}).join('')+'</div></div></div>'+
  '<div class="hb"><div data-kpi="g" style="cursor:pointer">'+gb('Women · men',W,M,0,'var(--f)','var(--m)','var(--u)')+'</div><div data-kpi="nw" style="cursor:pointer">'+gb('New · returning',F.length,n-F.length,0,'var(--accent)','var(--fg)','var(--u)')+'</div></div>';
- $('seg').innerHTML=SH.map(function(x){return '<button class="pill" data-shelf="'+x[0]+'" aria-pressed="'+(shelf===x[0])+'">'+x[1]+'</button>'}).join('');
+ $('seg').innerHTML=SH.map(function(x){return '<button class="pill" data-shelf="'+x[0]+'" aria-pressed="'+(shelf===x[0])+'">'+x[1]+'</button>'}).join('')+(kidStrand(FE.id)?'<button class="pill kidchip" data-kid="1">Children’s track ›</button>':'');
  var L=shelfList(shelf),body=$('dbody'),w=body.clientWidth,h=body.clientHeight,gap=10,target=Math.min(w>700?150:104,Math.max(48,h-62)),cols=Math.max(2,Math.floor((w+gap)/(target+gap))),iw=Math.min(160,(w-(cols-1)*gap)/cols),per=cols;
  mkPager($('dpager'),'d',L.length,per,'');
  var page=L.slice(pg.d*per,pg.d*per+per);
  body.innerHTML='<div class="grid" style="grid-template-columns:repeat('+cols+',minmax(0,1fr))">'+page.map(function(o){var sub=shelf==='start'?(WHY[o.n]||''):shelf==='lang'?o.lg.join(' · '):shelf==='reg'?ed(o).length+' editions · '+o.role:o.role;return '<button class="card" data-open="'+S.indexOf(o)+'">'+pic(o,'')+'<div class="nm">'+esc(o.n)+'</div><div class="ln">'+esc(sub)+'</div></button>'}).join('')+'</div>'}
 $('dash').addEventListener('click',function(e){var k=e.target.closest('[data-kpi]'),c=e.target.closest('circle[data-cc]');if(c){reset();go({cc:c.dataset.cc});return}if(!k)return;var v=k.dataset.kpi;
  if(v==='all'){reset();go({})}else if(v==='nw'){reset();go({nw:true})}else if(v==='g'){pg.y=1;setView('study')}else if(v==='cc'){pg.y=2;setView('study')}else{pg.y=4;setView('study')}});
-$('seg').addEventListener('click',function(e){var b=e.target.closest('[data-shelf]');if(b){shelf=b.dataset.shelf;pg.d=0;discover()}});
+$('seg').addEventListener('click',function(e){if(e.target.closest('[data-kid]')){exOpen(window.__L,'kids/'+FE.id);return}var b=e.target.closest('[data-shelf]');if(b){shelf=b.dataset.shelf;pg.d=0;discover()}});
 $('dbody').addEventListener('click',function(e){var c=e.target.closest('[data-open]');if(c)openSheet(+c.dataset.open,c)});
 /* ranked */
 function rowH(){return window.innerWidth<520?54:60}
@@ -519,7 +520,7 @@ $('tq').addEventListener('keydown',function(e){if(e.key==='Enter')$('tadd').clic
 $('tbody').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(b){delete stars[S[+b.dataset.rm].n];save();tracker();return}var c=e.target.closest('[data-open]');if(c)openSheet(+c.dataset.open,c)});
 /* boot */
 
-var BUILD='202611251627e51ea03';var FC=['#7c2d12','#1e3a5f','#14532d','#581c87','#831843','#155e75','#a16207','#3f6212','#9a3412'],MAINC='#3f3f46',RL={p:'Speakers',c:'Moderator',m:'Host',r:'Respondents',g:'Guests',s:'Performers',h:'Chair',k:'Opening talk',v:'Poets'};
+var BUILD='2026112516345218eaf';var FC=['#7c2d12','#1e3a5f','#14532d','#581c87','#831843','#155e75','#a16207','#3f6212','#9a3412'],MAINC='#3f3f46',RL={p:'Speakers',c:'Moderator',m:'Host',r:'Respondents',g:'Guests',s:'Performers',h:'Chair',k:'Opening talk',v:'Poets'};
 var KA=[[74.1,15.0],[74.35,14.4],[74.7,13.6],[74.9,12.9],[75.2,12.6],[75.8,12.1],[76.5,11.6],[77.2,11.65],[77.9,12.0],[78.4,12.8],[78.4,13.1],[77.6,13.3],[77.5,13.9],[77.8,14.4],[77.4,15.1],[77.6,16.1],[77.9,17.4],[77.2,18.45],[76.8,18.0],[76.3,17.6],[75.5,17.3],[75.0,17.1],[74.6,16.7],[74.2,15.9],[74.1,15.7]];
 var DIST={'Bengaluru':[77.59,12.97,'ಬೆಂಗಳೂರು'],'Ramanagara':[77.28,12.72,'ರಾಮನಗರ'],'Mysuru':[76.64,12.3,'ಮೈಸೂರು'],'Mandya':[76.9,12.52,'ಮಂಡ್ಯ'],'Chamarajanagar':[77.0,11.92,'ಚಾಮರಾಜನಗರ'],'Dakshina Kannada':[75.0,12.85,'ದಕ್ಷಿಣ ಕನ್ನಡ'],'Udupi':[74.78,13.4,'ಉಡುಪಿ'],'Uttara Kannada':[74.6,14.8,'ಉತ್ತರ ಕನ್ನಡ'],'Chikkamagaluru':[75.78,13.32,'ಚಿಕ್ಕಮಗಳೂರು'],'Tumakuru':[77.1,13.34,'ತುಮಕೂರು'],'Chitradurga':[76.4,14.23,'ಚಿತ್ರದುರ್ಗ'],'Koppal':[76.15,15.35,'ಕೊಪ್ಪಳ'],'Vijayanagara':[76.5,15.15,'ವಿಜಯನಗರ'],'Ballari':[76.92,15.14,'ಬಳ್ಳಾರಿ'],'Bagalkot':[75.7,16.18,'ಬಾಗಲಕೋಟೆ'],'Gadag':[75.63,15.43,'ಗದಗ']};
 function progApp(f,D){
@@ -782,7 +783,7 @@ var d=document.createElement('section');d.className='soon';d.innerHTML=(f.logo?'
 $('kick').textContent=f.dates+' \u00B7 '+f.venue+(f.state?' \u00B7 '+[f.state,f.country].filter(function(v,i,a){return v&&a.indexOf(v)===i}).join(', '):'');$('h1').textContent=f.name+' '+f.year;$('trkr').textContent='Presence '+f.from+' to '+f.year+' (orange is '+f.year+').';
 if(f.years)f.years.forEach(function(y){YRS.push(y)});else for(var y=f.from;y<=f.year;y++)YRS.push(y);
 SH[1][1]='New to '+f.short;var base=f.base;WHY=f.why||{};START=Object.keys(WHY);
-return Promise.all([fetch(base+'data.json?v='+BUILD).then(function(r){return r.json()}),fetch(base+'stats.json?v='+BUILD).then(function(r){return r.json()}),kidsLoad()]).then(function(a){S=a[0];ST=a[1];ALL=S;kidMark(S,f.id);var ks=kidStrand(f.id);if(ks){var kb=document.createElement('button');kb.className='kidlink';kb.textContent='Children’s track: '+ks.name+' ›';kb.addEventListener('click',function(){exOpen(L,'kids/'+f.id)});document.querySelector('.top').appendChild(kb)}
+return Promise.all([fetch(base+'data.json?v='+BUILD).then(function(r){return r.json()}),fetch(base+'stats.json?v='+BUILD).then(function(r){return r.json()}),kidsLoad()]).then(function(a){S=a[0];ST=a[1];ALL=S;kidMark(S,f.id);
 S.forEach(function(o){if(o.ph)o.ph=base+o.ph;(o.bk||[]).forEach(function(b){if(b.c)b.c=base+b.c})});
 if(!START.length)START=S.filter(function(o){return o.p}).map(function(o){return o.n});var h=(location.hash||'').slice(1);setView(VIEWS.indexOf(h)>-1?h:'discover',true);var qp=new URLSearchParams(location.search).get('q');if(qp){reset();st.q=qp;$('q').value=qp;pg.s=0;setView('speakers',true)}})
 }).catch(function(){var e=$('dbody');if(e)e.innerHTML='<p class="empty">Could not load the speaker data.</p>'});}
