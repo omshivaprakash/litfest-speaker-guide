@@ -4,6 +4,7 @@ import json,os,datetime,urllib.request,re
 R=os.path.join(os.path.dirname(__file__),'..'); today=datetime.date.today()
 F=json.load(open(R+'/festivals.json',encoding='utf8'))['festivals']
 for f in F:
+    if f.get('archive'): continue
     msg=[]
     if not f.get('start'): msg.append('no start/end dates')
     elif f.get('tbc'): msg.append('dates still to be confirmed')

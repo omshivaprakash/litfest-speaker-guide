@@ -156,3 +156,5 @@ Built by `tools/build_wlf.py` from wlfwayanad.com's WordPress API: the 2026 spea
 
 ## JSW Sahitya Habba data
 `tools/build_jsw.py` holds the programme typed from the festival's 8-page agenda PDF (Canva) and crops the speaker photos from its first page. The PDF gives no website, so the festival has no official-site link. English titles beside the Kannada session titles are our own translations. Evening performances and film screenings are included with the times printed in the PDF; venues for the evening programme are not stated.
+
+The two archived Wayanad editions (`?f=wlf24`, `?f=wlf22`) are speaker lists with bios and photos for every speaker on the 2024 site (195) and the 2022 site (39), built by `tools/build_wlf_archive.py`. They are flagged `archive` in `festivals.json`: they stay out of Search, Across, Explore and Upcoming so people are not counted twice (those already use the Wayanad history).

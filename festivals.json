@@ -461,6 +461,53 @@
    "end": "2026-12-23"
   },
   {
+   "status": "live",
+   "venue": "Wayanad, Kerala",
+   "logo": "festivals/wlf/logo.png",
+   "why": {},
+   "archive": true,
+   "id": "wlf24",
+   "name": "Wayanad Literature Festival",
+   "short": "Wayanad 2024",
+   "ab": "WL4",
+   "year": 2024,
+   "dates": "27–29 Dec 2024",
+   "url": "https://wlfwayanad.com/2024/",
+   "base": "festivals/wlf24/",
+   "from": 2022,
+   "to": 2022,
+   "years": [
+    2022,
+    2024
+   ],
+   "sched": 2024,
+   "partUrl": "https://wlfwayanad.com/2024/speakers/{u}/",
+   "updated": "Archive: all 195 speakers on the 2024 site, with who also spoke in 2022"
+  },
+  {
+   "status": "live",
+   "venue": "Wayanad, Kerala",
+   "logo": "festivals/wlf/logo.png",
+   "why": {},
+   "archive": true,
+   "id": "wlf22",
+   "name": "Wayanad Literature Festival",
+   "short": "Wayanad 2022",
+   "ab": "WL2",
+   "year": 2022,
+   "dates": "29–31 Dec 2022",
+   "url": "https://wlfwayanad.com/2022/",
+   "base": "festivals/wlf22/",
+   "from": 2022,
+   "to": 2022,
+   "years": [
+    2022
+   ],
+   "sched": 2022,
+   "partUrl": "https://wlfwayanad.com/2022/speakers/{u}/",
+   "updated": "Archive: the 39 speakers on the 2022 site (first edition)"
+  },
+  {
    "id": "glf",
    "status": "soon",
    "name": "Galle Literary Festival",
