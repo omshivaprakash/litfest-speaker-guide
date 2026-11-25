@@ -211,7 +211,7 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;p
 .note{font-size:11px;color:var(--muted);margin-top:6px}
 @media (max-width:520px){.sh-body{max-height:50vh}}
 @media (max-height:700px){#v-discover .top .sub,.hb{display:none}}
-@media (max-height:720px){#v-discover .mini{display:none}}
+@media (max-height:720px){#v-discover .kpis{padding-bottom:6px}#v-discover .kpi{padding:6px 7px}#v-discover .kpi span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}#v-discover .mini .map{max-height:clamp(44px,11vh,90px)}#v-discover .mini .vc{height:clamp(44px,11vh,90px)}#v-discover .panel{padding:6px 8px}}
 @media (prefers-reduced-motion:no-preference){.pill,.pbtn{transition:background .12s}}
 /* denser data slides */
 .slide{justify-content:flex-start;gap:0}
@@ -355,7 +355,7 @@ function discover(){
  $('dash').innerHTML='<div class="kpis"><button class="kpi" data-kpi="all"><b>'+n+'</b><span>speakers</span></button><button class="kpi" data-kpi="nw"><b>'+F.length+'</b><span>first-time at '+FE.short+'</span></button><button class="kpi" data-kpi="g"><b>'+pct(W,W+M)+'%</b><span>women, of '+(W+M)+' with a stated gender</span></button><button class="kpi" data-kpi="cc"><b>'+nOut+'</b><span>based outside India, '+nC+(nC===1?' country':' countries')+'</span></button></div>'+
  '<div class="mini"><div class="panel" data-kpi="cc"><h5>Where they are from</h5>'+worldMap(CC)+'</div><div class="panel" data-kpi="yr"><h5>Speakers per year</h5><div class="vc">'+YRS.map(function(y){var p=ST.per[y],ht=p.total/mx*100,rt=p.returning/p.total*100;return '<div><div class="col" style="height:'+ht+'%"><b style="height:'+(100-rt)+'%;background:'+(y===FE.year?'var(--accent)':'var(--u)')+'"></b><b style="height:'+rt+'%;background:var(--fg)"></b></div><div class="y'+(y===FE.year?' now':'')+'">'+String(y).slice(2)+'</div></div>'}).join('')+'</div></div></div>'+
  '<div class="hb"><div data-kpi="g" style="cursor:pointer">'+gb('Women · men',W,M,0,'var(--f)','var(--m)','var(--u)')+'</div><div data-kpi="nw" style="cursor:pointer">'+gb('New · returning',F.length,n-F.length,0,'var(--accent)','var(--fg)','var(--u)')+'</div></div>';
- $('seg').innerHTML=SH.map(function(x){return '<button class="pill" data-shelf="'+x[0]+'" aria-pressed="'+(shelf===x[0])+'">'+x[1]+'</button>'}).join('')+(kidStrand(FE.id)?'<button class="pill kidchip" data-kid="1">Children’s track ›</button>':'');
+ $('seg').innerHTML=(kidStrand(FE.id)?'<button class="pill kidchip" data-kid="1">Children’s track ›</button>':'')+SH.map(function(x){return '<button class="pill" data-shelf="'+x[0]+'" aria-pressed="'+(shelf===x[0])+'">'+x[1]+'</button>'}).join('');
  var L=shelfList(shelf),body=$('dbody'),w=body.clientWidth,h=body.clientHeight,gap=10,target=Math.min(w>700?150:104,Math.max(48,h-62)),cols=Math.max(2,Math.floor((w+gap)/(target+gap))),iw=Math.min(160,(w-(cols-1)*gap)/cols),per=cols;
  mkPager($('dpager'),'d',L.length,per,'');
  var page=L.slice(pg.d*per,pg.d*per+per);
@@ -520,7 +520,7 @@ $('tq').addEventListener('keydown',function(e){if(e.key==='Enter')$('tadd').clic
 $('tbody').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(b){delete stars[S[+b.dataset.rm].n];save();tracker();return}var c=e.target.closest('[data-open]');if(c)openSheet(+c.dataset.open,c)});
 /* boot */
 
-var BUILD='2026112516492bc8207';var FC=['#7c2d12','#1e3a5f','#14532d','#581c87','#831843','#155e75','#a16207','#3f6212','#9a3412'],MAINC='#3f3f46',RL={p:'Speakers',c:'Moderator',m:'Host',r:'Respondents',g:'Guests',s:'Performers',h:'Chair',k:'Opening talk',v:'Poets'};
+var BUILD='2026112516565323b98';var FC=['#7c2d12','#1e3a5f','#14532d','#581c87','#831843','#155e75','#a16207','#3f6212','#9a3412'],MAINC='#3f3f46',RL={p:'Speakers',c:'Moderator',m:'Host',r:'Respondents',g:'Guests',s:'Performers',h:'Chair',k:'Opening talk',v:'Poets'};
 var KA=[[74.1,15.0],[74.35,14.4],[74.7,13.6],[74.9,12.9],[75.2,12.6],[75.8,12.1],[76.5,11.6],[77.2,11.65],[77.9,12.0],[78.4,12.8],[78.4,13.1],[77.6,13.3],[77.5,13.9],[77.8,14.4],[77.4,15.1],[77.6,16.1],[77.9,17.4],[77.2,18.45],[76.8,18.0],[76.3,17.6],[75.5,17.3],[75.0,17.1],[74.6,16.7],[74.2,15.9],[74.1,15.7]];
 var DIST={'Bengaluru':[77.59,12.97,'ಬೆಂಗಳೂರು'],'Ramanagara':[77.28,12.72,'ರಾಮನಗರ'],'Mysuru':[76.64,12.3,'ಮೈಸೂರು'],'Mandya':[76.9,12.52,'ಮಂಡ್ಯ'],'Chamarajanagar':[77.0,11.92,'ಚಾಮರಾಜನಗರ'],'Dakshina Kannada':[75.0,12.85,'ದಕ್ಷಿಣ ಕನ್ನಡ'],'Udupi':[74.78,13.4,'ಉಡುಪಿ'],'Uttara Kannada':[74.6,14.8,'ಉತ್ತರ ಕನ್ನಡ'],'Chikkamagaluru':[75.78,13.32,'ಚಿಕ್ಕಮಗಳೂರು'],'Tumakuru':[77.1,13.34,'ತುಮಕೂರು'],'Chitradurga':[76.4,14.23,'ಚಿತ್ರದುರ್ಗ'],'Koppal':[76.15,15.35,'ಕೊಪ್ಪಳ'],'Vijayanagara':[76.5,15.15,'ವಿಜಯನಗರ'],'Ballari':[76.92,15.14,'ಬಳ್ಳಾರಿ'],'Bagalkot':[75.7,16.18,'ಬಾಗಲಕೋಟೆ'],'Gadag':[75.63,15.43,'ಗದಗ']};
 function progApp(f,D){
