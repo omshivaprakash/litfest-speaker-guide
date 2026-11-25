@@ -35,6 +35,7 @@ It was built by a reader, for readers. It is free, it will stay free, and it is 
 
 | You want to… | Where to go |
 |---|---|
+| Find festivals by **region**: India, a particular state, or international | **Home page** filters |
 | See a festival at a glance: how many speakers, how many are new, how many women, where they come from | Open any festival, **Discover** tab |
 | Find who to hear first | **Who to hear** tab |
 | Browse everyone, search by name, book or topic, filter by country or language | **All speakers** tab |

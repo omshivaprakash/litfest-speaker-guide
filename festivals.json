@@ -30,7 +30,10 @@
    "ab": "BLF",
    "start": "2026-12-11",
    "end": "2026-12-13",
-   "past": 1
+   "past": 1,
+   "state": "Karnataka",
+   "country": "India",
+   "city": "Bengaluru"
   },
   {
    "id": "sjm",
@@ -47,7 +50,10 @@
    "updated": "Nov 2026 (typed from the invitation)",
    "ab": "SJM",
    "start": "2026-11-28",
-   "end": "2026-11-29"
+   "end": "2026-11-29",
+   "state": "Karnataka",
+   "country": "India",
+   "city": "Bengaluru"
   },
   {
    "id": "jn",
@@ -65,7 +71,10 @@
    "updated": "Nov 2026 (typed from the invitation)",
    "ab": "JN",
    "start": "2026-11-28",
-   "end": "2026-11-29"
+   "end": "2026-11-29",
+   "state": "Karnataka",
+   "country": "India",
+   "city": "Mangaluru"
   },
   {
    "id": "jsw",
@@ -84,7 +93,10 @@
    "updated": "Nov 2026 (typed from the festival's agenda PDF; no official site listed)",
    "ab": "JSW",
    "start": "2026-11-28",
-   "end": "2026-11-29"
+   "end": "2026-11-29",
+   "state": "Karnataka",
+   "country": "India",
+   "city": "Toranagallu"
   },
   {
    "id": "tll",
@@ -111,7 +123,10 @@
    "ab": "LL",
    "start": "2026-10-23",
    "end": "2026-10-25",
-   "past": 1
+   "past": 1,
+   "state": "Maharashtra",
+   "country": "India",
+   "city": "Mumbai"
   },
   {
    "id": "klm",
@@ -139,7 +154,10 @@
    "ab": "KLM",
    "start": "2026-01-22",
    "end": "2026-01-26",
-   "past": 1
+   "past": 1,
+   "state": "West Bengal",
+   "country": "India",
+   "city": "Kolkata"
   },
   {
    "id": "ddlf",
@@ -164,7 +182,10 @@
    "why": {},
    "updated": "Nov 2026 (names and photos only; 2025 history only)",
    "start": "2026-11-27",
-   "end": "2026-11-29"
+   "end": "2026-11-29",
+   "state": "Uttarakhand",
+   "country": "India",
+   "city": "Dehradun"
   },
   {
    "id": "galf",
@@ -192,7 +213,10 @@
    "ab": "GAL",
    "start": "2026-02-12",
    "end": "2026-02-14",
-   "past": 1
+   "past": 1,
+   "state": "Goa",
+   "country": "India",
+   "city": "Dona Paula"
   },
   {
    "id": "klf2",
@@ -219,7 +243,10 @@
    "updated": "Nov 2026 (earlier years list featured names only)",
    "ab": "KAL",
    "start": "2026-01-08",
-   "end": "2026-01-11"
+   "end": "2026-01-11",
+   "state": "Odisha",
+   "country": "India",
+   "city": "Bhubaneswar"
   },
   {
    "id": "nlf",
@@ -253,7 +280,10 @@
    "ab": "NEV",
    "start": "2026-09-26",
    "end": "2026-09-27",
-   "past": 1
+   "past": 1,
+   "state": "Karnataka",
+   "country": "India",
+   "city": "Bengaluru"
   },
   {
    "id": "bpf",
@@ -287,7 +317,10 @@
    "ab": "BPF",
    "start": "2026-08-01",
    "end": "2026-08-02",
-   "past": 1
+   "past": 1,
+   "state": "Karnataka",
+   "country": "India",
+   "city": "Bengaluru"
   },
   {
    "id": "klf",
@@ -313,7 +346,10 @@
    "updated": "Nov 2026",
    "ab": "KLF",
    "start": "2027-01-21",
-   "end": "2027-01-24"
+   "end": "2027-01-24",
+   "state": "Kerala",
+   "country": "India",
+   "city": "Kozhikode"
   },
   {
    "id": "bbl",
@@ -332,7 +368,10 @@
    "updated": "Nov 2026",
    "ab": "BB",
    "start": "2026-08-14",
-   "end": "2026-08-23"
+   "end": "2026-08-23",
+   "state": "Karnataka",
+   "country": "India",
+   "city": "Bengaluru"
   },
   {
    "id": "hlf",
@@ -355,7 +394,10 @@
    "start": "2027-01-01",
    "end": "2027-01-31",
    "tbc": 1,
-   "past": 1
+   "past": 1,
+   "state": "Telangana",
+   "country": "India",
+   "city": "Hyderabad"
   },
   {
    "id": "jlf",
@@ -377,7 +419,10 @@
    "ab": "JLF",
    "start": "2027-01-14",
    "end": "2027-01-18",
-   "past": 1
+   "past": 1,
+   "state": "Rajasthan",
+   "country": "India",
+   "city": "Jaipur"
   },
   {
    "id": "bplf",
@@ -410,7 +455,10 @@
    "updated": "Nov 2026 (2027 speakers announced so far; history 2019–2026)",
    "start": "2027-01-08",
    "end": "2027-01-10",
-   "past": 1
+   "past": 1,
+   "state": "Madhya Pradesh",
+   "country": "India",
+   "city": "Bhopal"
   },
   {
    "id": "mbifl",
@@ -442,7 +490,10 @@
    "updated": "Nov 2026 (only 6 of the 2027 speakers announced; 2025 shows 60 listed)",
    "start": "2027-01-28",
    "end": "2027-01-31",
-   "past": 1
+   "past": 1,
+   "state": "Kerala",
+   "country": "India",
+   "city": "Thiruvananthapuram"
   },
   {
    "id": "wlf",
@@ -469,7 +520,10 @@
    "updated": "Nov 2026 (67 speakers announced so far; past editions 2022 and 2024 with profiles; no festival in 2023 or 2025)",
    "start": "2026-12-19",
    "end": "2026-12-23",
-   "past": 1
+   "past": 1,
+   "state": "Kerala",
+   "country": "India",
+   "city": "Mananthavady"
   },
   {
    "id": "glf",
@@ -485,7 +539,10 @@
    "base": "festivals/glf/",
    "start": "2027-03-17",
    "end": "2027-03-21",
-   "note": "International. The 2027 speaker list has not been published yet; we will add it when it is."
+   "note": "International. The 2027 speaker list has not been published yet; we will add it when it is.",
+   "state": "Southern Province",
+   "country": "Sri Lanka",
+   "city": "Galle"
   },
   {
    "id": "eibf",
@@ -499,7 +556,10 @@
    "url": "https://www.edbookfest.co.uk/",
    "logo": "festivals/eibf/logo.png",
    "base": "festivals/eibf/",
-   "note": "International. The next programme has not been announced yet; we will add it when it is."
+   "note": "International. The next programme has not been announced yet; we will add it when it is.",
+   "state": "Scotland",
+   "country": "United Kingdom",
+   "city": "Edinburgh"
   },
   {
    "id": "hay",
@@ -515,7 +575,10 @@
    "base": "festivals/hay/",
    "start": "2027-05-27",
    "end": "2027-06-06",
-   "note": "International. The 2027 programme is not out yet. Hay Festival also runs editions in Cartagena, Nairobi, Segovia, Querétaro and elsewhere; see the official site."
+   "note": "International. The 2027 programme is not out yet. Hay Festival also runs editions in Cartagena, Nairobi, Segovia, Querétaro and elsewhere; see the official site.",
+   "state": "Wales",
+   "country": "United Kingdom",
+   "city": "Hay-on-Wye"
   },
   {
    "id": "hayww",
@@ -535,7 +598,10 @@
    "sub": "Programme as published on the festival site",
    "themeLabel": "format",
    "forumLabel": "venue",
-   "updated": "Nov 2026 (programme from the festival site; speakers named where the listing gives names)"
+   "updated": "Nov 2026 (programme from the festival site; speakers named where the listing gives names)",
+   "state": "Wales",
+   "country": "United Kingdom",
+   "city": "Hay-on-Wye"
   }
  ]
 }

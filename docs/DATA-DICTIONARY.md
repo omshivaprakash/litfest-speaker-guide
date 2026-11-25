@@ -21,6 +21,7 @@ All data files are plain **JSON** (text files that any program can read).
 | `year`, `dates`, `venue` | Edition year, human-readable dates, place |
 | `start`, `end` | The edition's dates as `YYYY-MM-DD` (drives countdowns and calendar files) |
 | `tbc` | `1` if the dates are not confirmed yet |
+| `country`, `state`, `city` | Where the festival is held (state is the Indian state, or the nation within the UK such as Wales). Drives the India / International filters on the home page |
 | `url` | Official website |
 | `logo`, `base` | Logo path, and the festival's data folder (`festivals/<id>/`) |
 | `from`, `to`, `years` | The years of history we have: first year, last earlier year, or an explicit list |

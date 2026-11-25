@@ -8,6 +8,8 @@ F=json.load(open(R+'/festivals.json',encoding='utf8'))['festivals']; ids=set()
 for f in F:
     chk(f['id'] not in ids,'duplicate festival id '+f['id']); ids.add(f['id'])
     chk(os.path.exists(R+'/'+f['logo']),f'{f["id"]}: logo missing {f["logo"]}')
+    for k in ('country','state','city'):
+        if not f.get(k): bad.append(f'{f["id"]}: missing {k}')
     for k in ('start','end'):
         if f.get(k):
             try: datetime.date.fromisoformat(f[k])

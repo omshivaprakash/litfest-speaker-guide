@@ -56,7 +56,7 @@ Read the result in **About → Daily check** on the site, or in `data/updates.js
 1. **Look for a data feed first.** Many festival sites are WordPress and expose speakers at `/wp-json/wp/v2/...`; others have a JSON API their own page calls. A feed beats scraping HTML.
 2. Copy the nearest existing builder (for example `tools/build_nlf.py` for a WordPress site) to `tools/build_<id>.py` and adapt it. It must write `festivals/<id>/data.json`, `stats.json` and `history.json`, and photos to `ph/`.
 3. Save a logo as `festivals/<id>/logo.png` (use the festival's real logo; check it is not blank or white on white).
-4. Add an entry to `festivals.json` (see the [data dictionary](DATA-DICTIONARY.md)). Include `start` and `end`.
+4. Add an entry to `festivals.json` (see the [data dictionary](DATA-DICTIONARY.md)). Include `start`, `end`, and `country`, `state` and `city` (they drive the home-page region filters).
 5. Add the festival to `PROBES` in `tools/check_updates.py` so it is watched daily.
 6. Run the post-processing steps above, then `python3 tools/validate.py` and the tests.
 

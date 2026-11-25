@@ -10,6 +10,8 @@ This guide walks through everything in LitFest Guide, in the order you are likel
 
 When you open the site you land on a page listing **every festival**, soonest first, each with its logo, dates and a countdown ("in 3 days", "Happening now", "Archive" and so on). Tap one to open it.
 
+Above the list are **region filters**: **All**, **India** and **International**. Pick **India** and a row of **states** appears (Karnataka, Kerala, Goa and so on, each with a count); pick **International** and the countries appear. Each card also shows its city, state and country in orange. Inside a festival, the line above its name shows the same place.
+
 The row of round buttons near the top is the **festival bar**. Tap any festival name to jump there. Use the **‹ ›** arrows (or swipe the row) to see more. The **All** button takes you back to the home page. The **LitFest Guide** name at the very top does the same.
 
 The four buttons at the top right:
