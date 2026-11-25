@@ -1,5 +1,5 @@
 /* Explore (Upcoming, Shelf, Debuts, Prizes, Translators, Trails, Languages, Bookmarks). Loaded on first use by index.html. */
-window.LF_EXPLORE=function(E){var esc=E.esc,gnorm=E.gnorm,GS=E.GS,gsLoad=E.gsLoad,gsOpen=E.gsOpen,BUILD=E.BUILD,untilTxt=E.untilTxt,dday=E.dday,remList=E.remList,remSave=E.remSave,icsFor=E.icsFor,alertBar=E.alertBar,favF=E.favF;
+window.LF_EXPLORE=function(E){var edgeFade=E.edgeFade,esc=E.esc,gnorm=E.gnorm,GS=E.GS,gsLoad=E.gsLoad,gsOpen=E.gsOpen,BUILD=E.BUILD,untilTxt=E.untilTxt,dday=E.dday,remList=E.remList,remSave=E.remSave,icsFor=E.icsFor,alertBar=E.alertBar,favF=E.favF;
 /* Explore: bookshelf, prizes, trails, languages and a reading list, built from every festival's data */
 var EX={ready:false,all:[]};
 function exLoad(L,done){var left=0,out=[];L.festivals.forEach(function(f){if(f.status!=='live'||f.type==='programme')return;left++;
@@ -24,8 +24,8 @@ function chips(name){var e=idx()[gnorm(name)];if(!e)return '';return '<div class
 function person(name,extra){return '<div class="axr" data-k="'+esc(name)+'"><h3 lang="kn">'+esc(name)+'</h3>'+(extra||'')+chips(name)+'</div>'}
 function bio(o){return (o.f||o.b||'')}
 function seen(list){var m={};return list.filter(function(x){var k=gnorm(x.o.n);if(m[k])return false;m[k]=1;return true})}
-function tabs(){q('ext').innerHTML=[['soon','Upcoming'],['shelf','Shelf'],['debut','Debuts'],['prizes','Prizes'],['tr','Translators'],['trails','Trails'],['lang','Languages'],['mine','Bookmarks']].map(function(t){return '<button data-t="'+t[0]+'" class="'+(X.tab===t[0]?'on':'')+'">'+t[1]+'</button>'}).join('');var s=q('exs');s.style.display='none';s.innerHTML=''}
-function sub(html){var s=q('exs');s.style.display='flex';s.innerHTML=html}
+function tabs(){q('ext').innerHTML=[['soon','Upcoming'],['shelf','Shelf'],['debut','Debuts'],['prizes','Prizes'],['tr','Translators'],['trails','Trails'],['lang','Languages'],['mine','Bookmarks']].map(function(t){return '<button data-t="'+t[0]+'" class="'+(X.tab===t[0]?'on':'')+'">'+t[1]+'</button>'}).join('');var s=q('exs');s.style.display='none';s.innerHTML='';edgeFade(q('ext'));q('ext')._efu&&q('ext')._efu()}
+function sub(html){var s=q('exs');s.style.display='flex';s.innerHTML=html;edgeFade(s);s._efu&&s._efu()}
 function draw(){tabs();q('exd').innerHTML='';
 if(X.tab==='soon'){var R=remList(),U=L.festivals.filter(function(f){return f.start}).map(function(f){return {f:f,u:untilTxt(f)}}),up=U.filter(function(x){return x.u.k!=='past'}).sort(function(a,b){return dday(a.f.start)-dday(b.f.start)}),pa=U.filter(function(x){return x.u.k==='past'}).sort(function(a,b){return dday(b.f.start)-dday(a.f.start)});
 function row(x){var f=x.f,on=R.indexOf(f.id)>-1;return '<div class="axr exup" data-open="'+f.id+'"><div class="exuh">'+fl(f.id)+'<h3>'+esc(f.short)+'</h3><span class="exwhen '+x.u.k+'">'+esc(x.u.t)+'</span></div><div class="exnm">'+esc(f.dates.replace(/ \(.*$/,''))+(f.tbc&&!/confirm/i.test(f.dates)?' (to be confirmed)':'')+' · '+esc(f.venue||'')+'</div>'+(x.u.k==='past'?'<div class="exnm">Next dates not announced yet.</div>':'<div class="exac"><button data-ics="'+f.id+'">Add to calendar</button><button data-rem="'+f.id+'" class="'+(on?'on':'')+'">'+(on?'Reminder on ✓':'Remind me')+'</button></div>')+'</div>'}
