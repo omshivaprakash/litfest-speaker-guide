@@ -51,6 +51,7 @@ SS=[
 def _t(x):
     h,m=map(int,x.split('–')[0].lower().replace('pm','').replace('am','').split(':')); return (h+12 if ('pm' in x.lower() or h<8) and h<12 else h)*60+m
 SS.sort(key=lambda s:(s['d'],_t(s['t'])))
-data={'sessions':SS,'en':{},'forums':CH,'days':[{'d':28,'l':'Sat 28 Nov'},{'d':29,'l':'Sun 29 Nov'}],'bios':bios,'forumLabel':'venue','themeLabel':'format'}
+PLACES={'E. Tukaram':{'d':'Ballari','w':'ಬಳ್ಳಾರಿ'},'E. Annapoorna':{'d':'Ballari','w':'ಸಂಡೂರು'},'L. R. Singh':{'d':'Ballari','w':'ತೋರಣಗಲ್ಲು'},'Dr. D. V. Paramashivamurthy':{'d':'Vijayanagara','w':'ಹಂಪಿ'},'Dr. Virupakshi Poojarahalli':{'d':'Vijayanagara','w':'ಹಂಪಿ'}}
+data={'places':PLACES,'mapNote':'Where the chief guests and officials are based, as named in the agenda (Ballari district, and Kannada University in Hampi). The agenda does not give the speakers’ hometowns.','sessions':SS,'en':{},'forums':CH,'days':[{'d':28,'l':'Sat 28 Nov'},{'d':29,'l':'Sun 29 Nov'}],'bios':bios,'forumLabel':'venue','themeLabel':'format'}
 json.dump(data,open(OUT+'/data.json','w',encoding='utf8'),ensure_ascii=False)
 print(len(SS),'sessions;',len(bios),'photos')
