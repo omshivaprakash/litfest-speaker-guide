@@ -54,11 +54,15 @@ Detailed steps are in the **[User guide](docs/USER-GUIDE.md)**.
 
 ## Festivals covered
 
-**Live now (19, 18 in India and 1 in Wales):** Bangalore Literature Festival · Jaipur Literature Festival · Hyderabad Literary Festival · Kerala Literature Festival · Mathrubhumi International Festival of Letters · Literature Live! The Mumbai LitFest · Kolkata Literary Meet · Kalinga Literary Festival · Goa Arts and Literature Festival · Bhopal Literature & Art Festival · Dehradun Literature Festival · Neev Literature Festival · Bengaluru Poetry Festival · Wayanad Literature Festival · Book Brahma Literature Festival · JSW Sahitya Habba · Samajamukhi Sahitya Sammelana · Jananudi · Hay Festival Winter Weekend
+**Live now (22):** Bangalore Literature Festival · Jaipur Literature Festival · Hyderabad Literary Festival · Kerala Literature Festival · Mathrubhumi International Festival of Letters · Literature Live! The Mumbai LitFest · Kolkata Literary Meet · Kalinga Literary Festival · Goa Arts and Literature Festival · Bhopal Literature & Art Festival · Dehradun Literature Festival · Neev Literature Festival · Bengaluru Poetry Festival · Wayanad Literature Festival · Koshala Literature Festival (Lucknow) · Ahmedabad International Literature Festival · Shillong Literary Festival · Book Brahma Literature Festival · JSW Sahitya Habba · Samajamukhi Sahitya Sammelana · Jananudi · Hay Festival Winter Weekend
+
+**Listed, with dates from the official site and speakers to come:** CLF Literati, Chandigarh (4 to 6 Dec 2026) · Nalanda Literature Festival, Bihar (main festival Oct 2027) · Khushwant Singh Literary Festival, Kasauli (held 23 to 25 Oct 2026)
+
+**Work in progress (organisers, please get in touch):** Lit for Life (Chennai) · Apeejay Kolkata Literary Festival · M.S. Randhawa Literature and Art Festival (Chandigarh) · Pune International Literary Festival · Times LitFest (Delhi). We know these exist but have no readable official portal with dates or speakers yet. Dates always come from a festival's own official site.
 
 **Beyond India:** Hay Festival Winter Weekend (Hay-on-Wye, Wales) is live now, and three more are listed with dates, with speakers to come when they publish: Galle Literary Festival (Sri Lanka), Edinburgh International Book Festival (Scotland) and Hay Festival (Hay-on-Wye, Wales). The guide started with India and is growing outward; suggestions for more are welcome.
 
-**By the numbers:** about 9,000 people and 15,000 festival appearances going back as far as 2012, around 1,900 speaker profiles with photos for the current editions, and about 7,700 more profiles of people who spoke in earlier years.
+**By the numbers:** about 9,500 people and 16,000 festival appearances going back as far as 2012, around 1,900 speaker profiles with photos for the current editions, and about 7,700 more profiles of people who spoke in earlier years.
 
 How complete each festival is differs. Some have ten years of history, some only one. The exact picture for each festival is in **[docs/DATA-NOTES.md](docs/DATA-NOTES.md)**.
 

@@ -1,6 +1,33 @@
 {
- "checked": "2026-11-25T08:56Z",
+ "checked": "2026-11-25T15:24Z",
  "festivals": {
+  "koshala": {
+   "name": "Koshala",
+   "count": 51,
+   "previous": null,
+   "added": [],
+   "removed": [],
+   "status": "baseline recorded",
+   "not_in_app": []
+  },
+  "ailf": {
+   "name": "Ahmedabad",
+   "count": 66,
+   "previous": null,
+   "added": [],
+   "removed": [],
+   "status": "baseline recorded",
+   "not_in_app": []
+  },
+  "shillong": {
+   "name": "Shillong",
+   "count": 12,
+   "previous": null,
+   "added": [],
+   "removed": [],
+   "status": "baseline recorded",
+   "not_in_app": []
+  },
   "blf": {
    "name": "BLF",
    "count": 249,
@@ -19,12 +46,18 @@
   },
   "jlf": {
    "name": "JLF",
-   "count": 282,
+   "count": 281,
    "previous": 282,
-   "added": [],
-   "removed": [],
-   "status": "ok",
+   "added": [
+    "Jamie Andrews"
+   ],
+   "removed": [
+    "Kaushik Basu",
+    "Stephen Witt"
+   ],
+   "status": "changed",
    "not_in_app": [
+    "Jamie Andrews",
     "Justice Madan Lokur",
     "Suresh Narayanan",
     "Tara Menon"

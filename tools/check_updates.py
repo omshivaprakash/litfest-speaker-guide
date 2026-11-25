@@ -88,7 +88,16 @@ def p_hayww():
         if not new: break
         out+=new; p+=1
     return out
-PROBES={'blf':p_blf,'jlf':p_jlf,'hlf':p_hlf,'klf':p_klf,'mbifl':p_mbifl,'wlf':p_wlf,'nlf':p_nlf,'bplf':p_bplf,'klm':p_klm,'tll':p_tll,'bpf':p_bpf,'galf':p_galf,'ddlf':p_ddlf,'klf2':p_klf2,'hayww':p_hayww}
+def p_koshala():
+    h=get('https://koshalaliteraturefestival.com/speakers'); panes=re.split(r'<div class="tab-pane',h)[1:]; out=[]
+    for p in panes:
+        if re.search(r'id="nav-5"',p[:300],re.S): out=[clean(n) for n in re.findall(r'speakerdetails/\d+">.*?<img src="[^"]+"\s+alt="([^"]*)"',p,re.S)]
+    return out
+def p_ailf():
+    h=get('https://ailf.co.in/speakers'); return [clean(n) for n in re.findall(r'<h3 class="team-name"[^>]*>\s*(?:<a[^>]*>)?\s*(.*?)\s*(?:</a>)?\s*</h3>',h,re.S)]
+def p_shillong():
+    h=get('https://shillonglitfest.com/speakers'); return [clean(n) for n in re.findall(r'aria-label="Read the bio of ([^"]+)"',h)]
+PROBES={'koshala':p_koshala,'ailf':p_ailf,'shillong':p_shillong,'blf':p_blf,'jlf':p_jlf,'hlf':p_hlf,'klf':p_klf,'mbifl':p_mbifl,'wlf':p_wlf,'nlf':p_nlf,'bplf':p_bplf,'klm':p_klm,'tll':p_tll,'bpf':p_bpf,'galf':p_galf,'ddlf':p_ddlf,'klf2':p_klf2,'hayww':p_hayww}
 def main():
     os.makedirs(R+'/data/snapshots',exist_ok=True); F={f['id']:f for f in json.load(open(R+'/festivals.json',encoding='utf8'))['festivals']}
     cm=R+'/data/last-changes.md'

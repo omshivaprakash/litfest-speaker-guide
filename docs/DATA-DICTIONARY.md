@@ -32,6 +32,7 @@ All data files are plain **JSON** (text files that any program can read).
 | `past` | `1` if the folder has a `past.json` (set automatically by `tools/build_index.py`) |
 | `archive` | `true` hides a festival from Search, Across and Explore (used for old, duplicate editions) |
 | `note` | Text shown on a "soon" page |
+| `wip` | `1` marks a festival we know of but have no official portal or data for yet. Its page says "Work in progress" and invites organisers to get in touch |
 | `sub`, `themeLabel`, `forumLabel` | Programme festivals: subtitle, and what to call a session's category and venue |
 
 ---

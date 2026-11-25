@@ -109,3 +109,10 @@ Past-only people with profiles (photo, and bio where the festival published one)
 ---
 
 *Other topics that used to live here moved to: [User guide](USER-GUIDE.md) (features, keyboard, offline, language), [Maintaining](MAINTAINING.md) (adding festivals, checks, daily check), [Data dictionary](DATA-DICTIONARY.md) (formats, programme data) and [FAQ](FAQ.md) (disclaimer, name matching).*
+
+## Koshala, Ahmedabad and Shillong
+Added from the festivals' own sites. **Koshala** (`tools/build_koshala.py`): the speakers page has a tab per year (2022 to 2026) and a detail page per speaker; 2026 (27 to 30 Nov) is the current list, earlier years are history and past profiles. **Ahmedabad** (`tools/build_ailf.py`): the 11th edition (24 to 25 Oct 2026) speaker page, 66 speakers with bios; earlier editions from 2016 are not captured yet. **Shillong** (`tools/build_shillong.py`): the Edition VI page, 12 speakers with bios (12 to 14 Nov 2026); editions I to V are shown on the site only in a form we cannot read. All three are watched by the daily check.
+
+## Listed but not yet filled in
+**CLF Literati** (official dates 4 to 6 Dec 2026, Sukhna Lake): the 2026 speaker list is not out; the site's archive lists speakers back to 2013 and can be added when the festival activates. **Nalanda** (main festival Oct 2027 at Rajgir, with city dialogues beforehand) and **Khushwant Singh Literary Festival** (held 23 to 25 Oct 2026): speaker lists not captured yet. **Work in progress** (`wip` in `festivals.json`): Lit for Life, Apeejay Kolkata Literary Festival, M.S. Randhawa, Pune International Literary Festival and Times LitFest. For Pune, the address a directory listed (`pilf.in`) now redirects to an unrelated site, so it is not used.
+
