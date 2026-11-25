@@ -60,25 +60,51 @@ def main():
         D=json.load(open(R+f'/festivals/{fid}/data.json',encoding='utf8')); fm={f['id']:f for f in D['forums']}
         ss=[s for s in D['sessions'] if s['f']==fo or re.search('Children',s.get('th','') or '')]
         if ss: S.append({'id':fid,'name':fm[fo]['k'],'year':2026,'who':'children','url':'','official':0,'forum':fo,'items':[{'tm':s['t'],'t':(s.get('e') or s.get('k') or 'Session'),'p':', '.join(p[1] for p in s.get('pp',[])),'kind':s.get('th','')} for s in ss],'from':'the festival’s programme'})
-    # BLF: C|L|F (Children | Literature | Fun), from the festival's own schedule pages for each year
+    # BLF: C|L|F (Children | Literature | Fun), from the festival's own schedule pages; every year lays its page out differently
     BU={2025:'year-2025/clf',2024:'archives/year-2024/clf/',2023:'archives/year-2023/clf/',2022:'archives/year-2022/clf/',2019:'archives/year-2019/clf/',2018:'archives/year-2018/c-l-f/',2017:'archives/year-2017/c-l-f/',2016:'archives/year-2016/c-l-f/'}
+    TM=re.compile(r'^\d{1,2}:\d\d [ap]m$',re.I); STOP=re.compile(r'^(Digital|Partners|Venue|Register|#|Sat \||Sun \||C\|L\|F Venues|Download)')
     its=[]
     for y,u in sorted(BU.items(),reverse=True):
-        h=get('https://bangaloreliteraturefestival.org/'+u)
-        if not h or 'Children|Literature|Fun' not in h: continue
-        h=h[h.find('Children|Literature|Fun (C|L|F)',h.find('page anc id')):]
+        h=get('https://bangaloreliteraturefestival.org/'+u) or get('https://bangaloreliteraturefestival.org/'+u.replace('archives/','').rstrip('/'))
+        if not h: print('blf clf',y,'page not read'); continue
         L=[clean(x) for x in re.split(r'<[^>]+>',re.sub(r'<script.*?</script>|<style.*?</style>',' ',h,flags=re.S)) if clean(x)]
-        day=''; i=0; tm=re.compile(r'^\d{1,2}:\d\d [ap]m$',re.I); n0=len(its)
-        while i<len(L):
-            if re.match(r'^Day \d',L[i]): day=L[i]
-            if tm.match(L[i]) and i+1<len(L):
-                ttl=L[i+1]; j=i+2; ps=[]
-                while j<len(L) and not tm.match(L[j]) and not re.match(r'^Day \d|^Digital|^Partners|^Venue|^Register|^#|^Sat \||^Sun \|',L[j]) and len(ps)<3 and len(L[j])<70: ps.append(L[j]); j+=1
-                pp=re.sub(r'\s*\|\s*Venue:.*$','',', '.join(ps))
-                if ttl in ('Malgudi','Narnia') or pp.startswith('Ages:'): i+=1; continue   # 2018 layout lists the venue first; skipped rather than guessed
-                its.append({'y':y,'tm':L[i],'t':ttl,'p':pp,'kind':day.split('|')[0].strip()})
-            i+=1
+        st=[i for i,x in enumerate(L) if x.startswith('page menu id')]
+        L=L[st[0]:] if st else L
+        L=[x for x in L if not re.match(r'^(Malgudi|Narnia|Aesop|Jataka|Abracadabra|Khul Ja Sim ?Sim|Shazam|Seonee|Jumping Jamun|Bouncing Berries|Giggling Gulmohars|CLF \d.*|\(?ages? ?:? ?\d.*|Ages \d.*)$',x,re.I)]
+        day=''; n0=len(its)
+        if y==2016:
+            for x in L:
+                if re.match(r'^Day \d',x): day=x.split('|')[0].strip()
+                m=re.match(r'^(.{6,160}?)\s*\|\s*(?:(.*?)\s*\|\s*)?((?:Ages?:? ?[\d–-]+[^|]*|All Ages[^|]*))(?:\|.*)?$',x)
+                if m: its.append({'y':y,'t':m.group(1).strip(),'p':(m.group(2) or '').strip(),'age':m.group(3).strip(),'kind':day})
+        elif y==2017:
+            i=0
+            while i<len(L):
+                if re.match(r'^Day \d',L[i]) and '|' not in L[i]: day=L[i]
+                if TM.match(L[i]) and i+4<len(L) and L[i+1].replace(' ','')=='C|L|F':
+                    its.append({'y':y,'tm':L[i],'age':L[i+2],'t':L[i+3],'p':re.sub(r'\s*\([^)]*\)$','',L[i+4]),'kind':day}); i+=5; continue
+                i+=1
+        else:
+            i=0; skip=False
+            while i<len(L):
+                x=L[i]
+                if re.match(r'^Day \d$',x): skip=True      # in 2018 every session is repeated as a popup between the two days
+                elif re.match(r'^Day \d \|',x): skip=False
+                if skip: i+=1; continue
+                if re.match(r'^Day \d',x): day=x.split('|')[0].strip()
+                if TM.match(x) or re.match(r'^12 noon$',x):
+                    if i+1<len(L):
+                        ps=[]; j=i+2
+                        while j<len(L) and not TM.match(L[j]) and L[j]!='12 noon' and not re.match(r'^Day \d',L[j]) and not STOP.match(L[j]) and len(ps)<2 and len(L[j])<80: ps.append(L[j]); j+=1
+                        its.append({'y':y,'tm':x,'t':L[i+1],'p':', '.join(ps),'kind':day})
+                i+=1
         print('blf clf',y,len(its)-n0)
+    its=[i for i in its if i['t'] and not re.match(r'^(Day \d|Time$)',i['t'])]
+    for i in its:
+        p=re.sub(r'\s*\|\s*Venue:.*$','',i.get('p',''))
+        m=re.search(r'\s*\((\d+y[^)]*)\)',p)
+        if m and not i.get('age'): i['age']=m.group(1); p=p.replace(m.group(0),'')
+        i['p']=re.sub(r',?\s*(MIDDLE|TENT|HALL)\b.*$','',p).strip(' ,')
     if its: S.append({'id':'blf','name':'C|L|F: Children | Literature | Fun','year':max(i['y'] for i in its),'who':'children of all ages, with their parents','url':'https://bangaloreliteraturefestival.org/year-2025/clf','official':1,'items':its})
     elif 'blf' in OLD: S.append(OLD['blf'])
     # Neev: children's books are the festival
