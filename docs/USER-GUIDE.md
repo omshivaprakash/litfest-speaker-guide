@@ -94,6 +94,7 @@ Nine views, each fitting on one screen:
 | **Debuts** | Authors grouped by the decade of their earliest listed book. |
 | **Prizes** | Prizes named in speakers' bios (Booker, Sahitya Akademi, JCB and more), a timeline by year, and **Prize effect**: how often a winner spoke at a festival in the year they won or the year after. |
 | **Kids** | Children's strands (Hyderabad's Dreamcatchers, Bengaluru Poetry Festival's Children's Fest, Children's KLF, JSW's Chinnarangala, Book Brahma's Chinnara Loka and more) with their sessions, and a list of people who write or perform for young readers. |
+| **Press** | News coverage the festivals list on their own press pages: a heatmap of articles by festival and year, the outlets, the topics, and each article's headline with a link out. |
 | **Translators** | Which languages translators work from, and who they are. |
 | **Trails** | Pick an interest (history, poetry, children's books, mythology…) and get people to follow, most-travelled first. |
 | **Languages** | Languages speakers write or speak in, festival by festival. |
