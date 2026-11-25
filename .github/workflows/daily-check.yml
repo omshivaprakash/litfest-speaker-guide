@@ -1,0 +1,31 @@
+name: daily-check
+on:
+  schedule:
+    - cron: '23 2 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check festival sites for speaker list changes
+        run: python3 tools/check_updates.py
+      - name: Festival dates that need attention
+        run: python3 tools/check_dates.py || true
+      - name: Commit the report
+        run: |
+          git config user.name "litfest-check"
+          git config user.email "actions@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then echo "no change"; else git commit -m "Daily check: speaker list report" && git push; fi
+      - name: Open an issue when a list changed
+        if: hashFiles('data/last-changes.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Speaker list changes $(date -u +%F)" --body-file data/last-changes.md

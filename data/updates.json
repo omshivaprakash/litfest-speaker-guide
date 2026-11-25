@@ -1,0 +1,157 @@
+{
+ "checked": "2026-11-25T08:56Z",
+ "festivals": {
+  "blf": {
+   "name": "BLF",
+   "count": 249,
+   "previous": 249,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": [
+    "Adarsh Shenoy",
+    "Manasi Prasad",
+    "Radhika Joshi",
+    "Sharada Satrasala",
+    "Soorya Upadhyaya",
+    "Tessy Thomas"
+   ]
+  },
+  "jlf": {
+   "name": "JLF",
+   "count": 282,
+   "previous": 282,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": [
+    "Justice Madan Lokur",
+    "Suresh Narayanan",
+    "Tara Menon"
+   ]
+  },
+  "hlf": {
+   "name": "HLF",
+   "count": 141,
+   "previous": 141,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": [
+    "Nabina Das",
+    "Nisha Mathew",
+    "Rithika Fernandes",
+    "Sneha Banerjee",
+    "Srirupa Chatterjee",
+    "Sushmita Banerji"
+   ]
+  },
+  "klf": {
+   "name": "KLF",
+   "count": 495,
+   "previous": 495,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": []
+  },
+  "mbifl": {
+   "name": "MBIFL",
+   "count": 6,
+   "previous": 6,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": []
+  },
+  "wlf": {
+   "name": "Wayanad",
+   "count": 67,
+   "previous": 67,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": []
+  },
+  "nlf": {
+   "name": "Neev",
+   "count": 70,
+   "previous": 70,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": []
+  },
+  "bplf": {
+   "name": "Bhopal",
+   "count": 65,
+   "previous": 65,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": []
+  },
+  "klm": {
+   "name": "KLM",
+   "count": 171,
+   "previous": 171,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": []
+  },
+  "tll": {
+   "name": "Lit Live",
+   "count": 103,
+   "previous": 103,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": []
+  },
+  "bpf": {
+   "name": "BPF",
+   "count": 71,
+   "previous": 71,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": []
+  },
+  "galf": {
+   "name": "GALF",
+   "count": 28,
+   "previous": 28,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": []
+  },
+  "ddlf": {
+   "name": "Dehradun",
+   "count": 55,
+   "previous": 55,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": []
+  },
+  "klf2": {
+   "name": "Kalinga",
+   "count": 132,
+   "previous": 132,
+   "added": [],
+   "removed": [],
+   "status": "ok",
+   "not_in_app": []
+  },
+  "hayww": {
+   "name": "Hay Winter",
+   "count": 61,
+   "previous": 61,
+   "added": [],
+   "removed": [],
+   "status": "ok"
+  }
+ }
+}
