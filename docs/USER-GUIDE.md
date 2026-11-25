@@ -79,14 +79,15 @@ A grid with festivals along both sides. Each square is **how many people spoke a
 
 ## 5. Explore (top bar)
 
-Eight views, each fitting on one screen:
+Nine views, each fitting on one screen:
 
 | Tab | What you get |
 |---|---|
 | **Upcoming** | Every festival with a countdown. **Add to calendar** downloads a file with a reminder the day before. **Remind me** shows a banner on this site when a festival is within a week. |
 | **Shelf** | A bookshelf of the speakers' books drawn as spines. Pick a festival, tap a spine for the cover, title and author. |
 | **Debuts** | Authors grouped by the decade of their earliest listed book. |
-| **Prizes** | Prizes named in speakers' bios (Booker, Sahitya Akademi, JCB and more), plus a timeline by year. |
+| **Prizes** | Prizes named in speakers' bios (Booker, Sahitya Akademi, JCB and more), a timeline by year, and **Prize effect**: how often a winner spoke at a festival in the year they won or the year after. |
+| **Kids** | Children's strands (Hyderabad's Dreamcatchers, Bengaluru Poetry Festival's Children's Fest, Children's KLF, JSW's Chinnarangala, Book Brahma's Chinnara Loka and more) with their sessions, and a list of people who write or perform for young readers. |
 | **Translators** | Which languages translators work from, and who they are. |
 | **Trails** | Pick an interest (history, poetry, children's books, mythology…) and get people to follow, most-travelled first. |
 | **Languages** | Languages speakers write or speak in, festival by festival. |

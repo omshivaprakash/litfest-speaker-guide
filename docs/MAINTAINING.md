@@ -39,6 +39,8 @@ Read the result in **About → Daily check** on the site, or in `data/updates.js
    python3 tools/drop_placeholder_photos.py          # remove shared placeholder images
    python3 tools/shrink_past.py                      # keep past photos small
    python3 tools/build_index.py                      # rebuild the combined history, flag past.json
+   python3 tools/build_kids.py                       # children's strands and people (reads two official pages)
+   python3 tools/build_insights.py                   # prize effect: win year against festival appearances
    ```
 4. Validate and test (see below), then re-run `python3 tools/check_updates.py` so the snapshot matches.
 5. Stamp and publish:

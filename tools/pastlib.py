@@ -29,6 +29,19 @@ def role(b):
     for r,rx in ROLES:
         if re.search(rx,b,re.I): return r
     return 'Speaker'
+_MJ=re.compile(r'[\u00c2-\u00f4][\u0080-\u00bf\u0152\u0153\u0160\u0161\u0178\u017d\u017e\u0192\u02c6\u02dc\u2013\u2014\u2018-\u201e\u2020-\u2022\u2026\u2030\u2039\u203a\u20ac\u2122]{1,3}')
+def _mj(m):
+    def b(c):
+        try: return c.encode('cp1252')
+        except Exception: return c.encode('latin-1')
+    try: return b''.join(b(c) for c in m.group(0)).decode('utf8')
+    except Exception: return m.group(0)
+def unmoji(x):
+    """Repair text that was UTF-8 read as Windows-1252 ("\u00e2\u20ac\u2122" for the curly apostrophe) in any string inside x."""
+    if isinstance(x,str): return _MJ.sub(_mj,x) if re.search(r'[\u00c2\u00c3\u00e2]',x) else x
+    if isinstance(x,list): return [unmoji(v) for v in x]
+    if isinstance(x,dict): return {k:unmoji(v) for k,v in x.items()}
+    return x
 def slug(n): return re.sub(r'[^a-z0-9]+','-',unicodedata.normalize('NFKD',n).encode('ascii','ignore').decode().lower()).strip('-') or 'x'
 class Past:
     def __init__(self,fid):
@@ -54,5 +67,5 @@ class Past:
             im.save(f'{self.dir}/pph/{u}.webp','WEBP',quality=66,method=6); return f'pph/{u}.webp'
         except Exception: return ''
     def save(self):
-        L=sorted(self.rows.values(),key=lambda o:o['n'].lower()); json.dump(L,open(self.dir+'/past.json','w',encoding='utf8'),ensure_ascii=False)
+        L=[unmoji(o) for o in sorted(self.rows.values(),key=lambda o:o['n'].lower())]; json.dump(L,open(self.dir+'/past.json','w',encoding='utf8'),ensure_ascii=False)
         print(self.fid,len(L),'past-only people;',sum(1 for o in L if o['ph']),'photos;',sum(1 for o in L if o['f']),'bios')

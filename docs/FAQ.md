@@ -39,6 +39,9 @@ Almost always, but books are matched by author name on Open Library, so a same-n
 **The prize / debut / translator lists look incomplete.**
 They only know what bios say, and Open Library's earliest listed work. They are leads for browsing, not a record of awards. Check the awarding body for facts.
 
+**Does a prize get a writer invited to a festival?**
+Explore → Prizes → Prize effect shows how often prize winners spoke in the year they won or the year after, and how that compares with other years. It is a pattern in bios and festival lists, not proof of why anyone was invited.
+
 **A festival's list is much smaller than I expected.**
 Many festivals announce speakers in stages, so a list can be partial for months. The **Daily check** notices when a festival adds names. See [Data notes](DATA-NOTES.md) for what each festival has.
 

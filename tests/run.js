@@ -17,7 +17,7 @@ for(const [w,h] of VPS){const p=await b.newPage({viewport:{width:w,height:h}});c
  for(const [btn,name] of [['#gsb','search'],['#abb','about']]){await p.click(btn);await p.waitForTimeout(600);await fit(name);await p.keyboard.press('Escape');await p.waitForTimeout(150)}
  await p.click('#axb2');await p.waitForTimeout(3500);await fit('across');await p.click('#axx');
  await p.click('#exb2');await p.waitForTimeout(3500);
- for(const t of ['soon','shelf','debut','prizes','tr','trails','lang','mine']){await p.click(`#ext [data-t=${t}]`);await p.waitForTimeout(350);await fit('explore '+t)}
+ for(const t of ['soon','shelf','debut','prizes','kids','tr','trails','lang','mine']){await p.click(`#ext [data-t=${t}]`);await p.waitForTimeout(350);await fit('explore '+t);if(t==='kids'){await p.click('#exb [data-ks]');await p.waitForTimeout(300);await fit('explore kids strand');await p.click('#exs [data-ks=""]');await p.click('[data-kv=people]');await p.waitForTimeout(300);await fit('explore kids people')}if(t==='prizes'){await p.click('[data-pv=effect]');await p.waitForTimeout(900);await fit('explore prize effect');await p.click('[data-pe=all]');await p.waitForTimeout(300);await fit('explore prize effect all')}}
  if(errs.length)bad(`${w}x${h} errors: ${[...new Set(errs)].slice(0,5).join(' | ')}`);
  await p.close()}
 await b.close();console.log(fails?`${fails} failure(s)`:'all checks passed');process.exit(fails?1:0)})()
