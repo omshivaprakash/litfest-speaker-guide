@@ -3,7 +3,7 @@
 (function(){
 var D={
 kn:{'Search':'ಹುಡುಕಿ','Across':'ಹೋಲಿಕೆ','Explore':'ಅನ್ವೇಷಿಸಿ','About':'ಬಗ್ಗೆ','Close':'ಮುಚ್ಚಿ','Official site ↗':'ಅಧಿಕೃತ ತಾಣ ↗',
-'Discover':'ಅನ್ವೇಷಣೆ','Who to hear':'ಯಾರನ್ನು ಕೇಳಬೇಕು','All speakers':'ಎಲ್ಲಾ ಭಾಷಣಕಾರರು','The data':'ಅಂಕಿಅಂಶ','Tracker':'ನನ್ನ ಪಟ್ಟಿ','Programme':'ಕಾರ್ಯಕ್ರಮ','People':'ಜನರು','Map':'ನಕ್ಷೆ','Insights':'ಒಳನೋಟ',
+'Discover':'ಅನ್ವೇಷಣೆ','Who to hear':'ಯಾರನ್ನು ಕೇಳಬೇಕು','All speakers':'ಎಲ್ಲಾ ಭಾಷಣಕಾರರು','Past years':'ಹಿಂದಿನ ವರ್ಷಗಳು','The data':'ಅಂಕಿಅಂಶ','Tracker':'ನನ್ನ ಪಟ್ಟಿ','Programme':'ಕಾರ್ಯಕ್ರಮ','People':'ಜನರು','Map':'ನಕ್ಷೆ','Insights':'ಒಳನೋಟ',
 'Upcoming':'ಮುಂಬರುವ','Shelf':'ಪುಸ್ತಕ ಕಪಾಟು','Debuts':'ಮೊದಲ ಕೃತಿ','Prizes':'ಪ್ರಶಸ್ತಿಗಳು','Translators':'ಅನುವಾದಕರು','Trails':'ಹಾದಿಗಳು','Languages':'ಭಾಷೆಗಳು','Bookmarks':'ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು',
 'Overlap':'ಸಾಮಾನ್ಯ ಭಾಷಣಕಾರರು','Most travelled':'ಹೆಚ್ಚು ಉತ್ಸವಗಳಲ್ಲಿ','Start here':'ಇಲ್ಲಿಂದ ಆರಂಭಿಸಿ','Back again':'ಮತ್ತೆ ಬಂದವರು','Filters':'ಫಿಲ್ಟರ್‌ಗಳು',
 'Add to calendar':'ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ','Remind me':'ನನಗೆ ನೆನಪಿಸಿ','Reminder on ✓':'ನೆನಪು ಆನ್ ✓','Copy list':'ಪಟ್ಟಿ ನಕಲಿಸಿ','Install app':'ಆ್ಯಪ್ ಸ್ಥಾಪಿಸಿ',
@@ -11,7 +11,7 @@ kn:{'Search':'ಹುಡುಕಿ','Across':'ಹೋಲಿಕೆ','Explore':'ಅ�
 'Who speaks at India’s literature festivals':'ಭಾರತದ ಸಾಹಿತ್ಯ ಉತ್ಸವಗಳಲ್ಲಿ ಯಾರು ಮಾತನಾಡುತ್ತಾರೆ','About this portal':'ಈ ಪೋರ್ಟಲ್ ಬಗ್ಗೆ',
 pat:[[/^in (\d+) days$/,'$1 ದಿನಗಳಲ್ಲಿ'],[/^About in (\d+) days$/,'ಸುಮಾರು $1 ದಿನಗಳಲ್ಲಿ'],[/^Page (\d+) of (\d+)$/,'ಪುಟ $1 / $2']]},
 hi:{'Search':'खोजें','Across':'तुलना','Explore':'खोजबीन','About':'परिचय','Close':'बंद करें','Official site ↗':'आधिकारिक साइट ↗',
-'Discover':'खोज','Who to hear':'किसे सुनें','All speakers':'सभी वक्ता','The data':'आँकड़े','Tracker':'मेरी सूची','Programme':'कार्यक्रम','People':'लोग','Map':'नक्शा','Insights':'अंतर्दृष्टि',
+'Discover':'खोज','Who to hear':'किसे सुनें','All speakers':'सभी वक्ता','Past years':'पिछले वर्ष','The data':'आँकड़े','Tracker':'मेरी सूची','Programme':'कार्यक्रम','People':'लोग','Map':'नक्शा','Insights':'अंतर्दृष्टि',
 'Upcoming':'आगामी','Shelf':'किताबों की अलमारी','Debuts':'पहली किताब','Prizes':'पुरस्कार','Translators':'अनुवादक','Trails':'राहें','Languages':'भाषाएँ','Bookmarks':'बुकमार्क',
 'Overlap':'साझा वक्ता','Most travelled':'सबसे अधिक उत्सवों में','Start here':'यहाँ से शुरू करें','Back again':'फिर आए','Filters':'फ़िल्टर',
 'Add to calendar':'कैलेंडर में जोड़ें','Remind me':'मुझे याद दिलाएँ','Reminder on ✓':'याद दिलाना चालू ✓','Copy list':'सूची कॉपी करें','Install app':'ऐप इंस्टॉल करें',

@@ -248,7 +248,7 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;p
 </head><body>
 <div class="app">
 <header class="fbar" id="fbar"></header>
-<nav class="tabs" role="tablist"><button class="tab" role="tab" data-v="discover">Discover</button><button class="tab" role="tab" data-v="hear">Who to hear</button><button class="tab" role="tab" data-v="speakers">All speakers</button><button class="tab" role="tab" data-v="study">The data</button><button class="tab" role="tab" data-v="tracker">Tracker</button></nav>
+<nav class="tabs" role="tablist"><button class="tab" role="tab" data-v="discover">Discover</button><button class="tab" role="tab" data-v="hear">Who to hear</button><button class="tab" role="tab" data-v="speakers">All speakers</button><button class="tab" role="tab" data-v="past">Past years</button><button class="tab" role="tab" data-v="study">The data</button><button class="tab" role="tab" data-v="tracker">Tracker</button></nav>
 
 <section class="view" id="v-discover">
  <div class="top"><p class="kicker" id="kick"></p><h1 id="h1"></h1><p class="sub" id="herosub"></p></div>
@@ -272,6 +272,14 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;p
  <div class="pager" id="spager"></div>
 </section>
 
+<section class="view" id="v-past" hidden>
+ <div class="fchips" id="pyears" role="group" aria-label="Edition year"></div>
+ <div class="meta" id="psum"></div>
+ <div class="fchips" id="pfilt" role="group" aria-label="Filter"></div>
+ <div class="body" id="pbody"></div>
+ <div class="pager" id="ppager"></div>
+</section>
+
 <section class="view" id="v-study" hidden>
  <div class="body" id="ybody"></div>
  <div class="pager" id="ypager"></div>
@@ -290,9 +298,9 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;p
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Speaker details"></div>
 <script>
 (function(){
-var S=[],ST=null,FE={},YRS=[],VIEWS=['discover','hear','speakers','study','tracker'];
+var S=[],ST=null,FE={},YRS=[],VIEWS=['discover','hear','speakers','past','study','tracker'];
 var st={q:'',city:'',cc:'Any',na:false,theme:'All',lang:'Any',g:'',picks:false,nw:false,ret:false,reg:false,books:false,sort:'rank',view:'discover'};
-var pg={d:0,h:0,s:0,t:0,y:0},shelf='start',stars={},lastFocus=null,sTab='about',curSheet=-1;
+var pg={d:0,h:0,s:0,t:0,y:0,p:0},shelf='start',stars={},lastFocus=null,sTab='about',curSheet=-1;
 try{stars=JSON.parse(localStorage.getItem('blf26stars')||'{}')}catch(e){}
 function save(){try{localStorage.setItem('blf26stars',JSON.stringify(stars))}catch(e){}}
 var $=function(i){return document.getElementById(i)};
@@ -312,7 +320,7 @@ function mkPager(el,key,total,per,extra){var n=Math.max(1,Math.ceil(total/per));
  el.innerHTML='<button class="pbtn" data-step="-1"'+(pg[key]<=0?' disabled':'')+'>‹ Prev</button><span>'+(extra||'')+'Page '+(pg[key]+1)+' of '+n+'</span><button class="pbtn" data-step="1"'+(pg[key]>=n-1?' disabled':'')+'>Next ›</button>'}
 function step(d){var v=st.view;
  if(v==='study'){var n=slides().length;pg.y=Math.max(0,Math.min(n-1,pg.y+d));story();return}
- var k={discover:'d',hear:'h',speakers:'s',tracker:'t'}[v];if(!k)return;pg[k]=Math.max(0,pg[k]+d);renderView()}
+ var k={discover:'d',hear:'h',speakers:'s',tracker:'t',past:'p'}[v];if(!k)return;pg[k]=Math.max(0,pg[k]+d);renderView()}
 document.addEventListener('click',function(e){var b=e.target.closest('[data-step]');if(b&&!b.disabled)step(+b.dataset.step)});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeSheet();closeDrawer();return}if(document.activeElement&&/INPUT|SELECT/.test(document.activeElement.tagName))return;if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
 var tx=0,ty=0;document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
@@ -320,7 +328,7 @@ document.addEventListener('touchend',function(e){if($('sheet').classList.contain
 var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(renderView,120)});
 /* views */
 function setView(v,keep){st.view=v;VIEWS.forEach(function(x){$('v-'+x).hidden=x!==v});document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-selected',t.dataset.v===v)});if(!keep){try{history.replaceState(null,'','#'+v)}catch(e){}}renderView()}
-function renderView(){if(!S.length)return;var v=st.view;if(v==='discover')discover();else if(v==='hear')ranked();else if(v==='speakers')render();else if(v==='study')story();else tracker()}
+function renderView(){if(!S.length)return;var v=st.view;if(v==='discover')discover();else if(v==='hear')ranked();else if(v==='speakers')render();else if(v==='past')past();else if(v==='study')story();else tracker()}
 document.querySelector('.tabs').addEventListener('click',function(e){var b=e.target.closest('.tab');if(b)setView(b.dataset.v)});
 function go(p){Object.keys(p).forEach(function(k){st[k]=p[k]});st.q='';$('q').value='';pg.s=0;setView('speakers')}
 function reset(){st.city='';st.cc='Any';st.na=false;st.theme='All';st.lang='Any';st.g='';st.picks=st.nw=st.ret=st.reg=st.books=false;pg.s=0}
@@ -356,6 +364,32 @@ function ranked(){var r=S.filter(function(o){return o.p}).sort(function(a,b){ret
  mkPager($('hpager'),'h',r.length,per,'');var base=pg.h*per;
  body.innerHTML='<div class="rows" style="--rh:'+rh+'px">'+r.slice(base,base+per).map(function(o,k){var i=S.indexOf(o);return '<div class="row"><div class="no">'+(base+k+1)+'</div><div data-open="'+i+'">'+pic(o,'th')+'</div><button class="mid" data-open="'+i+'"><span class="nm">'+esc(o.n)+'</span><span class="sl"><b>#'+o.r+' '+esc(o.t)+'</b> · '+(WHY[o.n]?esc(WHY[o.n]):esc(o.role))+'</span></button><button class="star" data-i="'+i+'" aria-pressed="'+(!!stars[o.n])+'" aria-label="Shortlist '+esc(o.n)+'">'+(stars[o.n]?'★':'☆')+'</button></div>'}).join('')+'</div>'}
 $('hbody').addEventListener('click',rowClick);
+/* past editions: who spoke in each year, from history.json */
+var HIST=null,PY=0,PF='all';
+function hkey(n){return gnorm(n)}
+function past(){var body=$('pbody');if(!HIST){if(HIST===false){body.innerHTML='<p class="empty">No earlier editions on record.</p>';return}HIST=false;fetch(FE.base+'history.json?v='+BUILD).then(function(r){return r.ok?r.json():{}}).catch(function(){return {}}).then(function(H){HIST=H;if(st.view==='past')past()});body.innerHTML='<p class="empty">Loading…</p>';return}
+var yrs=Object.keys(HIST).map(Number).sort(function(a,b){return b-a});if(!yrs.length){body.innerHTML='<p class="empty">No earlier editions on record.</p>';$('pyears').innerHTML='';$('psum').textContent='';$('pfilt').innerHTML='';$('ppager').innerHTML='';return}
+if(!PY||yrs.indexOf(PY)<0)PY=yrs.length>1?yrs[1]:yrs[0];
+var sets={};yrs.forEach(function(y){var m={};HIST[y].forEach(function(n){var k=hkey(n);if(k)m[k]=n});sets[y]=m});
+var earlier={};yrs.filter(function(y){return y<PY}).forEach(function(y){Object.keys(sets[y]).forEach(function(k){earlier[k]=1})});
+var next=yrs.filter(function(y){return y>PY}).sort(function(a,b){return a-b})[0],prev=yrs.filter(function(y){return y<PY})[0];
+var all=Object.keys(sets[PY]),nw=all.filter(function(k){return !earlier[k]}),ret=all.filter(function(k){return earlier[k]}),back=next?all.filter(function(k){return sets[next][k]}):[];
+$('pyears').innerHTML=yrs.map(function(y){return '<button class="pill" data-py="'+y+'" aria-pressed="'+(y===PY)+'">'+y+(y===FE.year?' (now)':'')+'</button>'}).join('');
+var d=prev?all.length-Object.keys(sets[prev]).length:null;
+$('psum').innerHTML='<b>'+FE.short+' '+PY+':</b> '+all.length+' speakers on record'+(d===null?'':' ('+(d>=0?'+':'')+d+' vs '+prev+')')+' · '+ret.length+' had spoken before · '+nw.length+(PY===yrs[yrs.length-1]?' (the earliest edition we have)':' first-timers');
+var F=[['all','All ('+all.length+')'],['new','First-timers ('+nw.length+')'],['ret','Returning ('+ret.length+')']];if(next)F.push(['back','Back in '+next+' ('+back.length+')']);if(PY!==FE.year)F.push(['now','At '+FE.year+' too']);
+if(!F.some(function(x){return x[0]===PF}))PF='all';
+var nowSet={};if(sets[FE.year])Object.keys(sets[FE.year]).forEach(function(k){nowSet[k]=1});
+$('pfilt').innerHTML=F.map(function(x){return '<button class="pill" data-pf="'+x[0]+'" aria-pressed="'+(x[0]===PF)+'">'+x[1]+'</button>'}).join('');
+var L=PF==='new'?nw:PF==='ret'?ret:PF==='back'?back:PF==='now'?all.filter(function(k){return nowSet[k]}):all;
+var idx={};S.forEach(function(o,i){idx[hkey(o.n)]=i});
+L=L.slice().sort(function(a,b){var ia=idx[a]!==undefined,ib=idx[b]!==undefined;return (ib-ia)||sets[PY][a].localeCompare(sets[PY][b])});
+var rh=rowH(),per=Math.max(1,Math.floor(body.clientHeight/rh));mkPager($('ppager'),'p',L.length,per,'');var base=pg.p*per;
+body.innerHTML=L.length?'<div class="rows" style="--rh:'+rh+'px">'+L.slice(base,base+per).map(function(k){var n=sets[PY][k],i=idx[k],o=i!==undefined?S[i]:null;
+return '<div class="row nonum"><div'+(o?' data-open="'+i+'"':'')+'>'+(o?pic(o,'th'):'<div class="ph th">'+esc(ini(n))+'</div>')+'</div><button class="mid"'+(o?' data-open="'+i+'"':' disabled style="cursor:default"')+'><span class="nm">'+esc(n)+'</span><span class="sl">'+(o?esc(o.role)+' · '+esc(o.cc==='Unknown'?'country not stated':o.cc)+' · '+(o.y.length>1?'at '+o.y.length+' editions':'once'):(earlier[k]?'Returning speaker':'First-timer')+(nowSet[k]?' · also at '+FE.year:''))+'</span></button>'+(o?'<button class="star" data-i="'+i+'" aria-pressed="'+(!!stars[o.n])+'" aria-label="Shortlist '+esc(o.n)+'">'+(stars[o.n]?'\u2605':'\u2606')+'</button>':'')+'</div>'}).join('')+'</div>':'<p class="empty">No one in this group.</p>'}
+$('pyears').addEventListener('click',function(e){var b=e.target.closest('[data-py]');if(b){PY=+b.dataset.py;pg.p=0;past()}});
+$('pfilt').addEventListener('click',function(e){var b=e.target.closest('[data-pf]');if(b){PF=b.dataset.pf;pg.p=0;past()}});
+$('pbody').addEventListener('click',rowClick);
 function rowClick(e){var s=e.target.closest('.star');if(s){var o=S[+s.dataset.i];if(stars[o.n])delete stars[o.n];else stars[o.n]=1;save();renderView();return}var c=e.target.closest('[data-open]');if(c)openSheet(+c.dataset.open,c)}
 /* list */
 function match(o){
@@ -480,7 +514,7 @@ $('tq').addEventListener('keydown',function(e){if(e.key==='Enter')$('tadd').clic
 $('tbody').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(b){delete stars[S[+b.dataset.rm].n];save();tracker();return}var c=e.target.closest('[data-open]');if(c)openSheet(+c.dataset.open,c)});
 /* boot */
 
-var BUILD='202611250756651bded';var FC=['#7c2d12','#1e3a5f','#14532d','#581c87','#831843','#155e75','#a16207','#3f6212','#9a3412'],MAINC='#3f3f46',RL={p:'Speakers',c:'Moderator',m:'Host',r:'Respondents',g:'Guests',s:'Performers',h:'Chair',k:'Opening talk',v:'Poets'};
+var BUILD='2026112508054d70bf6';var FC=['#7c2d12','#1e3a5f','#14532d','#581c87','#831843','#155e75','#a16207','#3f6212','#9a3412'],MAINC='#3f3f46',RL={p:'Speakers',c:'Moderator',m:'Host',r:'Respondents',g:'Guests',s:'Performers',h:'Chair',k:'Opening talk',v:'Poets'};
 var KA=[[74.1,15.0],[74.35,14.4],[74.7,13.6],[74.9,12.9],[75.2,12.6],[75.8,12.1],[76.5,11.6],[77.2,11.65],[77.9,12.0],[78.4,12.8],[78.4,13.1],[77.6,13.3],[77.5,13.9],[77.8,14.4],[77.4,15.1],[77.6,16.1],[77.9,17.4],[77.2,18.45],[76.8,18.0],[76.3,17.6],[75.5,17.3],[75.0,17.1],[74.6,16.7],[74.2,15.9],[74.1,15.7]];
 var DIST={'Bengaluru':[77.59,12.97,'ಬೆಂಗಳೂರು'],'Ramanagara':[77.28,12.72,'ರಾಮನಗರ'],'Mysuru':[76.64,12.3,'ಮೈಸೂರು'],'Mandya':[76.9,12.52,'ಮಂಡ್ಯ'],'Chamarajanagar':[77.0,11.92,'ಚಾಮರಾಜನಗರ'],'Dakshina Kannada':[75.0,12.85,'ದಕ್ಷಿಣ ಕನ್ನಡ'],'Udupi':[74.78,13.4,'ಉಡುಪಿ'],'Uttara Kannada':[74.6,14.8,'ಉತ್ತರ ಕನ್ನಡ'],'Chikkamagaluru':[75.78,13.32,'ಚಿಕ್ಕಮಗಳೂರು'],'Tumakuru':[77.1,13.34,'ತುಮಕೂರು'],'Chitradurga':[76.4,14.23,'ಚಿತ್ರದುರ್ಗ'],'Koppal':[76.15,15.35,'ಕೊಪ್ಪಳ'],'Vijayanagara':[76.5,15.15,'ವಿಜಯನಗರ'],'Ballari':[76.92,15.14,'ಬಳ್ಳಾರಿ'],'Bagalkot':[75.7,16.18,'ಬಾಗಲಕೋಟೆ'],'Gadag':[75.63,15.43,'ಗದಗ']};
 function progApp(f,D){
