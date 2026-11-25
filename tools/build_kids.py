@@ -60,13 +60,27 @@ def main():
         D=json.load(open(R+f'/festivals/{fid}/data.json',encoding='utf8')); fm={f['id']:f for f in D['forums']}
         ss=[s for s in D['sessions'] if s['f']==fo or re.search('Children',s.get('th','') or '')]
         if ss: S.append({'id':fid,'name':fm[fo]['k'],'year':2026,'who':'children','url':'','official':0,'forum':fo,'items':[{'tm':s['t'],'t':(s.get('e') or s.get('k') or 'Session'),'p':', '.join(p[1] for p in s.get('pp',[])),'kind':s.get('th','')} for s in ss],'from':'the festival’s programme'})
-    # BLF: children's and young-adult session titles across the years
-    blf=json.load(open(R+'/festivals/blf/data.json',encoding='utf8'))+json.load(open(R+'/festivals/blf/past.json',encoding='utf8')); its=[]; seen=set()
-    for o in blf:
-        for y,t in o.get('s',[]):
-            if KS.search(t) and (y,t) not in seen: seen.add((y,t)); its.append({'y':y,'t':t.strip(),'p':o['n']})
-    its.sort(key=lambda x:(-x['y'],x['t']))
-    if its: S.append({'id':'blf','name':'Children’s and young-adult sessions','year':max(i['y'] for i in its),'who':'young readers','url':'','official':0,'items':its,'from':'session titles in the published speaker lists'})
+    # BLF: C|L|F (Children | Literature | Fun), from the festival's own schedule pages for each year
+    BU={2025:'year-2025/clf',2024:'archives/year-2024/clf/',2023:'archives/year-2023/clf/',2022:'archives/year-2022/clf/',2019:'archives/year-2019/clf/',2018:'archives/year-2018/c-l-f/',2017:'archives/year-2017/c-l-f/',2016:'archives/year-2016/c-l-f/'}
+    its=[]
+    for y,u in sorted(BU.items(),reverse=True):
+        h=get('https://bangaloreliteraturefestival.org/'+u)
+        if not h or 'Children|Literature|Fun' not in h: continue
+        h=h[h.find('Children|Literature|Fun (C|L|F)',h.find('page anc id')):]
+        L=[clean(x) for x in re.split(r'<[^>]+>',re.sub(r'<script.*?</script>|<style.*?</style>',' ',h,flags=re.S)) if clean(x)]
+        day=''; i=0; tm=re.compile(r'^\d{1,2}:\d\d [ap]m$',re.I); n0=len(its)
+        while i<len(L):
+            if re.match(r'^Day \d',L[i]): day=L[i]
+            if tm.match(L[i]) and i+1<len(L):
+                ttl=L[i+1]; j=i+2; ps=[]
+                while j<len(L) and not tm.match(L[j]) and not re.match(r'^Day \d|^Digital|^Partners|^Venue|^Register|^#|^Sat \||^Sun \|',L[j]) and len(ps)<3 and len(L[j])<70: ps.append(L[j]); j+=1
+                pp=re.sub(r'\s*\|\s*Venue:.*$','',', '.join(ps))
+                if ttl in ('Malgudi','Narnia') or pp.startswith('Ages:'): i+=1; continue   # 2018 layout lists the venue first; skipped rather than guessed
+                its.append({'y':y,'tm':L[i],'t':ttl,'p':pp,'kind':day.split('|')[0].strip()})
+            i+=1
+        print('blf clf',y,len(its)-n0)
+    if its: S.append({'id':'blf','name':'C|L|F: Children | Literature | Fun','year':max(i['y'] for i in its),'who':'children of all ages, with their parents','url':'https://bangaloreliteraturefestival.org/year-2025/clf','official':1,'items':its})
+    elif 'blf' in OLD: S.append(OLD['blf'])
     # Neev: children's books are the festival
     nl=json.load(open(R+'/festivals/nlf/data.json',encoding='utf8'))
     S.append({'id':'nlf','name':'Neev, a children’s books festival','year':2026,'who':'young readers','url':'https://www.neevliteraturefestival.org/','official':1,'whole':1,'items':[],'count':len(nl),'from':'the festival describes itself as children’s books and author events'})

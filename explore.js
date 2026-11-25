@@ -32,10 +32,11 @@ function fs(id){var f=L.festivals.filter(function(z){return z.id===id})[0];retur
 function kidsTab(){var K=EX.kids;
 if(X.ks){var sd=K.strands.filter(function(z){return z.id===X.ks})[0];if(!sd){X.ks='';return kidsTab()}
 sub('<button data-ks="">‹ All strands</button><button data-go="'+esc(sd.id)+'">Open '+esc(fs(sd.id))+' ›</button>'+(sd.url?'<button data-ext="'+esc(sd.url)+'">Official page ↗</button>':''));
-var rows=sd.items.map(function(i){var meta=[i.y,i.tm,i.age,i.kind,i.dur].filter(Boolean).join(' · ');return '<div class="axr"><h3>'+esc(i.t)+'</h3>'+(i.p?'<div class="exnm">'+esc(i.p)+'</div>':'')+(meta?'<div class="exnm">'+esc(meta)+'</div>':'')+'</div>'});
+var yrs=[];sd.items.forEach(function(i){if(i.y&&yrs.indexOf(i.y)<0)yrs.push(i.y)});yrs.sort(function(a,b){return b-a});var sy=yrs.length?(yrs.indexOf(X.sy)>-1?X.sy:yrs[0]):0;if(yrs.length)q('exs').insertAdjacentHTML('beforeend',yrs.map(function(y){return '<button data-sy="'+y+'" class="'+(y===sy?'on':'')+'">'+y+'</button>'}).join(''));
+var rows=sd.items.filter(function(i){return !sy||i.y===sy}).map(function(i){var meta=[sy?'':i.y,i.tm,i.age,i.kind,i.dur].filter(Boolean).join(' · ');return '<div class="axr"><h3>'+esc(i.t)+'</h3>'+(i.p?'<div class="exnm">'+esc(i.p)+'</div>':'')+(meta?'<div class="exnm">'+esc(meta)+'</div>':'')+'</div>'});
 if(sd.facilitators&&sd.facilitators.length)rows.push('<div class="axr"><h3>Facilitators</h3><div class="exnm">'+esc(sd.facilitators.join(', '))+'</div></div>');
 if(sd.whole){var np=(K.people[sd.id]||{});rows.push('<div class="axr"><h3>'+Object.keys(np).length+' of its speakers write or draw for young readers</h3><div class="exnm">The whole festival is built around children’s books. See its speaker list.</div></div>')}
-show(rows,esc(sd.name)+' · '+fs(sd.id)+(sd.year?' · '+sd.year:'')+'. '+(sd.official?'Read from the festival’s own page.':'Taken from '+(sd.from||'our data')+'.'),'No sessions listed.');return}
+show(rows,esc(sd.name)+' · '+fs(sd.id)+(sy?' · '+sy:sd.year?' · '+sd.year:'')+'. '+(sd.official?'Read from the festival’s own page.':'Taken from '+(sd.from||'our data')+'.'),'No sessions listed.');return}
 if(X.kv==='people'){var fl2={};Object.keys(K.people).forEach(function(i){fl2[i]=Object.keys(K.people[i]).length});var ids=Object.keys(fl2).sort(function(a,b){return fl2[b]-fl2[a]});
 sub('<button data-kv="strands">Strands</button><button data-kv="people" class="on">People</button>'+'<button data-kf="all" class="'+(X.kf==='all'?'on':'')+'">All</button>'+ids.map(function(i){return '<button data-kf="'+i+'" class="'+(X.kf===i?'on':'')+'">'+fl(i)+esc(fs(i))+' '+fl2[i]+'</button>'}).join(''));
 var m={},P=[];(X.kf==='all'?ids:[X.kf]).forEach(function(i){Object.keys(K.people[i]||{}).forEach(function(n){var k=gnorm(n);if(m[k])return;m[k]=1;P.push({n:n,w:K.people[i][n]})})});P.sort(function(a,b){return a.n.localeCompare(b.n)});
@@ -111,6 +112,7 @@ if(b&&b.dataset.kv){X.kv=b.dataset.kv;X.ks='';X.pg=0;draw();return}
 if(b&&b.dataset.kf){X.kf=b.dataset.kf;X.pg=0;draw();return}
 if(b&&b.dataset.pe){X.pe=b.dataset.pe;X.pg=0;draw();return}
 if(b&&b.dataset.ext){window.open(b.dataset.ext,'_blank','noopener');return}
+if(b&&b.dataset.sy){X.sy=+b.dataset.sy;X.pg=0;draw();return}
 if(b&&b.dataset.go){location.href='?f='+b.dataset.go;return}
 if(b&&b.dataset.cp){try{navigator.clipboard.writeText(X.copy||'');b.textContent='Copied'}catch(er){b.textContent='Copy not allowed'}return}
 if(b&&b.dataset.b!==undefined){var bk=X.books[+b.dataset.b];q('exd').innerHTML=(bk.c?'<img src="'+esc(bk.f.base+bk.c)+'" alt="">':'')+'<div><b>'+esc(bk.t)+'</b><br><span>'+esc(bk.a)+'</span><br><span class="exfn">'+fl(bk.f.id)+esc(bk.f.name)+'</span></div>';return}
