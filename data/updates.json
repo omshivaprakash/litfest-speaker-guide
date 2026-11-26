@@ -1,23 +1,35 @@
 {
- "checked": "2026-11-25T16:48Z",
+ "checked": "2026-11-26T10:59Z",
  "festivals": {
   "mlf": {
    "name": "Mysuru",
    "count": 110,
-   "previous": null,
-   "added": [],
-   "removed": [],
-   "status": "baseline recorded",
-   "not_in_app": []
-  },
-  "koshala": {
-   "name": "Koshala",
-   "count": 51,
-   "previous": 51,
+   "previous": 110,
    "added": [],
    "removed": [],
    "status": "ok",
    "not_in_app": []
+  },
+  "koshala": {
+   "name": "Koshala",
+   "count": 56,
+   "previous": 51,
+   "added": [
+    "Deepshikha Chandra",
+    "Devraj Tripathi",
+    "Mahua Tripathi",
+    "Nimrat Kaur",
+    "Smita Mishra"
+   ],
+   "removed": [],
+   "status": "changed",
+   "not_in_app": [
+    "Deepshikha Chandra",
+    "Devraj Tripathi",
+    "Mahua Tripathi",
+    "Nimrat Kaur",
+    "Smita Mishra"
+   ]
   },
   "ailf": {
    "name": "Ahmedabad",
@@ -39,16 +51,25 @@
   },
   "blf": {
    "name": "BLF",
-   "count": 249,
+   "count": 251,
    "previous": 249,
-   "added": [],
-   "removed": [],
-   "status": "ok",
+   "added": [
+    "Nancy Raj",
+    "Pradeep Chakravarthy",
+    "Shree Sauparnika V"
+   ],
+   "removed": [
+    "Maja Klarić"
+   ],
+   "status": "changed",
    "not_in_app": [
     "Adarsh Shenoy",
     "Manasi Prasad",
+    "Nancy Raj",
+    "Pradeep Chakravarthy",
     "Radhika Joshi",
     "Sharada Satrasala",
+    "Shree Sauparnika V",
     "Soorya Upadhyaya",
     "Tessy Thomas"
    ]
@@ -85,20 +106,20 @@
   },
   "klf": {
    "name": "KLF",
-   "count": 495,
+   "count": 0,
    "previous": 495,
    "added": [],
    "removed": [],
-   "status": "ok",
+   "status": "fetch problem: source returned 0 names (was 495); snapshot kept",
    "not_in_app": []
   },
   "mbifl": {
    "name": "MBIFL",
-   "count": 6,
+   "count": 0,
    "previous": 6,
    "added": [],
    "removed": [],
-   "status": "ok",
+   "status": "fetch problem: source returned 0 names (was 6); snapshot kept",
    "not_in_app": []
   },
   "wlf": {

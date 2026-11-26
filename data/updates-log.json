@@ -1,5 +1,33 @@
 [
  {
+  "date": "2026-11-26T10:59Z",
+  "id": "koshala",
+  "name": "Koshala",
+  "added": [
+   "Deepshikha Chandra",
+   "Devraj Tripathi",
+   "Mahua Tripathi",
+   "Nimrat Kaur",
+   "Smita Mishra"
+  ],
+  "removed": [],
+  "count": 56
+ },
+ {
+  "date": "2026-11-26T10:59Z",
+  "id": "blf",
+  "name": "BLF",
+  "added": [
+   "Nancy Raj",
+   "Pradeep Chakravarthy",
+   "Shree Sauparnika V"
+  ],
+  "removed": [
+   "Maja Klarić"
+  ],
+  "count": 251
+ },
+ {
   "date": "2026-11-25T15:24Z",
   "id": "jlf",
   "name": "JLF",
