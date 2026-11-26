@@ -1,6 +1,6 @@
 # LitFest Guide open dataset
 
-Facts about literature festivals and the people who speak at them, as plain CSV files with stable IDs. Licence: **CC BY 4.0** (see `../LICENSE-DATA.md`).
+Facts about literature festivals and the people who speak at them, as plain CSV files with stable IDs. Licence: **CC BY 4.0** (summary and scope in `../LICENSE-DATA.md`; the full legal text is `LICENSE.txt` in each release folder).
 Attribution: *LitFest Guide (omshivaprakash), https://omshivaprakash.github.io/litfest-speaker-guide/, CC BY 4.0, version `<version>`.*
 
 ## Where to get it

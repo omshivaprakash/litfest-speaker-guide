@@ -2,7 +2,7 @@
 
 The **facts and compilations** published by LitFest Guide are licensed under the
 [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/)
-(full legal text: https://creativecommons.org/licenses/by/4.0/legalcode). You may copy, share, adapt and use them for any purpose, including
+(the full, unmodified legal text is in [`LICENSE-CC-BY-4.0.txt`](LICENSE-CC-BY-4.0.txt) and in every dataset release as `LICENSE.txt`; online: https://creativecommons.org/licenses/by/4.0/legalcode). You may copy, share, adapt and use them for any purpose, including
 commercially, as long as you give attribution.
 
 ## What is covered

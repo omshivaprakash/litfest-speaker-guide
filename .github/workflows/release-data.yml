@@ -31,5 +31,5 @@ jobs:
           if git ls-remote --exit-code --tags origin "refs/tags/data-$V" >/dev/null 2>&1; then echo "data-$V already published"; git push origin HEAD || true; exit 0; fi
           git tag "data-$V"
           git push origin HEAD "data-$V"
-          (cd dataset/latest && zip -q "../litfest-guide-data-$V.zip" *.csv datapackage.json manifest.json)
+          (cd dataset/latest && zip -q "../litfest-guide-data-$V.zip" *.csv datapackage.json manifest.json LICENSE.txt)
           gh release create "data-$V" "dataset/litfest-guide-data-$V.zip" --title "Dataset $V" --notes "Open data under CC BY 4.0. What changed: dataset/CHANGELOG.md. Attribution: LitFest Guide (omshivaprakash), https://omshivaprakash.github.io/litfest-speaker-guide/, CC BY 4.0, version $V."

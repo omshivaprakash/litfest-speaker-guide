@@ -64,6 +64,7 @@ def write(dirp,t):
         with open(f'{dirp}/{name}','w',newline='',encoding='utf-8') as fh:
             w=csv.writer(fh,lineterminator='\n'); w.writerow(hdr); w.writerows(rows)
 tmp=D+'/.tmp'; shutil.rmtree(tmp,ignore_errors=True); write(tmp,tables)
+LIC=R+'/LICENSE-CC-BY-4.0.txt'   # the full, unmodified legal text travels with every release
 def sums(d): return {f:hashlib.sha256(open(f'{d}/{f}','rb').read()).hexdigest() for f in sorted(os.listdir(d)) if f.endswith('.csv')}
 new=sums(tmp); prev=None
 if os.path.exists(D+'/latest/manifest.json'): prev=json.load(open(D+'/latest/manifest.json'))
@@ -82,10 +83,12 @@ counts={n:len(rows) for n,(h,rows) in tables.items()}
 man={'version':ver,'built':datetime.date.today().isoformat(),'licence':'CC BY 4.0','counts':counts,'files':new}
 dest=f'{D}/releases/{ver}'; shutil.rmtree(dest,ignore_errors=True); shutil.copytree(tmp,dest); json.dump(man,open(dest+'/manifest.json','w'),indent=1)
 shutil.rmtree(D+'/latest',ignore_errors=True); shutil.copytree(tmp,D+'/latest'); json.dump(man,open(D+'/latest/manifest.json','w'),indent=1); shutil.rmtree(tmp)
-pkg={'name':'litfest-guide','title':'LitFest Guide open dataset','version':ver,'licenses':[{'name':'CC-BY-4.0','path':'https://creativecommons.org/licenses/by/4.0/','title':'Creative Commons Attribution 4.0'}],
+pkg={'name':'litfest-guide','title':'LitFest Guide open dataset','version':ver,'licenses':[{'name':'CC-BY-4.0','path':'LICENSE.txt','title':'Creative Commons Attribution 4.0 International (full text in LICENSE.txt; https://creativecommons.org/licenses/by/4.0/)'}],
  'homepage':'https://omshivaprakash.github.io/litfest-speaker-guide/','sources':[{'title':'Each festival\'s own public pages','path':'https://omshivaprakash.github.io/litfest-speaker-guide/'}],
  'resources':[{'name':n[:-4],'path':n,'format':'csv','mediatype':'text/csv','encoding':'utf-8','schema':{'fields':[{'name':h} for h in hdr]}} for n,(hdr,_) in tables.items()]}
-for d in (dest,D+'/latest'): json.dump(pkg,open(d+'/datapackage.json','w',encoding='utf8'),ensure_ascii=False,indent=1)
+for d in (dest,D+'/latest'):
+    if os.path.exists(LIC): shutil.copy(LIC,d+'/LICENSE.txt')
+    json.dump(pkg,open(d+'/datapackage.json','w',encoding='utf8'),ensure_ascii=False,indent=1)
 ent=[f'## {ver} ({datetime.date.today().isoformat()})','',f"- {counts['festivals.csv']} festivals, {counts['people.csv']:,} people, {counts['appearances.csv']:,} appearances"+(f", {counts.get('prize_wins.csv',0)} dated prize wins, {counts.get('translators.csv',0)} translators, {counts.get('childrens_strands.csv',0)} children's sessions, {counts.get('press_coverage.csv',0)} press links" if True else '')]
 if prev is None: ent.append('- First release.')
 else:

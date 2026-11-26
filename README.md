@@ -136,6 +136,6 @@ After a change, the maintainer refreshes that festival's data (a short command) 
 
 **Run it on your own computer:** download the folder, open a terminal in it, run `python3 -m http.server`, and visit `http://localhost:8000`. (Opening `index.html` by double-click will not work, because browsers block loading data files that way.)
 
-**Licences:** the **code** is MIT ([LICENSE](LICENSE)). The **facts** (who spoke where and when, festival dates, and our derived tables) are open data under **CC BY 4.0**: use them for anything, including commercially, with attribution ([LICENSE-DATA.md](LICENSE-DATA.md)). Photos, logos, covers and bios stay with their owners and are not covered.
+**Licences:** the **code** is MIT ([LICENSE](LICENSE)). The **facts** (who spoke where and when, festival dates, and our derived tables) are open data under **CC BY 4.0**: use them for anything, including commercially, with attribution ([LICENSE-DATA.md](LICENSE-DATA.md), full text in [LICENSE-CC-BY-4.0.txt](LICENSE-CC-BY-4.0.txt)). Photos, logos, covers and bios stay with their owners and are not covered.
 
 **Built by** [omshivaprakash](https://omshivaprakash.github.io/). To reach out, use the GitHub issues on this repository.
