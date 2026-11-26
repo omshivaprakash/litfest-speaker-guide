@@ -1,0 +1,233 @@
+{
+ "name": "litfest-guide",
+ "title": "LitFest Guide open dataset",
+ "version": "2026.11.26",
+ "licenses": [
+  {
+   "name": "CC-BY-4.0",
+   "path": "https://creativecommons.org/licenses/by/4.0/",
+   "title": "Creative Commons Attribution 4.0"
+  }
+ ],
+ "homepage": "https://omshivaprakash.github.io/litfest-speaker-guide/",
+ "sources": [
+  {
+   "title": "Each festival's own public pages",
+   "path": "https://omshivaprakash.github.io/litfest-speaker-guide/"
+  }
+ ],
+ "resources": [
+  {
+   "name": "festivals",
+   "path": "festivals.csv",
+   "format": "csv",
+   "mediatype": "text/csv",
+   "encoding": "utf-8",
+   "schema": {
+    "fields": [
+     {
+      "name": "festival_id"
+     },
+     {
+      "name": "name"
+     },
+     {
+      "name": "short_name"
+     },
+     {
+      "name": "status"
+     },
+     {
+      "name": "city"
+     },
+     {
+      "name": "state"
+     },
+     {
+      "name": "country"
+     },
+     {
+      "name": "official_site"
+     },
+     {
+      "name": "next_edition_start"
+     },
+     {
+      "name": "next_edition_end"
+     },
+     {
+      "name": "first_year_in_data"
+     },
+     {
+      "name": "latest_year_in_data"
+     }
+    ]
+   }
+  },
+  {
+   "name": "people",
+   "path": "people.csv",
+   "format": "csv",
+   "mediatype": "text/csv",
+   "encoding": "utf-8",
+   "schema": {
+    "fields": [
+     {
+      "name": "person_id"
+     },
+     {
+      "name": "name"
+     },
+     {
+      "name": "profession_guess"
+     },
+     {
+      "name": "country_from_bio"
+     },
+     {
+      "name": "first_year"
+     },
+     {
+      "name": "last_year"
+     },
+     {
+      "name": "festival_count"
+     },
+     {
+      "name": "appearance_count"
+     }
+    ]
+   }
+  },
+  {
+   "name": "appearances",
+   "path": "appearances.csv",
+   "format": "csv",
+   "mediatype": "text/csv",
+   "encoding": "utf-8",
+   "schema": {
+    "fields": [
+     {
+      "name": "person_id"
+     },
+     {
+      "name": "festival_id"
+     },
+     {
+      "name": "year"
+     }
+    ]
+   }
+  },
+  {
+   "name": "prize_wins",
+   "path": "prize_wins.csv",
+   "format": "csv",
+   "mediatype": "text/csv",
+   "encoding": "utf-8",
+   "schema": {
+    "fields": [
+     {
+      "name": "person_id"
+     },
+     {
+      "name": "prize"
+     },
+     {
+      "name": "year"
+     },
+     {
+      "name": "source"
+     }
+    ]
+   }
+  },
+  {
+   "name": "translators",
+   "path": "translators.csv",
+   "format": "csv",
+   "mediatype": "text/csv",
+   "encoding": "utf-8",
+   "schema": {
+    "fields": [
+     {
+      "name": "person_id"
+     },
+     {
+      "name": "translates_from"
+     },
+     {
+      "name": "translates_into"
+     },
+     {
+      "name": "language_pairs"
+     },
+     {
+      "name": "translated_books_named"
+     }
+    ]
+   }
+  },
+  {
+   "name": "childrens_strands",
+   "path": "childrens_strands.csv",
+   "format": "csv",
+   "mediatype": "text/csv",
+   "encoding": "utf-8",
+   "schema": {
+    "fields": [
+     {
+      "name": "festival_id"
+     },
+     {
+      "name": "strand"
+     },
+     {
+      "name": "edition_year"
+     },
+     {
+      "name": "session"
+     },
+     {
+      "name": "presenter"
+     },
+     {
+      "name": "time_or_age_note"
+     }
+    ]
+   }
+  },
+  {
+   "name": "press_coverage",
+   "path": "press_coverage.csv",
+   "format": "csv",
+   "mediatype": "text/csv",
+   "encoding": "utf-8",
+   "schema": {
+    "fields": [
+     {
+      "name": "festival_id"
+     },
+     {
+      "name": "year"
+     },
+     {
+      "name": "outlet"
+     },
+     {
+      "name": "language"
+     },
+     {
+      "name": "headline"
+     },
+     {
+      "name": "url"
+     },
+     {
+      "name": "topics"
+     }
+    ]
+   }
+  }
+ ]
+}

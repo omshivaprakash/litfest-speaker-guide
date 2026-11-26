@@ -42,6 +42,7 @@ Read the result in **About → Daily check** on the site, or in `data/updates.js
    python3 tools/build_kids.py                       # children's strands and people (reads two official pages)
    python3 tools/build_insights.py                   # prize effect: win year against festival appearances
    python3 tools/build_translators.py                # translators, language pairs and translated books
+   python3 tools/build_release.py                    # open dataset: new dated version, only if the data changed (add --auto in automation)
    ```
 4. Validate and test (see below), then re-run `python3 tools/check_updates.py` so the snapshot matches.
 5. Stamp and publish:

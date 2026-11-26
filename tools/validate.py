@@ -34,6 +34,12 @@ for f in F:
     if f['status']=='live' and os.path.exists(pj):
         for o in json.load(open(pj,encoding='utf8')):
             if o.get('ph'): chk(os.path.exists(R+'/'+f['base']+o['ph']),f'{f["id"]}: past photo missing {o["ph"]} ({o["n"]})')
+import re
+MJ=re.compile(r'[\u00c2\u00c3\u00e2][\u0080-\u00bf\u0152\u0153\u0160\u0161\u0178\u017d\u017e\u0192\u02c6\u02dc\u2013\u2014\u2018-\u201e\u2020-\u2022\u2026\u2030\u2039\u203a\u20ac\u2122]')
+for f in F:
+    if f['status']=='live' and os.path.exists(R+'/'+f['base']+'history.json'):
+        h=open(R+'/'+f['base']+'history.json',encoding='utf8').read()
+        if MJ.search(h): bad.append(f'{f["id"]}: garbled characters in history.json names')
 print(f'{len(F)} festivals checked; {len(warn)} warnings')
 for w in warn[:15]: print('warn',w)
 for m in bad[:40]: print('FAIL',m)

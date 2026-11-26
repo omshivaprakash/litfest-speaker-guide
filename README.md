@@ -72,6 +72,11 @@ How complete each festival is differs. Some have ten years of history, some only
 
 ---
 
+## Open data
+The facts behind the guide are published as plain CSV files with stable IDs, under **CC BY 4.0**, in a new dated version whenever they change: **[dataset/](dataset/README.md)**. Cite it as *LitFest Guide (omshivaprakash), https://omshivaprakash.github.io/litfest-speaker-guide/, CC BY 4.0, version 2026.11.26.* Pin a version in anything you publish; every old version stays available.
+
+---
+
 ## Can I trust it?
 
 Honestly: mostly, with care. Please read this part.
@@ -126,10 +131,11 @@ After a change, the maintainer refreshes that festival's data (a short command) 
 | See festival-by-festival notes and gaps | [Data notes](docs/DATA-NOTES.md) |
 | Ask "why does it say…?" | [FAQ](docs/FAQ.md) |
 | Report a mistake, suggest a festival, or help | [Contributing](docs/CONTRIBUTING.md) |
+| Download the open data (CSV, versioned, CC BY 4.0) | [dataset/](dataset/README.md) · [changelog](dataset/CHANGELOG.md) · [how to cite](CITATION.cff) |
 | Read the press note | [press/press-note.html](press/press-note.html) |
 
 **Run it on your own computer:** download the folder, open a terminal in it, run `python3 -m http.server`, and visit `http://localhost:8000`. (Opening `index.html` by double-click will not work, because browsers block loading data files that way.)
 
-**License:** MIT. Free to use, copy and change. See [LICENSE](LICENSE).
+**Licences:** the **code** is MIT ([LICENSE](LICENSE)). The **facts** (who spoke where and when, festival dates, and our derived tables) are open data under **CC BY 4.0**: use them for anything, including commercially, with attribution ([LICENSE-DATA.md](LICENSE-DATA.md)). Photos, logos, covers and bios stay with their owners and are not covered.
 
 **Built by** [omshivaprakash](https://omshivaprakash.github.io/). To reach out, use the GitHub issues on this repository.

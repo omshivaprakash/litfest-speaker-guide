@@ -38,6 +38,7 @@ def works_in(s):
         for m in rx.finditer(s):
             t=(m.group(1) or m.group(2) or '').strip(' ,.;:')
             t=re.sub(r'\s+(?:from|into|to|and|which|that|who|for|in|by|won|was|is)$','',t,flags=re.I).strip()
+            if re.fullmatch(r'(?i)(%s|language|languages|english|poetry|poems|fiction)'%LNG,t) or re.search(r'(?i)\blanguage$',t): continue
             if 2<len(t)<=90 and not re.match(r'^(the|a|an|his|her|their|many|several|numerous|over|more)$',t,re.I) and not re.search(r'\b(Press|University|Prize|Award|Festival|Foundation|Library|Literary|Literature)\b',t): out.append(t)
     return list(dict.fromkeys(out))
 def load():

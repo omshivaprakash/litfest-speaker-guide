@@ -1,0 +1,23 @@
+{
+ "version": "2026.11.26",
+ "built": "2026-11-26",
+ "licence": "CC BY 4.0",
+ "counts": {
+  "festivals.csv": 34,
+  "people.csv": 9684,
+  "appearances.csv": 15961,
+  "prize_wins.csv": 235,
+  "translators.csv": 429,
+  "childrens_strands.csv": 523,
+  "press_coverage.csv": 125
+ },
+ "files": {
+  "appearances.csv": "674a62fec3b9b53791a77ed989d21c31cd317c48a724d530a0cd9d27836d1f29",
+  "childrens_strands.csv": "b2b7c380c7cc819c93aa8fdd5d9d5e74d347d42a0369b43cbceb853d835a9f41",
+  "festivals.csv": "8bf018956c3742f77574fd1f5c8fbb1a50238a0af0e0aabdff6a177b920a5fad",
+  "people.csv": "b6a2878980fc8ce36c3e1276771f4e110b48f76ef768251ef367becdd77009e7",
+  "press_coverage.csv": "9628156c7eafe0b09d1c74976bfd8a1ca1e5e036091717d610a1e9491159bce2",
+  "prize_wins.csv": "44a66ac9defd6df53c037c9ef8860f19bd64be6cce833ddafc3c7d7419b7c941",
+  "translators.csv": "1d5d8cb856a53802e74bedd3915a536a9518a91364f3e8fd7bb7293435fbe9c0"
+ }
+}
