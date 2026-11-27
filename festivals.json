@@ -494,6 +494,32 @@
    "city": "Mysuru"
   },
   {
+   "id": "aim",
+   "status": "live",
+   "name": "AIM Literary Festival (Author In Me, London)",
+   "short": "AIM London",
+   "ab": "AIM",
+   "year": 2024,
+   "dates": "Dates to be announced",
+   "venue": "London, United Kingdom",
+   "url": "https://www.aimlitfestival.com/",
+   "logo": "assets/logo.svg",
+   "base": "festivals/aim/",
+   "from": 2022,
+   "to": 2024,
+   "years": [
+    2022,
+    2023,
+    2024
+   ],
+   "sched": 2024,
+   "why": {},
+   "updated": "Nov 2026. Our first festival outside India. Built only from public coverage because the official site is not reachable from our tools, so it lists the people named there, not the full programme. Shown: 2024 (14–19 Oct); the history adds 2022 and 2023. The 2025 edition (1–5 Oct, StoryGarden at the British Library) has no full line-up we could read. Logo to come.",
+   "state": "England",
+   "country": "United Kingdom",
+   "city": "London"
+  },
+  {
    "status": "live",
    "why": {},
    "id": "koshala",
