@@ -33,7 +33,8 @@
    "past": 1,
    "state": "Karnataka",
    "country": "India",
-   "city": "Bengaluru"
+   "city": "Bengaluru",
+   "works": 1
   },
   {
    "id": "sjm",
@@ -126,7 +127,8 @@
    "past": 1,
    "state": "Maharashtra",
    "country": "India",
-   "city": "Mumbai"
+   "city": "Mumbai",
+   "works": 1
   },
   {
    "id": "klm",
@@ -157,7 +159,8 @@
    "past": 1,
    "state": "West Bengal",
    "country": "India",
-   "city": "Kolkata"
+   "city": "Kolkata",
+   "works": 1
   },
   {
    "id": "ddlf",
@@ -185,7 +188,8 @@
    "end": "2026-11-29",
    "state": "Uttarakhand",
    "country": "India",
-   "city": "Dehradun"
+   "city": "Dehradun",
+   "works": 1
   },
   {
    "id": "galf",
@@ -216,7 +220,8 @@
    "past": 1,
    "state": "Goa",
    "country": "India",
-   "city": "Dona Paula"
+   "city": "Dona Paula",
+   "works": 1
   },
   {
    "id": "klf2",
@@ -246,7 +251,8 @@
    "end": "2026-01-11",
    "state": "Odisha",
    "country": "India",
-   "city": "Bhubaneswar"
+   "city": "Bhubaneswar",
+   "works": 1
   },
   {
    "id": "nlf",
@@ -283,7 +289,8 @@
    "past": 1,
    "state": "Karnataka",
    "country": "India",
-   "city": "Bengaluru"
+   "city": "Bengaluru",
+   "works": 1
   },
   {
    "id": "bpf",
@@ -320,7 +327,8 @@
    "past": 1,
    "state": "Karnataka",
    "country": "India",
-   "city": "Bengaluru"
+   "city": "Bengaluru",
+   "works": 1
   },
   {
    "id": "klf",
@@ -349,7 +357,8 @@
    "end": "2027-01-24",
    "state": "Kerala",
    "country": "India",
-   "city": "Kozhikode"
+   "city": "Kozhikode",
+   "works": 1
   },
   {
    "id": "bbl",
@@ -397,7 +406,8 @@
    "past": 1,
    "state": "Telangana",
    "country": "India",
-   "city": "Hyderabad"
+   "city": "Hyderabad",
+   "works": 1
   },
   {
    "id": "jlf",
@@ -422,7 +432,8 @@
    "past": 1,
    "state": "Rajasthan",
    "country": "India",
-   "city": "Jaipur"
+   "city": "Jaipur",
+   "works": 1
   },
   {
    "id": "bplf",
@@ -458,7 +469,8 @@
    "past": 1,
    "state": "Madhya Pradesh",
    "country": "India",
-   "city": "Bhopal"
+   "city": "Bhopal",
+   "works": 1
   },
   {
    "id": "mlf",
@@ -491,7 +503,8 @@
    "end": "2027-07-04",
    "state": "Karnataka",
    "country": "India",
-   "city": "Mysuru"
+   "city": "Mysuru",
+   "works": 1
   },
   {
    "id": "aim",
@@ -517,7 +530,8 @@
    "updated": "Nov 2026. Our first festival outside India. Built only from public coverage because the official site is not reachable from our tools, so it lists the people named there, not the full programme. Shown: 2024 (14–19 Oct); the history adds 2022 and 2023. The 2025 edition (1–5 Oct, StoryGarden at the British Library) has no full line-up we could read. Logo to come.",
    "state": "England",
    "country": "United Kingdom",
-   "city": "London"
+   "city": "London",
+   "works": 1
   },
   {
    "status": "live",
@@ -549,7 +563,8 @@
    "updated": "Nov 2026 (51 speakers listed for 2026; 2022 to 2025 speakers kept as past editions; dates from the official site)",
    "logo": "festivals/koshala/logo.png",
    "base": "festivals/koshala/",
-   "past": 1
+   "past": 1,
+   "works": 1
   },
   {
    "status": "live",
@@ -576,7 +591,8 @@
    "partUrl": "https://ailf.co.in/speakers",
    "updated": "Nov 2026 (66 speakers on the 11th edition's speaker page; earlier editions (from 2016) are not yet captured)",
    "logo": "festivals/ailf/logo.png",
-   "base": "festivals/ailf/"
+   "base": "festivals/ailf/",
+   "works": 1
   },
   {
    "status": "live",
@@ -603,7 +619,8 @@
    "partUrl": "https://shillonglitfest.com/speakers",
    "updated": "Nov 2026 (12 speakers on the Edition VI page; editions I to V are not yet captured)",
    "logo": "festivals/shillong/logo.png",
-   "base": "festivals/shillong/"
+   "base": "festivals/shillong/",
+   "works": 1
   },
   {
    "status": "soon",
@@ -788,7 +805,8 @@
    "past": 1,
    "state": "Kerala",
    "country": "India",
-   "city": "Thiruvananthapuram"
+   "city": "Thiruvananthapuram",
+   "works": 1
   },
   {
    "id": "wlf",
@@ -818,7 +836,8 @@
    "past": 1,
    "state": "Kerala",
    "country": "India",
-   "city": "Mananthavady"
+   "city": "Mananthavady",
+   "works": 1
   },
   {
    "id": "glf",
