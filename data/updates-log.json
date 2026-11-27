@@ -1,5 +1,25 @@
 [
  {
+  "date": "2026-11-27T10:58Z",
+  "id": "jlf",
+  "name": "JLF",
+  "added": [
+   "Geetanjali Vikram Kirloskar"
+  ],
+  "removed": [],
+  "count": 282
+ },
+ {
+  "date": "2026-11-27T10:58Z",
+  "id": "bplf",
+  "name": "Bhopal",
+  "added": [
+   "Himangini Rathore Hooja"
+  ],
+  "removed": [],
+  "count": 66
+ },
+ {
   "date": "2026-11-26T10:59Z",
   "id": "koshala",
   "name": "Koshala",

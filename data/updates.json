@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-26T10:59Z",
+ "checked": "2026-11-27T10:58Z",
  "festivals": {
   "mlf": {
    "name": "Mysuru",
@@ -13,16 +13,10 @@
   "koshala": {
    "name": "Koshala",
    "count": 56,
-   "previous": 51,
-   "added": [
-    "Deepshikha Chandra",
-    "Devraj Tripathi",
-    "Mahua Tripathi",
-    "Nimrat Kaur",
-    "Smita Mishra"
-   ],
+   "previous": 56,
+   "added": [],
    "removed": [],
-   "status": "changed",
+   "status": "ok",
    "not_in_app": [
     "Deepshikha Chandra",
     "Devraj Tripathi",
@@ -51,37 +45,24 @@
   },
   "blf": {
    "name": "BLF",
-   "count": 251,
-   "previous": 249,
-   "added": [
-    "Nancy Raj",
-    "Pradeep Chakravarthy",
-    "Shree Sauparnika V"
-   ],
-   "removed": [
-    "Maja Klarić"
-   ],
-   "status": "changed",
-   "not_in_app": [
-    "Adarsh Shenoy",
-    "Manasi Prasad",
-    "Nancy Raj",
-    "Pradeep Chakravarthy",
-    "Radhika Joshi",
-    "Sharada Satrasala",
-    "Shree Sauparnika V",
-    "Soorya Upadhyaya",
-    "Tessy Thomas"
-   ]
+   "count": 0,
+   "previous": 251,
+   "added": [],
+   "removed": [],
+   "status": "fetch problem: source returned 0 names (was 251); snapshot kept",
+   "not_in_app": []
   },
   "jlf": {
    "name": "JLF",
-   "count": 281,
+   "count": 282,
    "previous": 281,
-   "added": [],
+   "added": [
+    "Geetanjali Vikram Kirloskar"
+   ],
    "removed": [],
-   "status": "ok",
+   "status": "changed",
    "not_in_app": [
+    "Geetanjali Vikram Kirloskar",
     "Jamie Andrews",
     "Justice Madan Lokur",
     "Suresh Narayanan",
@@ -142,12 +123,16 @@
   },
   "bplf": {
    "name": "Bhopal",
-   "count": 65,
+   "count": 66,
    "previous": 65,
-   "added": [],
+   "added": [
+    "Himangini Rathore Hooja"
+   ],
    "removed": [],
-   "status": "ok",
-   "not_in_app": []
+   "status": "changed",
+   "not_in_app": [
+    "Himangini Rathore Hooja"
+   ]
   },
   "klm": {
    "name": "KLM",

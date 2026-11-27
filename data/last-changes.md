@@ -1,10 +1,10 @@
-Speaker lists changed on the festivals' sites (checked 2026-11-26T10:59Z):
+Speaker lists changed on the festivals' sites (checked 2026-11-27T10:58Z):
 
-- **Koshala**: 5 added (Deepshikha Chandra, Devraj Tripathi, Mahua Tripathi, Nimrat Kaur, Smita Mishra)
-- **BLF**: 3 added (Nancy Raj, Pradeep Chakravarthy, Shree Sauparnika V), 1 removed (Maja Klarić)
+- **JLF**: 1 added (Geetanjali Vikram Kirloskar)
+- **Bhopal**: 1 added (Himangini Rathore Hooja)
 
 Names live on the sites but not yet in the app:
 - Koshala: 5
-- BLF: 9
-- JLF: 4
+- JLF: 5
 - HLF: 6
+- Bhopal: 1
