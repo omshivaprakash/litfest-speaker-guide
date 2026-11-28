@@ -65,6 +65,12 @@ def run():
     for c in (c[1] for c in CATS):
         e=[r for r in out if r['cat']==c]; S['by_cat'][c]={'entries':len(e),'invited':len({r['name'] for r in e if r['fest']})}
     json.dump({'built':datetime.date.today().isoformat(),'source':'Wikipedia, List of Sahitya Akademi Award winners for Kannada','summary':S,'winners':out},open(R+'/data/sahitya-kannada.json','w',encoding='utf8'),ensure_ascii=False,separators=(',',':'))
+    import csv
+    with open(R+'/data/sahitya-kannada.csv','w',newline='',encoding='utf-8-sig') as fh:
+        w=csv.writer(fh); w.writerow(['winner','award_year','award','work','spoke_at_a_tracked_festival','match_confidence','festivals_and_years','same_or_next_year_as_award','spoke_before_award','spoke_after_award'])
+        for r in sorted(out,key=lambda r:(r['year'] or 0,r['cat'],r['name'])):
+            fs='; '.join('%s: %s'%(F[f]['short'] if f in F else f,', '.join(map(str,ys))) for f,ys in sorted(r['fest'].items())); rl=r.get('rel') or {}
+            w.writerow([r['name'],r['year'],r['cat'],r['work'],'yes' if r['fest'] else 'no',{0:'',1:'certain',2:'probable'}[r['m']],fs,'yes' if rl.get('same') or rl.get('next') else ('no' if r['fest'] else ''),'yes' if rl.get('before') else ('no' if r['fest'] else ''),'yes' if rl.get('after') else ('no' if r['fest'] else '')])
     return S,out
 if __name__=='__main__':
     S,out=run(); print(json.dumps(S,indent=1)); 
