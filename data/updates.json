@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-27T10:58Z",
+ "checked": "2026-11-28T10:34Z",
  "festivals": {
   "mlf": {
    "name": "Mysuru",
@@ -45,22 +45,37 @@
   },
   "blf": {
    "name": "BLF",
-   "count": 0,
+   "count": 252,
    "previous": 251,
-   "added": [],
-   "removed": [],
-   "status": "fetch problem: source returned 0 names (was 251); snapshot kept",
-   "not_in_app": []
+   "added": [
+    "Mallika Ravikumar",
+    "Meera Venkatesan"
+   ],
+   "removed": [
+    "Vishnupriya Hathwar"
+   ],
+   "status": "changed",
+   "not_in_app": [
+    "Adarsh Shenoy",
+    "Mallika Ravikumar",
+    "Manasi Prasad",
+    "Meera Venkatesan",
+    "Nancy Raj",
+    "Pradeep Chakravarthy",
+    "Radhika Joshi",
+    "Sharada Satrasala",
+    "Shree Sauparnika V",
+    "Soorya Upadhyaya",
+    "Tessy Thomas"
+   ]
   },
   "jlf": {
    "name": "JLF",
    "count": 282,
-   "previous": 281,
-   "added": [
-    "Geetanjali Vikram Kirloskar"
-   ],
+   "previous": 282,
+   "added": [],
    "removed": [],
-   "status": "changed",
+   "status": "ok",
    "not_in_app": [
     "Geetanjali Vikram Kirloskar",
     "Jamie Andrews",
@@ -124,12 +139,10 @@
   "bplf": {
    "name": "Bhopal",
    "count": 66,
-   "previous": 65,
-   "added": [
-    "Himangini Rathore Hooja"
-   ],
+   "previous": 66,
+   "added": [],
    "removed": [],
-   "status": "changed",
+   "status": "ok",
    "not_in_app": [
     "Himangini Rathore Hooja"
    ]
